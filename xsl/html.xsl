@@ -171,7 +171,7 @@ set       toc
         
         <div class="s">
           <ul>
-            <li><a href="../">起始页</a> &#183; </li>
+            <li><a href="../">首页</a> &#183; </li>
             <xsl:choose>
               <xsl:when test=".!=/*[1]">
                 <li><a href="../toc/">目录</a> &#183; </li>
