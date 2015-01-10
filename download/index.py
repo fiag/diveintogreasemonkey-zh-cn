@@ -2,8 +2,8 @@
 # -*- coding: utf8 -*-
 import os,re,glob,time
 
-downloaddir = os.path.dirname(os.path.abspath(__file__))
-version = re.compile('fileversion "(.*?)">').search(open(downloaddir + '/../xml/version.xml').read()).group(1)
+downloaddir = os.path.dirname(os.path.abspath(__file__)) + "/"
+version = re.compile('fileversion "(.*?)">').search(open(downloaddir + '../xml/version.xml').read()).group(1)
 
 print('Content-type: text/html; charset=utf-8')
 print()
