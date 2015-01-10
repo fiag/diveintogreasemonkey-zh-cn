@@ -7,7 +7,7 @@
 <!ENTITY gpl SYSTEM "gpl.xml">
 <!ENTITY gm_minversion "0.3">
 <!ENTITY title "深入浅出 Greasemonkey">
-<!ENTITY url_book "http://www.firefox.net.cn/dig/">
+<!ENTITY url_book "http://diveintogreasemonkey.org/">
 <!ENTITY url_stylesheet "&url_book;css/dig.css">
 <!ENTITY url_videos "../videos/">
 <!ENTITY url_images "../images/">
