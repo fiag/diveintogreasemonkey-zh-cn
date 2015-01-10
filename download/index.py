@@ -31,7 +31,7 @@ print('''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR
 
 <div class="s">
 <ul>
-<li><a href="../">首页</a> &middot; </li>
+<li><a href="../">起始页</a> &middot; </li>
 <li><a href="../toc/">目录</a> &middot; </li>
 <li>下载 &middot; </li>
 <li><a href="http://greasemonkey.mozdev.org/">下载 Greasemonkey</a></li>
