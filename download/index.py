@@ -44,21 +44,21 @@ print('''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR
 <p id="breadcrumb">您的位置：<a href="../">首页</a> &#8594; <span class="thispage">下载</span></p>
 
 <div class="section">
-  <h2 class="skip">Downloads</h2>
+  <h2 class="skip">下载</h2>
   <div class="indexdownload">
-    <h3>Book</h3>
-    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于''', end=' ')
+    <h3>图书</h3>
+    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于 ''', end=' ')
 print(time.strftime('%B %d, %Y.', time.strptime(version, '%Y-%m-%d')).replace(' 0', ' '), end=' ')
 print('''</p>
     <ul>
       <li><a title="HTML 下载" href="book/diveintogreasemonkey-html-''' + version + '''.zip">HTML</a></li>
-      <li><a title="HTML 和演示视频下载" href="book/diveintogreasemonkey-html-plus-''' + version + '''.zip">HTML + videos</a></li>
-      <li><a title="单页 HTML 下载" href="book/diveintogreasemonkey-html-flat-''' + version + '''.zip">HTML (single page)</a></li>
+      <li><a title="HTML 和演示视频下载" href="book/diveintogreasemonkey-html-plus-''' + version + '''.zip">HTML + 视频</a></li>
+      <li><a title="单页 HTML 下载" href="book/diveintogreasemonkey-html-flat-''' + version + '''.zip">HTML (单页)</a></li>
       <li><a title="PDF 下载" href="book/diveintogreasemonkey-pdf-''' + version + '''.zip">PDF</a></li>
-      <li><a title="纯文本格式下载" href="book/diveintogreasemonkey-text-''' + version + '''.zip">Plain text</a></li>
-      <li><a title="Palm OS(tm) 数据库下载" href="book/diveintogreasemonkey-pdb-''' + version + '''.zip">Palm OS&trade; database</a> (read it with <a title="Plucker home page" href="http://www.plkr.org/">Plucker</a>)</li>
+      <li><a title="纯文本格式下载" href="book/diveintogreasemonkey-text-''' + version + '''.zip">纯文本</a></li>
+      <li><a title="Palm OS(tm) 数据库下载" href="book/diveintogreasemonkey-pdb-''' + version + '''.zip">Palm OS&trade; 数据库</a> (使用 <a title="Plucker home page" href="http://www.plkr.org/">Plucker</a> 阅读)</li>
       <li><a title="演示视频下载" href="book/diveintogreasemonkey-videos-''' + version + '''.zip">Videos</a></li>
-      <li><a title="XML 源代码和构建脚本下载" href="book/diveintogreasemonkey-xml-''' + version + '''.zip">Source code + videos</a></li>
+      <li><a title="XML 源代码和构建脚本下载" href="book/diveintogreasemonkey-xml-''' + version + '''.zip">源代码 + 视频</a></li>
     </ul>
   </div>
 
@@ -73,7 +73,7 @@ versionre = re.compile('version (.*?) BETA!')
 datere = re.compile('// 200(.*?)\n')
 files = []
 for f in glob.glob(downloaddir + '*.user.js'):
-    data = file(f).read()
+    data = open(f).read()
     files.append((namere.search(data).group(1).strip(),
                   descre.search(data).group(1).strip(),
                   versionre.search(data).group(1).strip(),
