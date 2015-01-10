@@ -1,0 +1,4396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by NCS (NCS) -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"../docbook/dtd/docbookx.dtd" [
+<!ENTITY % entities_version SYSTEM "version.xml">
+%entities_version;
+<!ENTITY gpl SYSTEM "gpl.xml">
+<!ENTITY gm_minversion "0.3">
+<!ENTITY title "深入浅出 Greasemonkey">
+<!ENTITY url_book "http://www.firefox.net.cn/dig/">
+<!ENTITY url_stylesheet "&url_book;css/dig.css">
+<!ENTITY url_videos "../videos/">
+<!ENTITY url_images "../images/">
+<!ENTITY xml "<acronym condition='Extensible Markup Language'>XML</acronym>">
+<!ENTITY xsl "<acronym condition='Extensible Stylesheet Language'>XSL</acronym>">
+<!ENTITY html "<acronym condition='HyperText Markup Language'>HTML</acronym>">
+<!ENTITY xhtml "<acronym condition='Extensible HyperText Markup Language'>XHTML</acronym>">
+<!ENTITY http "<acronym condition='Hypertext Transfer Protocol'>HTTP</acronym>">
+<!ENTITY rest "<acronym condition='Representational State Transfer'>REST</acronym>">
+<!ENTITY ftp "<acronym condition='File Transfer Protocol'>FTP</acronym>">
+<!ENTITY ascii "ASCII">
+<!ENTITY pdf "<acronym condition='Portable Document Format'>PDF</acronym>">
+<!ENTITY https "<acronym>HTTPS</acronym>">
+<!ENTITY mime "<acronym>MIME</acronym>">
+<!ENTITY css "<acronym condition='Cascading Style Sheets'>CSS</acronym>">
+<!ENTITY rfc "<acronym condition='Request For Comments'>RFC</acronym>">
+<!ENTITY uri "<acronym condition='Uniform Resource Identifier'>URI</acronym>">
+<!ENTITY url "<acronym condition='Uniform Resource Locator'>URL</acronym>">
+<!ENTITY msdn "<acronym condition='Microsoft Developer Network'>MSDN</acronym>">
+<!ENTITY docbook "<application>DocBook</application>">
+<!ENTITY emacs "<application>Emacs</application>">
+<!ENTITY w3m "<application>w3m</application>">
+<!ENTITY htmldoc "<application>HTMLDoc</application>">
+<!ENTITY saxon "<application>SAXON</application>">
+<!ENTITY onclick "<systemitem class='event'>onclick</systemitem>">
+<!ENTITY click "<systemitem class='event'>click</systemitem>">
+<!ENTITY submit "<systemitem class='event'>submit</systemitem>">
+<!ENTITY onload "<systemitem class='event'>onload</systemitem>">
+<!ENTITY onerror "<systemitem class='event'>onerror</systemitem>">
+<!ENTITY onreadystatechange "<systemitem class='event'>onreadystatechange</systemitem>">
+<!ENTITY url_docbook "http://wiki.docbook.org/topic/DocBook">
+<!ENTITY url_docbookxsl "http://docbook.sourceforge.net/projects/xsl/index.html">
+<!ENTITY url_docbook_tdg "http://www.docbook.org/tdg/en/html/docbook.html">
+<!ENTITY url_docbook_lists "http://www.oasis-open.org/docbook/mailinglist/">
+<!ENTITY url_emacs "http://www.gnu.org/software/emacs/emacs.html">
+<!ENTITY url_saxon "http://saxon.sourceforge.net/">
+<!ENTITY url_htmldoc "http://www.easysw.com/htmldoc/">
+<!ENTITY url_w3m "http://w3m.sourceforge.net/">
+<!ENTITY url_mozbehaviors "http://dean.edwards.name/my/behaviors/#js-highlight.htc">
+<!ENTITY url_greasemonkey "http://greasemonkey.mozdev.org/">
+<!ENTITY url_greasemonkeyrepository "http://dunck.us/collab/GreaseMonkeyUserScripts">
+<!ENTITY url_greasemonkeymailinglist "http://greasemonkey.mozdev.org/list.html">
+<!ENTITY url_mozilla_xpath_documentation "http://www-jcsu.jesus.cam.ac.uk/~jg307/mozilla/xpath-tutorial.html">
+<!ENTITY url_zvon_xpath_tutorial "http://www.zvon.org/xxl/XPathTutorial/General/examples.html">
+<!ENTITY url_data_uri_kitchen "http://software.hixie.ch/utilities/cgi/data/data">
+<!ENTITY url_jsanonymousfunctions "http://novemberborn.net/sifr/explained/terminology">
+<!ENTITY url_jsblockscope "http://youngpup.net/2004/jsblockscope">
+<!ENTITY url_jsblockscope_comments "http://youngpup.net/2004/jsblockscope/comments">
+<!ENTITY url_google "http://www.google.com/">
+<!ENTITY url_froogle "http://froogle.google.com/">
+<!ENTITY url_gmail "http://gmail.google.com/">
+<!ENTITY url_gmailhttps "https://gmail.google.com/">
+<!ENTITY url_adblock "http://adblock.mozdev.org/">
+<!ENTITY url_adblock_filterlist "http://www.geocities.com/pierceive/adblock/">
+<!ENTITY url_jseventcompatibility "http://www.quirksmode.org/js/events_compinfo.html">
+<!ENTITY url_jsdomprototypes "http://www.mozilla.org/docs/dom/mozilla/protodoc.html">
+<!ENTITY url_eventobjects "http://www.mozilla.org/docs/dom/domref/examples.html#999002">
+<!ENTITY url_bloglines "http://www.bloglines.com/">
+<!ENTITY url_diveintoaccesskeys "http://diveintoaccessibility.org/day_15_defining_keyboard_shortcuts.html">
+<!ENTITY url_xpathresult_reference "http://www.xulplanet.com/references/objref/XPathResult.html">
+<!ENTITY url_taguri "http://taguri.org/">
+<!ENTITY url_greasemonkeycompiler "http://www.letitblog.com/greasemonkey-compiler/">
+<!ENTITY url_cssproperties "http://www.westciv.com/style_master/academy/css_tutorial/properties/">
+<!ENTITY url_webdeveloperextension "http://chrispederick.com/work/firefox/webdeveloper/">
+<!ENTITY url_aardvarkextension "http://www.karmatics.com/aardvark/">
+<!ENTITY url_venkmandebugger "http://www.hacksrus.com/~ginda/venkman/">
+<!ENTITY url_jessebookmarklets "http://www.squarefree.com/bookmarklets/webdevel.html">
+<!ENTITY url_jsunit "http://www.edwardh.com/jsunit/">
+<!ENTITY url_jslint "http://www.crockford.com/javascript/lint.html">
+<!ENTITY url_domi_intro "http://www.brownhen.com/DI.html">
+<!ENTITY url_inspectelementextension "https://addons.update.mozilla.org/extensions/moreinfo.php?id=434">
+<!ENTITY url_inspectorwidget "http://www.projectit.com/freestuff.html">
+<!ENTITY url_camstudio "http://www.swftools.com/tools-details.php?tool=8162413051">
+<!ENTITY url_swftools "http://www.quiss.org/swftools/">
+<!ENTITY url_ant "http://ant.apache.org/">
+<!ENTITY url_greaseblog "http://greaseblog.blogspot.com/">
+<!ENTITY url_greaseblog_feed "&url_greaseblog;atom.xml">
+<!ENTITY url_httpstatuscodes "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">
+<!ENTITY url_rfc2616 "http://www.w3.org/Protocols/rfc2616/rfc2616.html">
+<!ENTITY url_mozillaxmlhttprequest "http://www.xulplanet.com/references/objref/XMLHttpRequest.html">
+<!ENTITY url_safarixmlhttprequest "http://developer.apple.com/internet/webcontent/xmlhttpreq.html">
+<!ENTITY url_iexmlhttprequest "http://msdn.microsoft.com/library/default.asp?url=/library/en-us/xmlsdk/html/xmobjpmexmlhttprequest.asp">
+<!ENTITY url_aintitcoolnews "http://aint-it-cool-news.com/">
+<!ENTITY url_plucker "http://www.plkr.org/">
+<!ENTITY url_tmpgenc "http://www.tmpgenc.net/">
+<!ENTITY url_event_docs "http://www.xulplanet.com/references/objref/Event.html">
+<!ENTITY url_msdn_language_filter "http://blog.monstuff.com/archives/images/MSDNLanguageFilter.user.js">
+<!ENTITY url_mypipstag "http://dunck.us/code/greasemonkey/mypipstag.user.js">
+<!ENTITY url_post_interceptor "http://kailasa.net/prakash/greasemonkey/post-interceptor.user.js">
+<!ENTITY url_librarylookup "http://weblog.infoworld.com/udell/gems/LibraryLookup.user.js">
+<!ENTITY url_annotate_google "http://ponderer.org/download/annotate_google.user.js">
+<!ENTITY url_amazon "http://www.amazon.com/">
+<!ENTITY url_delicious "http://del.icio.us/">
+<!ENTITY url_bloglines_tweaks "http://persistent.info/greasemonkey/bloglines.user.js">
+<!ENTITY url_bloglines "http://www.bloglines.com/">
+<!ENTITY url_flick_batch "http://lachnlone.no-ip.info/greasemonkey/flick_batch.user.js">
+<!ENTITY url_flickr "http://www.flickr.com/">
+<!ENTITY url_hide_google_redirects "http://www.cs.toronto.edu/~james/greasemonkey/hide-google-redirects.user.js">
+<!ENTITY url_google_searchhistory "http://www.google.com/searchhistory/">
+<!ENTITY url_greasemonkey_compiler "http://www.letitblog.com/greasemonkey-compiler/">
+<!ENTITY url_guid_generator "http://extensions.roachfiend.com/cgi-bin/guid.pl">
+<!ENTITY url_7zip "http://www.7-zip.org/">
+<!ENTITY url_stuffit "http://www.stuffit.com/">
+<!ENTITY url_extension_developers_extension "http://ted.mielczarek.org/code/mozilla/extensiondev/">
+<!ENTITY url_example "&url_book;download/">
+<!ENTITY url_butlerhomepage "http://diveintomark.org/projects/butler/">
+<!ENTITY url_example_butler "&url_butlerhomepage;butler.user.js">
+<!ENTITY butlerversion "0.3">
+<!ENTITY url_example_accessbar "&url_example;accessbar.user.js">
+<!ENTITY url_example_aintitreadable "&url_example;aintitreadable.user.js">
+<!ENTITY url_example_antidisabler "&url_example;antidisabler.user.js">
+<!ENTITY url_example_betterdir "&url_example;betterdir.user.js">
+<!ENTITY url_example_blogdexdisplaytitle "&url_example;blogdex-display-title.user.js">
+<!ENTITY url_example_bloglinesautoload "&url_example;bloglines-autoload.user.js">
+<!ENTITY url_example_cdreadable "&url_example;cdreadable.user.js">
+<!ENTITY url_example_dumbquotes "&url_example;dumbquotes.user.js">
+<!ENTITY url_example_forceget "&url_example;forceget.user.js">
+<!ENTITY url_example_frownies "&url_example;frownies.user.js">
+<!ENTITY url_example_gmailsecure "&url_example;gmailsecure.user.js">
+<!ENTITY url_example_helloworld "&url_example;helloworld.user.js">
+<!ENTITY url_example_lip "&url_example;lip.user.js">
+<!ENTITY url_example_offsiteblank "&url_example;offsiteblank.user.js">
+<!ENTITY url_example_rottenreviews "&url_example;rottenreviews.user.js">
+<!ENTITY url_example_rottenskip "&url_example;rottenskip.user.js">
+<!ENTITY url_example_salonautopass "&url_example;salonautopass.user.js">
+<!ENTITY url_example_stopthepresses "&url_example;stopthepresses.user.js">
+<!ENTITY url_example_gmlog "&url_example;gmlog.user.js">
+<!ENTITY url_example_unstyle "&url_example;unstyle.user.js">
+<!ENTITY url_example_zoomtextarea "&url_example;zoomtextarea.user.js">
+<!ENTITY url_download "&url_example;">
+<!ENTITY projectname "diveintogreasemonkey">
+<!ENTITY preferredext ".zip">
+<!ENTITY url_download_xml "&url_download;&projectname;-&fileversion;-xml&preferredext;">
+]>
+<book lang="zh_cn">
+<?dbhtml filename="toc/index.html"?>
+<title>&title;</title>
+<bookinfo>
+<title>&title;</title>
+<authorgroup>
+<author>
+<firstname>Mark</firstname>
+<surname>Pilgrim</surname>
+</author>
+<editor>
+<firstname>雷</firstname>
+<surname>青</surname>
+</editor>
+<editor>
+<firstname>卜</firstname>
+<surname>骁</surname>
+</editor>
+</authorgroup>
+<copyright>
+<year>2005</year>
+<holder>Mark Pilgrim</holder>
+</copyright>
+<pubdate>&fileversion;</pubdate>
+<abstract>
+<title/>
+<para>本书的原址在 <ulink url="&url_book;"/>。如果您在别处读到本书，有可能不是最新的。</para>
+</abstract>
+<keywordset>
+<keyword>Firefox</keyword>
+<keyword>Greasemonkey</keyword>
+<keyword>Javascript</keyword>
+<keyword>user script</keyword>
+<keyword>userscript</keyword>
+</keywordset>
+<revhistory>
+<revision>
+<revnumber>2005-05-09</revnumber>
+<date>2005-05-09</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="casestudy.zoomtextarea"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="advanced.getvalue"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="advanced.registermenucommand"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="advanced.xmlhttprequest"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="advanced.compiler"/>。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-06</revnumber>
+<date>2005-05-06</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="casestudy.frownies"/>。</para>
+</listitem>
+<listitem>
+<para>修改 <xref linkend="api"/> 中的 <constant>void</constant> 为 <constant>function</constant>。(<quote>您可以继续使用这一词。我不认为这就是您的想法。</quote>)</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-05</revnumber>
+<date>2005-05-05</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="basic.what"/>.  感谢 Dennis。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="casestudy.dumbquotes"/>。</para>
+</listitem>
+<listitem>
+<para>新增可下载的 Palm OS&trade; 数据库，可在移动设备上阅读。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-04</revnumber>
+<date>2005-05-04</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="pattern.parsexml"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="casestudy.offsiteblank"/>。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-03</revnumber>
+<date>2005-05-03</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>进一步压缩视频。</para>
+</listitem>
+<listitem>
+<para>新增视频，可下载的 &html; 发布版。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-02</revnumber>
+<date>2005-05-02</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="api.gmxmlhttprequest"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="casestudy.aintitreadable"/>。</para>
+</listitem>
+<listitem>
+<para>重构 <ulink url="&url_example_offsiteblank;">Offsite Blank</ulink>。</para>
+</listitem>
+<listitem>
+<para>更新代码示例为 Greasemonkey 0.3 格式。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-05-01</revnumber>
+<date>2005-05-01</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="api"/>。</para>
+</listitem>
+<listitem>
+<para>纳入 Simon Willison 的大量反馈。感谢 Simon。</para>
+</listitem>
+<listitem>
+<para>纳入 Jeremy Dunck 的大量反馈。感谢 Jeremy。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-04-30</revnumber>
+<date>2005-04-30</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>新增 <xref linkend="basic"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="first"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <xref linkend="debug"/>。</para>
+</listitem>
+<listitem>
+<para>新增 <link linkend="procedures">视频</link> (现在只能在线观看)。</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+<revision>
+<revnumber>2005-04-25</revnumber>
+<date>2005-04-25</date>
+<revdescription>
+<itemizedlist>
+<listitem>
+<para>初次出版</para>
+</listitem>
+</itemizedlist>
+</revdescription>
+</revision>
+</revhistory>
+<legalnotice>
+<para>这本书、及其样例代码和视频文件都是自由软件。在“GNU 通用公共许可证(自由软件基金会)(版本2以及更新版本)”许可下，您可以随意的再分发和/或修改它们。我们发行这本书、及其样例代码和视频文件，希望它能对您有所帮助。但是我们并没有提供任何担保！请查阅<xref linkend="license"/>获取更多细节。</para>
+</legalnotice>
+</bookinfo>
+<chapter id="basic">
+<?dbhtml filename="install/index.html"?>
+<title>开始</title>
+<section id="basic.what">
+<?dbhtml filename="install/what-is-greasemonkey.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 是一个 Firefox 扩展，它具有通过编写脚本来改变被访问网页的功能。使用它，能使您访问的网站更便于阅读或者更便于使用。使用它，您能修复网页渲染的缺陷，而无须烦扰网站管理员。使用它，您能让网页更好地使用残疾人援助技术，清楚响亮地说出网页内容，或者将网页内容变为盲文。使用它，您能自动地获得其它网站的数据，从而使两个网站更好地相互链接起来。</para>
+</abstract>
+</sectioninfo>
+<title>Greasemonkey 是什么？</title>
+<para>然而 Greasemonkey 本身并没有作这些事。实际上，在您安装它之后，您注意到根本没有任何变动...直到您开始安装一种叫做<quote>用户脚本</quote>的东西。用户脚本(user script)就是一大块 Javascript 代码，还有些附加信息，用来告诉 Greasemonkey 脚本应该在何时何地运行。每个用户脚本能够针对具体页面，具体网站，或者一批网站。用户脚本能做到您在 Javascript 中可做到的任何事情。实际上，它能做得更多，因为 Greasemonkey 提供了专供用户脚本使用的函数。</para>
+<para>这里是<ulink url="&url_greasemonkeyrepository;">Greasemonkey 脚本库</ulink>含了上百个用户脚本，这些都是用户为了满足自己的需要而写的。一旦您写了自己的用户脚本，只要您认为别人也许发现它有用，您可以把它添加到脚本库中。您也可以自己使用，因为从编写过程中获得知识，获得满足感，才是更重要的。</para>
+<para>这是<ulink url="&url_greasemonkeymailinglist;">Greasemonkey 的邮件列表</ulink>，您可以在那里提问，发表用户脚本，和讨论新特性的想法。Greasemonkey 开发人员常去这个邮件列表; 他们也许会回答您的问题!</para>
+<bridgehead renderas="sect3">为什么写这本书？</bridgehead>
+<para>&title; 是从 Greasemonkey 邮件列表中的用户讨论和作者本人编写用户脚本的经验中发展而来。仅仅一个星期，作者就发现，新用户经常会提出重复的问题，而这些问题是被回答过的。此外，在写了几个用户脚本以后，作者发现，一些常用的模式，以及可以解决某一类问题的成块的可重用代码会反复出现。因此，作者开始整理这些有用的模式，解释编程思路，同时作者也从中写作中得到不少锻炼。</para>
+<para>如果没有 Greasemonkey 的开发者 Aaron Boodman 和 Jeremy Dunck 的大力帮助，没有那些对我的初稿提出宝贵的反馈建议的用户，就不会有现在的这本书。谢谢大家。</para>
+</section>
+<section id="basic.installgm">
+<?dbhtml filename="install/greasemonkey.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>要写用户脚本，您首先要安装 Greasemonkey 扩展， &gm_minversion; 或以上版本。</para>
+</abstract>
+</sectioninfo>
+<title>安装 Greasemonkey</title>
+<procedure id="procedure.install.greasemonkey">
+<title>安装 Greasemonkey 扩展</title>
+<step>
+<para>访问<ulink url="&url_greasemonkey;">Greasemonkey的主页</ulink>。</para>
+</step>
+<step>
+<para>点击名为<guilabel role="hyperlink">Install Greasemonkey</guilabel>的链接。</para>
+</step>
+<step>
+<para>Firefox会显示(可能在浏览器窗口的上方)阻止网站安装软件的信息。点击<guibutton>编辑选项...</guibutton>打开<interface role="windowtitle">允许的站点</interface>对话框，点击<guibutton>允许</guibutton>，将 Greasemonkey 的网站添加到允许安装软件的网站列表中。点击<guibutton>确定</guibutton>，关闭<interface role="windowtitle">允许的站点</interface>对话框。</para>
+</step>
+<step>
+<para>再次点击名为<guilabel role="hyperlink">Install Greasemonkey</guilabel>的链接。</para>
+</step>
+<step>
+<para>将弹出安装对话框，确定您要安装。几秒钟后，安装按钮变亮，点击<guibutton>安装</guibutton>。</para>
+<screenshot id="screenshot.install.greasemonkey">
+<screeninfo>[软件安装对话框截图]</screeninfo>
+<graphic fileref="&url_images;install-gm.jpg"/>
+</screenshot>
+</step>
+<step>
+<para>重新启动 Firefox。</para>
+</step>
+</procedure>
+<para>当您重新启动了 Firefox 后，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+</menuchoice>单。您应该看到四个菜单项：<menuchoice>
+<guimenuitem>启用 (<accel>E</accel>)</guimenuitem>
+</menuchoice>、<menuchoice>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>、<menuchoice>
+<guimenuitem>新建用户脚本 (<accel>N</accel>)...</guimenuitem>
+</menuchoice>和<menuchoice>
+<guimenuitem>用户脚本命令 (<accel>C</accel>)</guimenuitem>
+</menuchoice>。 只要<menuchoice>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>可以使用，那么就装好了。其他的两个要在特殊情况下才能使用。</para>
+<para>一般来说，安装好 Greasemonkey，(除了四个菜单项外)并不会给浏览器添加任何功能。但是它能让您添加别的东西，名叫<quote>用户脚本</quote>，用户脚本可以用来定制指定的网页。</para>
+</section>
+<!-- basic.installgm -->
+<section id="basic.installscript">
+<?dbhtml filename="install/userscript.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey <quote>用户脚本</quote>是用 Javascript 编写的独立文件，用来定制一个或多个网页。</para>
+</abstract>
+</sectioninfo>
+<title>安装用户脚本</title>
+<tip>
+<title/>
+<para>您可以在<ulink url="&url_greasemonkeyrepository;">Greasemonkey脚本库</ulink>，找到许多用户脚本。尽管没人要求您必须把脚本放到那儿去，但是实际上，您可以把您的脚本共享到任何地方，这样别人就可以安装它了。甚至您根本不需要一台网络服务器，因为你可以从本地文件中安装用户脚本。</para>
+</tip>
+<note>
+<title/>
+<para>用户脚本的文件名必须以<filename>.user.js</filename>结尾。</para>
+</note>
+<para>我写的第一个用户脚本叫做<quote>Butler</quote>。它增强了Google的搜索结果的功能。</para>
+<procedure id="procedure.install.butler">
+<title>安装 Butler 用户脚本</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;install-user-script.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;install-user-script.html">怎样安装用户脚本</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>访问<ulink url="&url_butlerhomepage;">Butler 的主页</ulink>，可看到有关 Butler 的功能简述。(并不是所有的用户脚本都有主页， Greasemonkey 只要有用户脚本就够了。)</para>
+</step>
+<step>
+<para>点击<guilabel role="hyperlink">Download version...</guilabel>链接 (&butlerversion;截至发稿时)。</para>
+</step>
+<!--step>
+<para>打开<guimenu>工具(<accel>T</accel>)</guimenu> 菜单，<guimenuitem>Install User <accel>S</accel>cript...</guimenuitem> 这个菜单项应该可以用了，点它。</para>
+</step-->
+<step>
+<para>弹出一个标题为<interface role="windowtitle">Greasemonkey 安装过程</interface>的对话框，其中显示了将要安装的用户脚本名称，简介以及作用与排除的页面列表。所有这些信息都包含在脚本之中；以后您会在<xref linkend="first.metadata"/>学到定义的方法。</para>
+</step>
+<step>
+<para>点击<guibutton>确定</guibutton>安装用户脚本。</para>
+</step>
+</procedure>
+<para>没有意外的话，Greasemonkey 会在状态栏滑出一个提示，<guilabel>'Butler' 安装成功</guilabel>。
+</para>
+<para>现在，可以在 <ulink url="&url_google;">Google</ulink>中任意搜索一些东西。在搜索结果页面的顶部会有一行文字：<guilabel>Try your search on: Yahoo, Ask Jeeves, AlltheWeb, ...</guilabel>。在其下面会有一个标签：<guilabel>Enhanced by Butler</guilabel>。这些都是由 Butler 用户脚本加进去的。</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_greasemonkeyrepository;">Greasemonkey 脚本库</ulink>有上百个 Greasemonkey 脚本。</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- basic.installscript -->
+<section id="basic.manage">
+<?dbhtml filename="install/manage.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果愿意可以安装很多个 Greasemonkey 脚本。 Greasemonkey 带有配置对话框来管理用户脚本：暂时禁用，改变配置或卸载脚本。</para>
+</abstract>
+</sectioninfo>
+<title>管理用户脚本</title>
+<procedure id="procedure.manage.userscripts">
+<title>暂时禁用 Butler</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;disable-user-script.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;disable-user-script.html">怎样禁用用户脚本</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>在菜单中，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenu><accel>G</accel>reasemonkey</guimenu>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>，Greasemonkey 会弹出一个对话框：<interface role="windowtitle">管理用户脚本</interface>。</para>
+</step>
+<step>
+<para>在对话框左方一栏中列出了已安装的所有用户脚本 (如果您从<link linkend="basic.installscript">本文开始一步步来的话</link>，这里只有一个脚本：Butler。)</para>
+</step>
+<step>
+<para>选中列表中的 Butler，然后取消<guibutton>启用</guibutton>复选框。左方列表中的<guilabel>Butler</guilabel>就会由黑色转为灰色。(当它还是选中状态的时候，看起来比较费劲，但是当安装了很多脚本的时候，这个特性就非常有用了。)</para>
+</step>
+<step>
+<para>点击 <guibutton>确定</guibutton>，退出<interface role="windowtitle">管理用户脚本</interface>对话框。</para>
+</step>
+</procedure>
+<para>现在 Butler 已经安装，但是未被启用。您在Google上随便搜索下就会发现确实如此。在页面顶端的<guilabel>Enhanced by Butler</guilabel>应该没有了。您可以在<interface role="windowtitle">管理用户脚本</interface>对话框中重复刚才的步骤，重新选中 Butler，重新启用<guibutton>启用</guibutton>复选框。</para>
+<note>
+<title/>
+<para>虽然我用<quote>暂时</quote>来形容禁用用户脚本，但是如果您不重新启用它，它就始终会被禁用。之所以是暂时，只因为您可以方便的启用它，而不需要再到我的网站上来找原始脚本，而且还要重新安装。</para>
+</note>
+<para>也可以用<interface role="windowtitle">管理用户脚本</interface>对话框来彻底得卸载脚本。</para>
+<procedure id="procedure.uninstall.userscript">
+<title>卸载 Butler</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;uninstall-user-script.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;uninstall-user-script.html">怎样卸载用户脚本</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>在菜单中，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenu><accel>G</accel>reasemonkey</guimenu>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>。Greasemonkey 会弹出<interface role="windowtitle">管理用户脚本</interface>对话框。</para>
+</step>
+<step>
+<para>在左方列表栏中，选中 Butler 再点击<guibutton>卸载</guibutton>。不需要确认；用户脚本马上就被卸载掉了。</para>
+</step>
+<step>
+<para>第三步... 没有第三步！(感谢 Jeff Goldblum。)</para>
+</step>
+</procedure>
+<para>先等一下，还没完呢！您也可以修改您之前安装过的用户脚本的配置。记得<link linkend="basic.installscript">第一次安装 Butler 时看到的对话框吗</link>，上面有两个列表：包含和排除的网站？嗯，您可以在<interface role="windowtitle">管理用户脚本</interface> 对话框中编辑这两个列表，不管是第一次安装时或者其它什么时候。</para>
+<para>好！继续。假如您觉得 Butler 不错，但是它在<ulink url="&url_froogle;">Froogle</ulink>上毫无用处。Google的商品对比网站。那么可以编辑用户脚本的配置来排除这个网站，而让它在别的 Google 网站上仍然生效。</para>
+<procedure id="procedure.reconfigure.userscript">
+<title>重新配置 Butler 排除 Froogle</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;exclude-pages.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;exclude-pages.html">如何重新配置用户脚本</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>在菜单中，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenu><accel>G</accel>reasemonkey</guimenu>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>.  Greasemonkey 会弹出<interface role="windowtitle">管理用户脚本</interface>对话框。</para>
+</step>
+<step>
+<para>在左方面板中，选择<guilabel>Butler</guilabel>。接着在右方面板中就会显示两个列表，一个是执行的页面(<guilabel>http://*.google.*/*</guilabel>)，另一个是豁免的页面(空白)。</para>
+</step>
+<step>
+<para>接下来在<guilabel>不包含下列网页</guilabel>的列表中，点击<guibutton>添加...</guibutton>。</para>
+</step>
+<step>
+<para>Greasemonkey 会弹出另一个对话框：<interface role="windowtitle">添加网页地址</interface>，并提示您输入新的&url;。在其中输入<userinput>&url_froogle;*</userinput>然后点击<guibutton>确定</guibutton>。</para>
+</step>
+<step>
+<para>回到<interface role="windowtitle">管理用户脚本</interface>对话框中，豁免页面列表中现在就有了您新添的 &url; 和通配符，<userinput>&url_froogle;*</userinput>，表示 Butler <emphasis>不</emphasis> 会在<systemitem class="domainname">froogle.google.com</systemitem>站点的任何页面上执行。星号被当做通配符使用，可以在 &url;: 域名，路径或者任意 &url; schema(<systemitem>http://</systemitem>)中使用 。</para>
+</step>
+<step>
+<para>点击<guibutton>确定</guibutton>，退出<interface role="windowtitle">管理用户脚本</interface>对话框。在 Froogle 中搜索一下，验证下 Butler 会不会执行。但是它仍然会在普通搜索、图片搜索以及 Google 站点的其他页面中执行。</para>
+</step>
+</procedure>
+</section>
+<!-- basic.manage -->
+</chapter>
+<!-- basic -->
+<chapter id="first">
+<?dbhtml filename="helloworld/index.html"?>
+<title>您的第一个用户脚本</title>
+<section id="first.divein">
+<?dbhtml filename="helloworld/divein.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>我们步入 Greasemonkey 美妙世界的万里长征将从第一步开始，所有读过技术手册的读者都会很熟悉这一步：让您的电脑打出<guilabel>Hello world</guilabel>。</para>
+</abstract>
+</sectioninfo>
+<title>Hello World</title>
+<example id="example.helloworld.code">
+<title><ulink url="&url_example_helloworld;"><filename>helloworld.user.js</filename></ulink>
+</title>
+<programlisting><![CDATA[// Hello World! example user script
+// version 0.1 BETA!
+// 2005-04-22
+// Copyright (c) 2005, Mark Pilgrim
+// Released under the GPL license
+// http://www.gnu.org/copyleft/gpl.html
+//
+// --------------------------------------------------------------------
+//
+// This is a Greasemonkey user script.
+//
+// To install, you need Greasemonkey: http://greasemonkey.mozdev.org/
+// Then restart Firefox and revisit this script.
+// Under Tools, there will be a new menu item to "Install User Script".
+// Accept the default configuration and install.
+//
+// To uninstall, go to Tools/Manage User Scripts,
+// select "Hello World", and click Uninstall.
+//
+// --------------------------------------------------------------------
+//
+// ==UserScript==
+// @name          Hello World
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   example script to alert "Hello world!" on every page
+// @include       *
+// @exclude       http://diveintogreasemonkey.org/*
+// @exclude       http://www.diveintogreasemonkey.org/*
+// ==/UserScript==
+
+alert('Hello world!');]]></programlisting>
+</example>
+<para>正如您所见到的，这个<filename>Hello World</filename>脚本的大部分都是注释。有些注释，比如如何安装，没什么特殊含义；那只是对初学者的一些指导。但是，有一节注释<emphasis>确实有</emphasis>特殊含义，下一节会有详细的解释。</para>
+<para>要看到脚本的效果，您首先要<link linkend="basic.installscript">安装</link>，然后访问一个不在<systemitem class="domainname">diveintogreasemonkey.org</systemitem>域名下的网站(例如，<ulink url="&url_google;">Google</ulink>)。这个页面将会像平时一样显示出来，还会弹出一个对话框：<guilabel>Hello world!</guilabel>
+</para>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_helloworld;">
+<filename>helloworld.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- first.divein -->
+<section id="first.metadata">
+<?dbhtml filename="helloworld/metadata.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>每个用户脚本都含有一段元数据，用来向 Greasemonkey 描述这个脚本自身的信息：发行者，执行规则等等。</para>
+</abstract>
+</sectioninfo>
+<title>用元数据描述您的用户脚本</title>
+<example id="example.helloworld.metadata">
+<title>Hello World 元数据</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Hello World
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   example script to alert "Hello world!" on every page
+// @include       *
+// @exclude       http://diveintogreasemonkey.org/*
+// @exclude       http://www.diveintogreasemonkey.org/*
+// ==/UserScript==]]></programlisting>
+</example>
+<para>这里有六条独立的元数据信息，作为一个整体包含在注释中。现在让我们按顺序逐条解释。首先讲最外面的这层包装。</para>
+<informalexample>
+<programlisting><![CDATA[// ==UserScript==
+//
+// ==/UserScript==]]></programlisting>
+<para>上述标记很重要，必须完全吻合。Greasemonkey 用它们来标记用户脚本的元数据段。这段注释可以放在用户脚本的任何部位，但经常会放在靠近顶部的地方。</para>
+</informalexample>
+<para>在元数据段内，第一项是名字。</para>
+<informalexample>
+<programlisting><![CDATA[// @name          Hello World]]></programlisting>
+<para>这是您的用户脚本的名字。它将会在您第一次安装脚本时在安装对话框（install dialog）中显示出来。之后会显示在<interface role="windowtitle">管理用户脚本</interface>对话框中。这个名字应该言简意赅。</para>
+<para>
+<literal>@name</literal>可选的。如果存在，它只能被定义一次。如果不存在，将会默认显示用户脚本的去掉扩展名<filename>.user.js</filename>的文件名。</para>
+</informalexample>
+<para>下一个是命名空间(namespace)。</para>
+<informalexample>
+<programlisting><![CDATA[// @namespace     http://diveintogreasemonkey.org/download/]]></programlisting>
+<para>这是一个 &url;，Greasemonkey 用它来区分名称相同但是作者不同的用户脚本。如果您有一个域名，您可以使用它作命名空间。另外您也可以用<ulink url="&url_taguri;">
+<systemitem>tag:</systemitem> &uri;</ulink>。</para>
+<para>
+<literal>@namespace</literal>是可选的。如果存在，它只能被定义一次。如果不存在，将会默认使用下载用户脚本的网站域名。</para>
+</informalexample>
+<tip>
+<title/>
+<para>元数据可以以任意次序排列。笔者推荐使用<literal>@name</literal>，<literal>@namespace</literal>，<literal>@description</literal>，<literal>@include</literal>，最后是<literal>@exclude</literal>，但是其它的顺序也没关系。</para>
+</tip>
+<para>下一项是描述。</para>
+<informalexample>
+<programlisting><![CDATA[// @description   example script to alert "Hello world!" on every page]]></programlisting>
+<para>这是关于用户脚本功能的描述。在您第一次安装脚本时，它将会在安装对话框中显示，之后会在<interface role="windowtitle">管理用户脚本</interface>对话框中显示。描述不应多于两句。</para>
+<para>
+<literal>@description</literal>是可选的。如果使用它，那么它只能被定义一次。如果不使用，默认会显示为空白。</para>
+</informalexample>
+<important>
+<title/>
+<para>不要忘记写<literal>@description</literal>。即使您所写的用户脚本是给自己用的。你最后很可能会拥有很多脚本，如果没有描述的话，在<interface role="windowtitle">管理用户脚本</interface>对话框中管理脚本将会成为一件令人头疼的事。</para>
+</important>
+<para>下面三行是最重要的 (从 Greasemonkey 的角度来看)：<literal>@include</literal>和<literal>@exclude</literal> &url;。</para>
+<informalexample>
+<programlisting><![CDATA[// @include       *
+// @exclude       http://diveintogreasemonkey.org/*
+// @exclude       http://www.diveintogreasemonkey.org/*]]></programlisting>
+<para>这几行让 Greasemonkey 知道在那些网站上执行您的用户脚本。您可以明确的指定一个 &url;，或者用通配符<literal>*</literal>来代替域名或路径中的部分字符。在这个例子中，我们告诉 Greasemonkey 在除了<systemitem class="domainname">http://diveintogreasemonkey.org/</systemitem>和<systemitem class="domainname">http://www.diveintogreasemonkey.org/</systemitem>的所有网站上执行。排除(Excludes)优先于包含(includes)，所以即使<systemitem class="domainname">http://diveintogreasemonkey.org/download/</systemitem>匹配<literal>*</literal> (所有网站)，它还是会被排除掉，因为它还匹配<systemitem class="domainname">http://diveintogreasemonkey.org/*</systemitem>。</para>
+<para>
+<literal>@include</literal>和<literal>@exclude</literal> 是可选的，可以自定义执行和豁免的 &url;，但必须每条规则各占一行。如果您没有任何定义， Greasemonkey 将会对所有的网站执行您的用户脚本。(等同于<literal>@include *</literal>)。</para>
+</informalexample>
+<note>
+<title/>
+<para>您需要定义非常精确的<literal>@include</literal>和<literal>@exclude</literal>元数据。Greasemonkey 不会对域名作任何的假设，如果一个网站符合<systemitem class="domainname">http://example.com/</systemitem>和<systemitem>http://www.example.com/</systemitem>，您需要把这两个网址都标示出来。</para>
+</note>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_taguri;">
+<systemitem>tag:</systemitem> &uri;s</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- first.metadata -->
+<section id="first.helloworld">
+<?dbhtml filename="helloworld/code.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>我们的第一个用户脚本是在执行时简单地显示一条提示信息：<guilabel>Hello world!</guilabel>。</para>
+</abstract>
+</sectioninfo>
+<title>编写用户脚本代码</title>
+<example id="example.helloworld.alert">
+<title>显示<guilabel>Hello world!</guilabel>提示信息</title>
+<programlisting><![CDATA[alert('Hello world!');]]></programlisting>
+</example>
+<para>尽管这段代码仿佛够用了，而且也达到了目的。Greasemonkey 实际上在幕后做了很多的事情来确保用户脚本不会与页面所包含的原有脚本发生严重的冲突。特别是它会自动的把您的用户脚本封装在一个匿名的函数包里。一般情况下，您可以忽视，但是终究有一天会让您遇到麻烦。所以最好现在就了解一下。</para>
+<para>最经常遇到的麻烦之一是在用户脚本里定义的变量和函数<emphasis>不</emphasis>能被别的脚本访问。事实上，只要用户脚本运行完了，所有的变量和函数就都不能使用了。如果您期望使用 <methodname>window.setTimeout</methodname> 函数，或者在链接挂上字符串式的 &onclick; 属性然后期望 Javascript 稍后调用您的函数，那么您会遇到问题。</para>
+<para>例如，下面这个用户脚本中定义了一个函数 <function>helloworld</function>， 然后尝试设置一个计数器来在一秒后调用这个函数。</para>
+<example id="example.settimeout.bad">
+<title>延迟调用函数的错误方法</title>
+<programlisting><![CDATA[function helloworld() {
+alert('Hello world!');
+}
+
+window.setTimeout("helloworld()", 60);]]></programlisting>
+<para>这段代码没有起任何作用；不会弹出提示窗口。如果您打开<link linkend="debug.console">错误控制台</link>，会看到一个异常：<computeroutput>Error: helloworld is not defined.</computeroutput>这是因为当延迟结束，开始调用<literal>helloworld()</literal>时，<function>helloworld</function>函数已经不存在了。</para>
+</example>
+<para>如果您需要引用用户脚本中的变量或者函数，应该显式的把它们定义为<varname>window</varname>对象的属性，它是始终存在的。</para>
+<example id="example.settimeout.better">
+<title>延迟调用函数的更好方法</title>
+<programlisting><![CDATA[window.helloworld = function() {
+	alert('Hello world!');
+	}
+
+window.setTimeout("helloworld()", 60);]]></programlisting>
+<para>目的达到了！页面完成加载一秒后，一个提示框骄傲的弹了出来，写着：<guilabel>Hello world!</guilabel>
+</para>
+</example>
+<para>然而，在 <varname>window</varname>上设置属性依然不太理想；这有点像用全局变量来做局部变量该做的事。（事实上，就是那么回事，<varname>window</varname>是全局的，可以被页面中的所有脚本访问。更实际的讲，它可能会与页面自身的脚本，甚至是其它的用户脚本相互干扰。</para>
+<para>最佳的解决方案是定义匿名函数，把它作为第一个参数传递给 <function>window.setTimeout</function>。</para>
+<example id="example.settimeout.best">
+<title>延迟调用函数的最好方法</title>
+<programlisting><![CDATA[window.setTimeout(function() { alert('Hello world!') }, 60);]]></programlisting>
+<para>我在这里所做的是建立一个没有名字的函数（一个<quote>匿名函数</quote>)，然后直接把它传递给 <function>window.setTimeout</function>。这样可以完成与上个例子相同的事，而不会留下痕迹。例如不会被其它的脚本检测到。</para>
+<para>我发现我在写用户脚本时经常使用匿名函数。它们很适合创建<quote>一次性</quote>函数，然后当作参数传递给类似<function>window.setTimeout</function>，<function>document.addEventListener</function> 或者赋值给事件句柄像 &click; 或 &submit;。</para>
+</example>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_jsanonymousfunctions;">Javascript 中的匿名函数</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_jsblockscope;">Block Scope in Javascript</ulink> 和 <ulink url="&url_jsblockscope_comments;">associated discussion thread</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<section id="first.editing">
+<?dbhtml filename="helloworld/editing.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>对于脚本的作者来讲，<interface role="windowtitle">管理用户脚本</interface>对话框有个很实用的功能：<guibutton>编辑</guibutton>按钮可以<quote>动态的(live)</quote>修改已安装的脚本。</para>
+</abstract>
+</sectioninfo>
+<title>修改用户脚本</title>
+<procedure id="procedure.live.edit">
+<title>编辑 Hello World 的源代码然后观察运行结果</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;live-editing.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;live-editing.html">动态编辑</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>在菜单中，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenu><accel>G</accel>reasemonkey</guimenu>
+<guimenuitem>管理用户脚本 (<accel>U</accel>)...</guimenuitem>
+</menuchoice>.  Greasemonkey 会弹出<interface role="windowtitle">管理用户脚本</interface>对话框。</para>
+</step>
+<step>
+<para>在左方面板中，选择 Hello World 再点击<guibutton>编辑</guibutton>。Hello World 的已安装版本将会在你喜好的文本编辑器中打开。(否则，请检查<filename>.js</filename>文件是否已经关联到您喜好的文本编辑器上。)</para>
+</step>
+<step>
+<para>修改<function>alert</function>语句，替换显示内容为<guilabel>Live editing!</guilabel>。</para>
+</step>
+<step>
+<para>在编辑器中保存所做的更改，然后回到浏览器，随意刷新某个页面来测试所做的更改，你将能立刻看到效果。你不需要重新安装或者<quote>刷新</quote>用户脚本，您是在<quote>动态</quote>修改。</para>
+</step>
+</procedure>
+<tip>
+<title/>
+<para>在<interface role="windowtitle">管理用户脚本</interface>对话框中，点击<guibutton>编辑</guibutton>，您正在<quote>动态</quote>修改脚本的副本，它在 Firefox 的个人配置文件夹中。我形成了一个习惯，每<quote>动态</quote>修改完毕，又回到编辑器，选择<menuchoice>
+<guimenu>文件(<accel>F</accel>)</guimenu>
+<guimenuitem>另存为(<accel>a</accel>)...</guimenuitem>
+</menuchoice>，把用户脚本保存到另一个文件夹中。尽管这不是必须的(Greasemonkey 只会用您配置文件夹中的那个脚本)，但是我喜欢在完成全部修改后把脚本在其它文件夹里保存一个<quote>原本</quote>。</para>
+</tip>
+</section>
+<!-- first.editing -->
+</chapter>
+<!-- first -->
+<chapter id="debug">
+<?dbhtml filename="debug/index.html"?>
+<title>调试用户脚本</title>
+<section id="debug.console">
+<?dbhtml filename="debug/javascript-console.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果用户脚本好似没有正常执行，第一个要检查的地方是错误控制台，那里列出了所有与脚本有关的错误，包括用户脚本在内。</para>
+</abstract>
+</sectioninfo>
+<title>用错误控制台追踪错误</title>
+<procedure id="procedure.debug.javascriptconsole">
+<title>打开错误控制台</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;javascript-console.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;javascript-console.html">错误控制台演示</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>在 Firefox 菜单中，选择<menuchoice>
+<guimenu>
+工具 (<accel>T</accel>)</guimenu>
+<guimenuitem>错误控制台 (<accel>C</accel>)</guimenuitem>
+</menuchoice>。</para>
+</step>
+<step>
+<para>控制台中列出了从打开 Firefox 以来在所有页面上发生的所有错误，应该会有很多的(您会惊奇地发现，很多大的网站的脚本是那么的糟糕)。在开始调试您的用户脚本前，请点击<guibutton>清空 (<accel>C</accel>)</guibutton>来清空列表。</para>
+</step>
+</procedure>
+<para>现在刷新页面来测试出现错误的用户脚本。如果它的确出错了，一条异常会显示在错误控制台中。</para>
+<note>
+<title/>
+<para>如果您的用户脚本出错了，错误控制台会显示一条异常(exception)和一个行号。由于 Greasemonkey 将用户脚本插入到页面中，所以行号没有实际的用处，应该忽略这个行号。这并<emphasis>不是</emphasis>您的用户脚本中发生异常的行号。</para>
+</note>
+</section>
+<!-- first.console -->
+<section id="debug.gmlog">
+<?dbhtml filename="debug/gm_log.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 提供了一个记录用的函数，<function>GM_log</function>，这个函数可以将消息写入错误控制台。这些消息在发布前应当剔出掉，不过在调试时却非常有用。此外，看调试信息比在调试用的警告窗口中一次次点<guibutton>确定</guibutton>好得多。</para>
+</abstract>
+</sectioninfo>
+<title>用 <function>GM_log</function> 记日志
+</title>
+<para>
+<function>GM_log</function>有一个参数：日志的字符串。在将信息输出到错误控制台后，用户脚本会一如既往地执行。</para>
+<example id="example.gmlog">
+<title>记录到错误控制台然后继续(<ulink url="&url_example_gmlog;">
+<filename>gmlog.user.js</filename>
+</ulink>)</title>
+<programlisting><![CDATA[
+if (/^http:\/\/diveintogreasemonkey\.org\//.test(window.location.href)) {
+	GM_log('running on Dive Into Greasemonkey site w/o www prefix');
+} else {
+	GM_log('running elsewhere');
+}
+GM_log('this line is always printed');
+]]></programlisting>
+</example>
+<para>安装这个用户脚本后打开 <ulink url="http://diveintogreasemonkey.org/"/>，这两行就会出现在错误控制台中：</para>
+<informalexample>
+<screen>
+<computeroutput>Greasemonkey: http://diveintomark.org/projects/greasemonkey//Test Log:
+running on Dive Into Greasemonkey site w/o www prefix</computeroutput>
+<computeroutput>Greasemonkey: http://diveintomark.org/projects/greasemonkey//Test Log:
+this line is always printed</computeroutput>
+</screen>
+</informalexample>
+<para>如您所见，Greasemonkey 从<link linkend="first.metadata">用户脚本元数据段</link>中取得命名空间和脚本名称，再把作为传给<function>GM_log</function>的参数日志消息算进来，做为显示在错误控制台中显示的信息。</para>
+<para>如果您访问的不是<ulink url="http://diveintogreasemonkey.org/"/>，那么下面这两条信息会显示在错误控制台中。</para>
+<informalexample>
+<screen>
+<computeroutput>Greasemonkey: http://diveintomark.org/projects/greasemonkey//Test Log:
+running elsewhere</computeroutput>
+<computeroutput>Greasemonkey: http://diveintomark.org/projects/greasemonkey//Test Log:
+this line is always printed</computeroutput>
+</screen>
+</informalexample>
+<para>我已经厌倦去挖掘日志信息的最大长度。它超过了255个字符。还有，输出的信息在错误控制台中可以正确断行，可以向下滚动来查看日志消息其余部分。为日志着迷吧！</para>
+<tip>
+<title/>
+<para>在错误控制台中可以用右键(Mac用户用 control-click)点击任意行选中，然后选择<menuchoice>
+<guimenuitem>复制(<accel>C</accel>)</guimenuitem>
+</menuchoice>，将信息复制到剪贴板。</para>
+</tip>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="api.gmlog"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- debug.gmlog -->
+<section id="debug.domi">
+<?dbhtml filename="debug/dom-inspector.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>DOM 查看器能够查看任何页面的已解析的文档对象模型(DOM)。可以获得每个 &html;  元素、属性和文本节点的详细信息；也可以看到每个页面样式表中的所有 CSS 规则；也可以看到每个对象的所有脚本属性。它的功能非常强大。</para>
+</abstract>
+</sectioninfo>
+<title>用 DOM 查看器查看元素</title>
+<para>DOM 查看器包含在 Firefox 的安装程序中，但是由您的平台而定，它可能默认没装。如果您在<guimenu>工具 (<accel>T</accel>)</guimenu>菜单中看不到<guimenuitem>DOM 查看器(<accel>N</accel>)</guimenuitem>，那么您需要重新安装 Firefox。重新安装 Firefox 不会影响您现有的书签，设置，扩展以及用户脚本。</para>
+<procedure id="procedure.debug.install.domi">
+<title>安装 DOM 查看器</title>
+<step>
+<para>运行 Firefox 的安装程序。</para>
+</step>
+<step>
+<para>接受用户协议后，选择<guibutton>定制 (<accel>C</accel>)</guibutton>安装。</para>
+</step>
+<step>
+<para>选择安装路径后，安装向导会询问安装的组件。选择<guibutton>开发工具</guibutton>。</para>
+</step>
+<step>
+<para>安装结束后，运行 Firefox。您会看到<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenuitem>DOM 查看器 (<accel>N</accel>)</guimenuitem>
+</menuchoice>。</para>
+</step>
+</procedure>
+<para>下面我们将要访问&title;的主页，让您了解 DOM 查看器的强大功能。</para>
+<procedure id="procedure.debug.domi">
+<title>查看和编辑&title;的主页</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;dom-inspector.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;dom-inspector.html">DOM 查看器示范</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>访问<ulink url="&url_book;"/>。</para>
+</step>
+<step>
+<para>在菜单中，选择<menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenuitem>DOM 查看器 (<accel>N</accel>)</guimenuitem>
+</menuchoice>打开 DOM 查看器。</para>
+</step>
+<step>
+<para>在 DOM 查看器的左侧视图中，会看到 DOM 节点的树状图。如果看不到，打开左上角的下拉菜单，选择<menuchoice>
+<guimenuitem>DOM Nodes</guimenuitem>
+</menuchoice>。</para>
+</step>
+<step>
+<para>DOM 的树状列表从 document 节点开始，标记为 <literal>#document</literal>。展开此节点，可以看到 <sgmltag>HTML</sgmltag> 节点。</para>
+</step>
+<step>
+<para>展开 <sgmltag>HTML</sgmltag> 元素后可以看到三个节点：<sgmltag>HEAD</sgmltag>、<literal>#text</literal> 和 <sgmltag>BODY</sgmltag>。注意 <sgmltag>BODY</sgmltag> 的 <sgmltag class="attribute">id</sgmltag> 为 <literal>diveintogreasemonkey-org</literal>。如果没看到，调整一下列宽度。</para>
+</step>
+<step>
+<para>展开 <sgmltag>BODY</sgmltag> 可以看到五个节点： <literal>#text</literal>, <sgmltag>DIV id="intro"</sgmltag>, <literal>#text</literal>, <sgmltag>DIV id="main"</sgmltag> 和 <literal>#text</literal>。</para>
+</step>
+<step>
+<para>展开 <sgmltag>DIV id="intro"</sgmltag> 可以看到两个节点： <literal>#text</literal> 和 <sgmltag>DIV class="sectionInner"</sgmltag>。</para>
+</step>
+<step>
+<para>展开 <sgmltag>DIV class="sectionInner"</sgmltag> 可以看到两个节点： <literal>#text</literal> 和 <sgmltag>DIV class="sectionInner2"</sgmltag>。</para>
+</step>
+<step>
+<para>展开 <sgmltag>DIV class="sectionInner2"</sgmltag> 可以看到五个节点： <literal>#text</literal>, <sgmltag>DIV class="s"</sgmltag>, <literal>#text</literal>, <sgmltag>DIV class="s"</sgmltag> 和 <literal>#text</literal>。</para>
+</step>
+<step>
+<para>展开第一个 <sgmltag>DIV class="s"</sgmltag> 可以看到五个节点： <literal>#text</literal>, <sgmltag>H1</sgmltag>, <literal>#text</literal>, <sgmltag>P</sgmltag> 和 <literal>#text</literal>。</para>
+</step>
+<step>
+<para>选择 <sgmltag>H1</sgmltag> 节点。在原始页面上(DOM 查看器后面)， <sgmltag>H1</sgmltag> 元素会闪现红色的边框。在右侧面板中可以看到节点的名称(<guilabel>H1</guilabel>)、命名空间 &uri; (空白，因为 &html; 没有命名空间 -- 只有在页面被当作 <systemitem>application/xhtml+xml</systemitem> 时有效，或者显示一些其他名字空间 &xml; 的页面)、节点类型(<literal>1</literal>代表元素)和节点值(空白，因为标题没有值 -- 标题上的文字有自己的节点)。</para>
+</step>
+<step>
+<para>在右侧面板的顶部，有个下拉菜单，在其中可以看到数个选项：<guimenuitem>DOM Node</guimenuitem>, <guimenuitem>Box Model</guimenuitem>, <guimenuitem>XBL Bindings</guimenuitem>, <guimenuitem>CSS Style Rules</guimenuitem>, <guimenuitem>Computed Style</guimenuitem> 和 <guimenuitem>Javascript Object</guimenuitem>。它们提供了当前选中的节点的不同信息。有些是可以修改的，变更会立即反映到原始页面上。选择 <guimenuitem>Javascript Object</guimenuitem> 可以看到选中的 <sgmltag>H1</sgmltag> 元素的所有可脚本控制的的属性和方法。</para>
+</step>
+<step>
+<para>选择 <guimenuitem>CSS Style Rules</guimenuitem>。右侧面板会分为两部分，顶部的列出了所有可以作用于这个元素的样式(包括浏览器已有的默认样式)，下面的显示了样式所定义的属性。</para>
+</step>
+<step>
+<para>在右上方的视图中选中第二条规则，这条样式规则是在 <ulink url="&url_stylesheet;"/> 样式表中定义的。</para>
+</step>
+<step>
+<para>在右下面板中双击 <property>font-variant</property> 属性，然后输入新值： <userinput>normal</userinput>。在原始页面中(DOM查看器后面)，<quote>深入浅出 Greasemonkey</quote> 标志文字会立即从 small-caps 变为正常的大小写字母。</para>
+</step>
+<step>
+<para>在右下面板中任意位置点击右键(Mac 用户 control-click)，然后选择 <guimenuitem>新建属性</guimenuitem>。会弹出一个对话框：<interface role="windowtitle">新样式规则</interface>。输入属性名称： <userinput>background-color</userinput>，然后点击<guibutton>确定</guibutton>，接下来属性值：<userinput>red</userinput>，然后点击<guibutton>确定</guibutton>应用新属性。新属性会显示在右下面板中，并且原始页面会立即变成红色背景。</para>
+</step>
+</procedure>
+<para>如果觉得依次展开 DOM 节点树中每层很不方便，那么我强烈推荐您使用 Inspect Element 扩展，它能迅速找到 DOM 查看器中的指定元素。</para>
+<warning>
+<title/>
+<para>安装 Inspect Element 扩展前，您<emphasis>必须</emphasis>先安装 DOM 查看器，否则 Firefox 就不能正常启动。如果已经遇到了这种情况，打开命令行窗口，进入 Firefox 的安装目录，输入 <userinput>firefox -safe-mode</userinput> 。Firefox 会以安全模式启动，不加载任何扩展，然后选择<menuchoice><guimenu>工具 (<accel>T</accel>)</guimenu>
+<guimenuitem>附加软件 (<accel>A</accel>)</guimenuitem>
+</menuchoice>接着卸载 Inspect Element。</para>
+</warning>
+<procedure id="procedure.debug.inspectelement">
+<title>用 Inspect Element 直接查看元素</title>
+<mediaobject>
+<videoobject>
+<videodata fileref="&url_videos;inspect-element.swf" format="SWF"/>
+</videoobject>
+<textobject>
+<phrase>观看录像：<ulink url="&url_videos;inspect-element.html">Inspect Element 示范</ulink>。</phrase>
+</textobject>
+</mediaobject>
+<step>
+<para>访问 <ulink url="&url_inspectelementextension;">Inspect Element</ulink> 下载页面，然后点击 <guibutton>Install Now</guibutton>。</para>
+</step>
+<step>
+<para>重新启动 Firefox。</para>
+</step>
+<step>
+<para>再访问<ulink url="&url_book;"/>。</para>
+</step>
+<step>
+<para>右击(Mac 用户 control-click) 标志语：<literal>深入浅出 Greasemonkey</literal>。</para>
+</step>
+<step>
+<para>在上下文菜单中，选择 <guimenuitem>Inspect element</guimenuitem>。.DOM 查看器会打开，并且选中了 <sgmltag>H1</sgmltag> 元素，然后您可以马上开始查看和/或编辑它的属性。</para>
+</step>
+</procedure>
+<warning>
+<title/>
+<para>DOM 查看器不会<quote>跟着</quote>您一起浏览网页。如果打开 DOM 查看器然后在原始窗口中浏览别的网页，DOM 查看器会变得非常困惑。好的做法是，去您想去的地方，查看您想查看的页面，在做别的事情前先关闭 DOM 查看器。</para>
+</warning>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_domi_intro;">DOM 查看器介绍</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_inspectelementextension;">Inspect Element 扩展</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_inspectorwidget;">Inspector Widget 扩展</ulink>具有 Inspect Element 相同功能的扩展，它增加了一个工具条，而不是一个菜单项。</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- debug.domi -->
+<section id="debug.shell">
+<?dbhtml filename="debug/javascript-shell.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Javascript Shell 是一个 bookmarklet，可以在当前页面的内容中计算任意 Javascript 表达式。</para>
+</abstract>
+</sectioninfo>
+<title>用 Javascript Shell 计算表达式</title>
+<procedure id="procedure.debug.javascriptshell">
+<title>安装 Javascript Shell</title>
+<step>
+<para>访问 <ulink url="&url_jessebookmarklets;">Jesse's Web Development Bookmarklets</ulink>。</para>
+</step>
+<step>
+<para>将 <guibutton>Shell</guibutton> bookmarklet 拖放到您的书签工具栏。</para>
+</step>
+<step>
+<para>访问一个网页(例如，<ulink url="&url_book;">&title;</ulink> 主页)，然后点击书签工具栏上的 <guibutton>Shell</guibutton> bookmarklet。Javascript Shell 窗口会在后台打开。</para>
+</step>
+</procedure>
+<para>Javascript Shell 提供了与 <link linkend="debug.domi">DOM 查看器</link>一样强大的功能，但是环境更加宽松。就把它当作 DOM 的命令行版本吧。游戏开始。</para>
+<example id="example.debug.javascriptshell">
+<title>Javascript Shell 介绍</title>
+<screen>
+<userinput>document.title</userinput>
+<computeroutput>深入浅出 Greasemonkey</computeroutput>
+<userinput>document.title = 'Hello World'</userinput>
+<computeroutput>Hello World</computeroutput>
+<userinput>var paragraphs = document.getElementsByTagName('p')</userinput>
+<userinput>paragraphs</userinput>
+<computeroutput>[object HTMLCollection]</computeroutput>
+<userinput>paragraphs.length</userinput>
+<computeroutput>5</computeroutput>
+<userinput>paragraphs[0]</userinput>
+<computeroutput>[object HTMLParagraphElement]</computeroutput>
+<userinput>paragraphs[0].innerHTML</userinput>
+<computeroutput>教老网玩新把戏</computeroutput>
+<userinput>paragraphs[0].innerHTML = 'Live editing, baby!'</userinput>
+<computeroutput>Live editing, baby!</computeroutput>
+</screen>
+<para>当输入完上面的内容后，按<keycap>回车键</keycap>，变更就会反映到原始网页上。</para>
+</example>
+<para>我想提一下 Javascript Shell 的 <function>props</function> 函数。</para>
+<example id="example.debug.props">
+<title>获取元素属性</title>
+<screen>
+<userinput>var link = document.getElementsByTagName('a')[0]</userinput>
+<userinput>props(link)</userinput>
+<computeroutput role="props">Methods of prototype: blur, focus
+Fields of prototype: id, title, lang, dir, className, accessKey,
+charset, coords, href, hreflang, name, rel, rev, shape, tabIndex,
+target, type, protocol, host, hostname, pathname, search, port,
+hash, text, offsetTop, offsetLeft, offsetWidth, offsetHeight,
+offsetParent, innerHTML, scrollTop, scrollLeft, scrollHeight,
+scrollWidth, clientHeight, clientWidth, style
+Methods of prototype of prototype of prototype: insertBefore,
+replaceChild, removeChild, appendChild, hasChildNodes, cloneNode,
+normalize, isSupported, hasAttributes, getAttribute, setAttribute,
+removeAttribute, getAttributeNode, setAttributeNode,
+removeAttributeNode, getElementsByTagName, getAttributeNS,
+setAttributeNS, removeAttributeNS, getAttributeNodeNS,
+setAttributeNodeNS, getElementsByTagNameNS, hasAttribute,
+hasAttributeNS, addEventListener, removeEventListener, dispatchEvent,
+compareDocumentPosition, isSameNode, lookupPrefix, isDefaultNamespace,
+lookupNamespaceURI, isEqualNode, getFeature, setUserData, getUserData
+Fields of prototype of prototype of prototype: tagName, nodeName,
+nodeValue, nodeType, parentNode, childNodes, firstChild, lastChild,
+previousSibling, nextSibling, attributes, ownerDocument, namespaceURI,
+prefix, localName, ELEMENT_NODE, ATTRIBUTE_NODE, TEXT_NODE,
+CDATA_SECTION_NODE, ENTITY_REFERENCE_NODE, ENTITY_NODE,
+PROCESSING_INSTRUCTION_NODE, COMMENT_NODE, DOCUMENT_NODE,
+DOCUMENT_TYPE_NODE, DOCUMENT_FRAGMENT_NODE, NOTATION_NODE,
+baseURI, textContent, DOCUMENT_POSITION_DISCONNECTED,
+DOCUMENT_POSITION_PRECEDING, DOCUMENT_POSITION_FOLLOWING,
+DOCUMENT_POSITION_CONTAINS, DOCUMENT_POSITION_CONTAINED_BY,
+DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC
+Methods of prototype of prototype of prototype of prototype of prototype: toString</computeroutput>
+</screen>
+<para><quote>哇哦！</quote>这些是什么？它列出了元素 <sgmltag>&lt;a&gt;</sgmltag> 在 Javascript 中所有有效的属性和方法，并且按照 DOM 的对象层级分类。先列出的是链接元素的特有方法和属性(比如 <methodname>blur</methodname> 和 <methodname>focus</methodname> 方法， <property>href</property> 和 <property>hreflang</property> 属性)，然后列出了所有节点公有的方法和属性(比如 <methodname>insertBefore</methodname>)，等等。</para>
+<para>此外，这和 DOM 查看器上的内容一样……只不过是多些打字多些试验，少点些鼠标。</para>
+</example>
+<warning>
+<title/>
+<para>同 <link linkend="debug.domi">DOM 查看器</link>一样，Javascript Shell 也不会<quote>跟着</quote>您浏览网页。如果打开 Javascript Shell 然后在原始窗口中浏览别的网页，Javascript Shell 会变得非常困惑。好的做法是，去您想去的地方，查看您想查看的页面，在做别的事情前先关闭 Javascript Shell。</para>
+</warning>
+</section>
+<section id="debug.other">
+<?dbhtml filename="debug/other.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>下面是我觉得有用的其他调试工具，由于时间有限，我没有全部列出。</para>
+</abstract>
+</sectioninfo>
+<title>其他调试工具</title>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_webdeveloperextension;">Web Developer 扩展</ulink> 有很多分析页面的函数。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_aardvarkextension;">Aardvark</ulink> 互动的显示标签名称、<sgmltag class="attribute">id</sgmltag> 和 <sgmltag class="attribute">class</sgmltag> 的属性。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_venkmandebugger;">Venkman Javascript Debugger</ulink> 完整的 Javascript 运行时调试器。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_jessebookmarklets;">Web Development Bookmarklets</ulink> 有一些有用的函数，可以把它们拖放到工具栏中。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_jsunit;">JSUnit</ulink> 是 Javascript 单元测试框架。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_jslint;">js-lint</ulink> 可检查出 Javascript 代码的常见错误。</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- debug.other -->
+</chapter>
+<!-- debug -->
+<chapter id="pattern">
+<?dbhtml filename="patterns/index.html"?>
+<title>公共模式</title>
+<section id="pattern.matchdomain">
+<?dbhtml filename="patterns/domain.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>对于许多网站，无论是否有 <systemitem>www.</systemitem>  前缀，访问网站都是等效的。如果要为这样的站点写用户脚本，需要能匹配这两种地址。</para>
+</abstract>
+</sectioninfo>
+<title>在域名以及它所有子域名上执行用户脚本</title>
+<example id="example.pattern.matchdomain">
+<title>匹配域名和它所有子域名的元数据标签</title>
+<programlisting><![CDATA[// ==UserScript==
+// @include http://example.com/*
+// @include http://*.example.com/*
+// ==/UserScript==]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_salonautopass;">Salon Auto-Pass</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.matchdomain -->
+<section id="pattern.test">
+<?dbhtml filename="patterns/function-exists.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 的新版本给用户脚本提供了新函数。如果准备发布用户脚本，那么应该测试下所用的 Greasemonkey 函数是否存在。</para>
+</abstract>
+</sectioninfo>
+<title>测试 Greasemonkey 函数是否有效</title>
+<example id="example.pattern.test">
+<title><function>GM_xmlhttpRequest</function> 函数无效时警告用户</title>
+<programlisting><![CDATA[if (!GM_xmlhttpRequest) {
+	alert('请升级到最新版本的 Greasemonkey.');
+	return;
+}
+// 使用 GM_xmlhttpRequest 的其他代码]]></programlisting>
+</example>
+</section>
+<!-- pattern.test -->
+<section id="pattern.testelement">
+<?dbhtml filename="patterns/element-exists.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>可以用 <function>getElementsByTagName</function> 函数来测试页面中是否有 &html; 元素。</para>
+</abstract>
+</sectioninfo>
+<title>测试页面中是否有 &html; 元素</title>
+<example id="example.pattern.testelement">
+<title>检查页面中是否有 <sgmltag>&lt;textarea&gt;</sgmltag> 元属
+</title>
+<programlisting><![CDATA[var textareas = document.getElementsByTagName('textarea');
+if (textareas.length) {
+// 页面中有至少一个 textarea
+} else {
+// 页面中没有 textarea
+}]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.testelement -->
+<section id="pattern.everyelement">
+<?dbhtml filename="patterns/iterate-every-element.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>有时需要操作页面中的所有 &html; 元素。Firefox支持 <function>getElementsByTagName('*')</function>，它返回一个可遍历操作的元素集合。</para>
+</abstract>
+</sectioninfo>
+<title>操作所有 &html; 元素</title>
+<example id="example.pattern.everyelement">
+<title>遍历所有元素</title>
+<programlisting><![CDATA[var allElements, thisElement;
+allElements = document.getElementsByTagName('*');
+for (var i = 0; i < allElements.length; i++) {
+	thisElement = allElements[i];
+	// 使用 thisElement
+}]]></programlisting>
+</example>
+<note>
+<title/>
+<para>只有真需要操作<emphasis>所有</emphasis>元素时才能采用这种方法。如果只要操作特定的一些元素，可使用 XPath 查询可以正确快速地得到这些元素。更多资料，请查看<xref linkend="pattern.certainattribute"/>。</para>
+</note>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_antidisabler;">Anti-Disabler</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.everyelement -->
+<section id="pattern.oneelement">
+<?dbhtml filename="patterns/iterate-one-element.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>有时您需要操作页面中特定 &html; 元素的所有实例。例如改变所有 <sgmltag>&lt;textarea&gt;</sgmltag> 的字体大小。最简单的办法就是调用 <function>getElementsByTagName('tagname')</function>，它返回一个可遍历操作的元素集合。</para>
+</abstract>
+</sectioninfo>
+<title>操作特定 &html; 元素的所有实例</title>
+<example id="example.pattern.oneelement">
+<title>获取页面上所有的 textarea</title>
+<programlisting><![CDATA[var allTextareas, thisTextarea;
+allTextareas = document.getElementsByTagName('textarea');
+for (var i = 0; i < allTextareas.length; i++) {
+	thisTextarea = allTextareas[i];
+	// 使用 thisTextarea
+}]]></programlisting>
+</example>
+<note>
+<title/>
+<para>不应该用这个方法来操作页面中所有的链接，因为 <sgmltag>&lt;a&gt;</sgmltag> 元素也可以用作页面中的锚。要知道如何查找页面中所有的链接，请查看<xref linkend="pattern.certainattribute"/>。</para>
+</note>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.oneelement -->
+<section id="pattern.certainattribute">
+<?dbhtml filename="patterns/match-attribute.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>在 Greasemonkey 的兵器库中最强悍的一个就是 <function>evaluate</function> 方法。利用 XPath 查询语言，它可以用来获取页面中的元素，属性以及文本。</para>
+</abstract>
+</sectioninfo>
+<title>操作所有有特定属性的元素</title>
+<para>举个例子来说，如果您想获得页面中的全部链接。您也许会想到用 <function>document.getElementsByTagName('a')</function>，但是您还要检查每个元属是否具有 <sgmltag class="attribute">href</sgmltag> 属性，因为 <sgmltag>&lt;a&gt;</sgmltag> 元属还可以用作有名称的锚。</para>
+<para>然而可以用 Firefox 内建的 XPath 功能来查找具有 <sgmltag class="attribute">href</sgmltag> 属性的 <sgmltag>&lt;a&gt;</sgmltag>  元属。</para>
+<example id="example.pattern.certainattribute.a.href">
+<title>获取页面中的所有链接</title>
+<programlisting><![CDATA[var allLinks, thisLink;
+allLinks = document.evaluate(
+	'//a[@href]',
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+for (var i = 0; i < allLinks.snapshotLength; i++) {
+	thisLink = allLinks.snapshotItem(i);
+	// 使用 thisLink
+}]]></programlisting>
+<para><methodname>document.evaluate</methodname> 方法是关键。它有一个代表 XPath 查询语句的字符串参数以及一些其它参数，接下来解释一下。这条 XPath 查询语句找到了具有 <sgmltag class="attribute">href</sgmltag> 属性的 <sgmltag>&lt;a&gt;</sgmltag>  元属，用随机的次序排列后返回。(也就是说，集合中的第一个元素并一定是页面中的第一个元素。)然后您可以用 <methodname>allLinks.snapshotItem(i)</methodname> 方法访问找到的元素。</para>
+</example>
+<para>XPath 表达式所能做到的甚至会使您惊讶。请看下面这个例子，它获取了<emphasis>全部</emphasis>具有 <sgmltag class="attribute">title</sgmltag> 属性的元素。</para>
+<example id="example.pattern.certainattribute.title">
+<title>获取所有具有 <sgmltag class="attribute">title</sgmltag> 属性的元素</title>
+<programlisting><![CDATA[var allElements, thisElement;
+allElements = document.evaluate(
+	'//*[@title]',
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+for (var i = 0; i < allElements.snapshotLength; i++) {
+	thisElement = allElements.snapshotItem(i);
+	switch (thisElement.nodeName.toUpperCase()) {
+	case 'A':
+		// 这是链接，在这里完成您的操作
+		break;
+	case 'IMG':
+		// 这是图片，在这里完成您的操作
+		break;
+	default:
+		// 其他类型的 HTML 元素，在这里完成您的操作
+}
+}]]></programlisting>
+</example>
+<tip>
+<title/>
+<para>如果已有一个元素的引用(例如 <varname>thisElement</varname>)，可以用 <property>thisElement.nodeName</property> 来判断它的 &html; 标签。如果页面被当作 <systemitem>text/html</systemitem> 类型，标签名称就总是大写，不论它在原始页面是如何定义的。如果页面被当作 <systemitem>application/xhtml+xml</systemitem>类型，那么标签名称就总是小写的。我总是用 <function>thisElement.nodeName.toUpperCase()</function> 这样我就可以不用管这些了。</para>
+</tip>
+<para>这是另一个 XPath 查询，它获取了具有特定 <sgmltag class="attribute">class</sgmltag> 属性的 <sgmltag>&lt;div&gt;</sgmltag> 元素。</para>
+<example id="example.pattern.certainattribute.sponsoredlink">
+<title>获取所有 <sgmltag class="attribute">class</sgmltag> 为 <literal>sponsoredlink</literal> 的 <sgmltag>&lt;div&gt;</sgmltag>
+</title>
+<programlisting><![CDATA[var allDivs, thisDiv;
+allDivs = document.evaluate(
+	"//div[@class='sponsoredlink']",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+for (var i = 0; i < allDivs.snapshotLength; i++) {
+	thisDiv = allDivs.snapshotItem(i);
+	// 使用 thisDiv
+}]]></programlisting>
+<para>附注：在 XPath 查询语句外使用双引号，这样在语句内就可以使用单引号了。</para>
+</example>
+<para><methodname>document.evaluate</methodname> 方法中有很多参数。第二个参数(在前两个例子中都是 <varname>document</varname>)可以是任意元素。XPath 查询只返回这个元素的子元素结点。如果已有一个元素的引用(比如，从 <methodname>document.getElementById</methodname> 或者 <methodname>document.getElementsByTagName</methodname> 数组的一项中得到的引用)，您就可以限制查询只返回这个元素的子元素。</para>
+<para>第三个参数是对名称空间解析函数的引用，只有在 <systemitem>application/xhtml+xml</systemitem> 类型页面执行的用户脚本中才会用到。即使对它不了解也没关系，因为那种类型的页面不是很多，您可能一次也遇不到。如果您很想知道它的用法，<ulink url="&url_mozilla_xpath_documentation;">Mozilla XPath 文档</ulink>解释了它的用法。</para>
+<para>第四个参数是结果的返回方式。在前面的两个例子中都使用了 <constant>XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE</constant>，它返回的元素是随机次序的。我99%都是使用这种方式，但是，可能出于某种原因，想以在页面上出现的顺序返回结果，您可以使用 <constant>XPathResult.ORDERED_NODE_SNAPSHOT_TYPE</constant>。<ulink url="&url_mozilla_xpath_documentation;">Mozilla XPath 文档</ulink>还提供了一些其他返回方式的例子。</para>
+<para>第五个参数用来合并两次 XPath 查询的结果。传入以前调用 <methodname>document.evaluate</methodname> 结果，它将返回两次查询的合并结果。在前面的两个例子中，这个参数都用了 <constant>null</constant>，这意味着我们只想获得本次 XPath 查询的结果。</para>
+<para>现在明白了吗？XPath 既可简单，也可难，这就看您怎么用了。我强烈推荐您阅读<ulink url="&url_zvon_xpath_tutorial;">这个优秀的 XPath 教程</ulink>，可以学到更多的 XPath 语法。关于 <methodname>document.evaluate</methodname> 的其他参数，	
+我很少用除非您已经在这里看到他们了。事实上，您可以定义一个函数来封装它们。</para>
+<example id="example.pattern.xpath.function">
+<title><function>xpath</function> 函数</title>
+<programlisting><![CDATA[function xpath(query) {
+	return document.evaluate(query, document, null,
+		XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+}]]></programlisting>
+<para>现在您可以简单的调用 <function>xpath('//a[@href]')</function> 来获得页面上的全部链接，或者用 <function>xpath('//*[@title]')</function> 获得具有 <sgmltag class="attribute">title</sgmltag> 属性的元素。您仍然需要用 <methodname>snapshotItem</methodname> 方法访问结果中的每个元素；它不是一个规则的 Javascript 数组。</para>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">Access Bar</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_blogdexdisplaytitle;">Blogdex Display Title</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_frownies;">Frownies</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_offsiteblank;">Offsite Blank</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_rottenreviews;">Rotten Reviews</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_stopthepresses;">Stop The Presses</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_mozilla_xpath_documentation;">Mozilla XPath 文档</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_zvon_xpath_tutorial;">XPath 实例教程</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_xpathresult_reference;">XPathResult 参考手册</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.certainattribute -->
+<section id="pattern.insertbefore">
+<?dbhtml filename="patterns/insert-before.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果已找到某个元素(不论用何种方法)，您想在它前面插入额外的内容。您可以使用 <function>insertBefore</function> 函数。</para>
+</abstract>
+</sectioninfo>
+<title>在元素前插入内容</title>
+<example id="example.pattern.insert.before">
+<title>在主内容前插入 <sgmltag>&lt;hr&gt;</sgmltag></title>
+<para>假设有个元素的 ID 为 <literal>"main"</literal>。</para>
+<programlisting><![CDATA[var main, newElement;
+main = document.getElementById('main');
+if (main) {
+	newElement = document.createElement('hr');
+	main.parentNode.insertBefore(newElement, main);
+}]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.insertbefore -->
+<section id="pattern.insertafter">
+<?dbhtml filename="patterns/insert-after.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果已找到某个元素，您想在它<emphasis>后面</emphasis>插入额外的内容。您也可以使用 <function>insertBefore</function> 函数，要与 <property>nextSibling</property> 属性联合使用。</para>
+</abstract>
+</sectioninfo>
+<title>在元素后插入内容</title>
+<example id="example.pattern.insert.after">
+<title>在导航条后面插入 <sgmltag>&lt;hr&gt;</sgmltag></title>
+<para>假设有个元素的 ID 为 <literal>"navbar"</literal>。</para>
+<programlisting><![CDATA[var navbar, newElement;
+navbar = document.getElementById('navbar');
+if (navbar) {
+	newElement = document.createElement('hr');
+	navbar.parentNode.insertBefore(newElement, navbar.nextSibling);
+}]]></programlisting>
+</example>
+<tip>
+<title/>
+<para>即使 <varname>someExistingElement</varname>  是它的父元素的最后一个孩子(在它之后没有下一个元素)，仍然可以在 <property>someExistingElement.nextSibling</property> 之前插入新内容。在这种情况下，<property>someExistingElement.nextSibling</property> 将返回一个空值，<function>insertBefore</function>  函数将把新内容追加到最后。(以许这对你来说没有太大意义，但我想让您知道的是，尽管这种方法似乎是不太对，但它却总是有效的。)</para>
+</tip>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_blogdexdisplaytitle;">Blogdex Display Title</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.insertafter -->
+<section id="pattern.removeelement">
+<?dbhtml filename="patterns/remove-element.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>使用 <function>removeChild</function>  函数，您可以使 Greasemonkey 一下子删除页面中完整的一块。</para>
+</abstract>
+</sectioninfo>
+<title>删除元素</title>
+<example id="example.pattern.remove">
+<title>删除广告侧边栏</title>
+<para>假设有个元素 ID 为 <literal>"ads"</literal>。</para>
+<programlisting><![CDATA[var adSidebar = document.getElementById('ads');
+if (adSidebar) {
+	adSidebar.parentNode.removeChild(adSidebar);
+}]]></programlisting>
+</example>
+<note>
+<title/>
+<para> 用<methodname>removeChild</methodname> 移除一个元素也会删除它里面的所有内容。例如您移除一个 <sgmltag>&lt;table&gt;</sgmltag> 元素，此时也会将表格单元格(<sgmltag>&lt;td&gt;</sgmltag> 元素)一起移除。</para>
+</note>
+<tip>
+<title/>
+<para>如果要移除广告，比起写用户脚本来，更容易的办法是安装 <ulink url="&url_adblock;">AdBlock</ulink> 然后导入 <ulink url="&url_adblock_filterlist;">最新的过滤列表</ulink>。</para>
+</tip>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.removeelement -->
+<section id="pattern.replaceelement">
+<?dbhtml filename="patterns/replace-element.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果已经获取了一个元素，可以使用 <function>replaceChild</function> 函数来替换它的全部内容。</para>
+</abstract>
+</sectioninfo>
+<title>替换元素为新内容</title>
+<example id="example.pattern.replacechild">
+<title>替换图片为替代(alt)文本</title>
+<para>假设页面上有一个元素 ID 为 <literal>"annoyingsmily"</literal>。</para>
+<programlisting><![CDATA[var theImage, altText;
+theImage = document.getElementById('annoyingsmily');
+if (theImage) {
+	altText = document.createTextNode(theImage.alt);
+	theImage.parentNode.replaceChild(altText, theImage);
+}]]></programlisting>
+</example>
+<note>
+<title/>
+<para>如果要用一大段 &html; 替换一个元素，您可以构造 &html; 为一个字符串，然后<link linkend="pattern.innerhtml">设置元素的 <property>innerHTML</property> 属性</link>。</para>
+</note>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_frownies;">Frownies</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.replaceelement -->
+<section id="pattern.innerhtml">
+<?dbhtml filename="patterns/innerhtml.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>The <property>innerHTML</property> 属性让您可以将 &html;  以字符串的形式表示，然后将它们直接插入到页面中。这样就不需要为每一个 &html; 元素创建单独的 DOM 对象，然后再一个一个的设置它们的属性。</para>
+</abstract>
+</sectioninfo>
+<title>快速插入复杂的 &html;</title>
+<example id="example.pattern.innerhtml">
+<title>在页面顶部加上标语</title>
+<programlisting><![CDATA[var logo = document.createElement("div");
+logo.innerHTML = '<div style="margin: 0 auto 0 auto; ' +
+	'border-bottom: 1px solid #000000; margin-bottom: 5px; ' +
+	'font-size: small; background-color: #000000; ' +
+	'color: #ffffff;"><p style="margin: 2px 0 1px 0;"> ' +
+	'YOUR TEXT HERE ' +
+	'</p></div>';
+document.body.insertBefore(logo, document.body.firstChild);]]></programlisting>
+<para>关键的地方是第二行，在这行我将 <property>logo.innerHTML</property> 设置为字符串。Firefox 将这个字符串解析成 &html; 然后创建所有必需的对象，就像它重新加载一个页面一样。这样我就可以将我的新 <varname>logo</varname> (一个 <sgmltag>&lt;div&gt;</sgmltag> 包含另一个 <sgmltag>&lt;div&gt;</sgmltag>，这个 <sgmltag>&lt;div&gt;</sgmltag> 包含有一个 <sgmltag>&lt;p&gt;</sgmltag>)插入到页面的任何位置 &#8212; 页面开始，结尾或者我选择的任意元素<link linkend="pattern.insertbefore">之前</link>或<link linkend="pattern.insertafter">其后</link>。总之，页面上任何位置。</para>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">Access Bar</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.innerhtml -->
+<section id="pattern.addimage">
+<?dbhtml filename="patterns/add-image.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Firefox 支持 <systemitem>data:</systemitem> &url;s, 它可以把一段数据嵌入到 &url; 中，而不需要单独从服务器上来获取。您也许从来都没有听说过 <systemitem>data:</systemitem> &url;s ，因为 Internet Explorer 不支持，所以几乎没人使用它们。但是在用户脚本中它们却非常有用。</para>
+</abstract>
+</sectioninfo>
+<title>在没有服务器的情况下添加图片</title>
+<example id="example.pattern.datauri">
+<title>在页面顶部添加图形 logo</title>
+<programlisting><![CDATA[var logo = document.createElement('img');
+logo.src = 'data:image/gif;base64,R0lGODlhDQAOAJEAANno6wBmZgAAAAAAACH5BAAAAAAA'+
+'LAAAAAANAA4AQAIjjI8Iyw3GhACSQecutsFV3nzgNi7SVEbo06lZa66LRib2UQAAOw%3D%3D';
+document.body.insertBefore(logo, document.body.firstChild);]]></programlisting>
+<para>在这个例子中，<sgmltag>&lt;img&gt;</sgmltag> 元素的 <sgmltag class="attribute">src</sgmltag> 是 <systemitem>data:</systemitem> &url;，它以编码形式的包含了一整幅图像的信息。当这个新元素被插入到页面中时，它会像其他图片一样显示但它却不用存储在服务器上。事实上，可以在您的用户脚本中嵌入图片，它们可以和其它的代码一样发布到网上。</para>
+</example>
+<tip>
+<title/>
+<para>使用 <ulink url="&url_data_uri_kitchen;"><systemitem>data:</systemitem> &uri; kitchen</ulink> 来建立您自己的 <systemitem>data:</systemitem> &url;s。</para>
+</tip>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<ulink url="&url_data_uri_kitchen;">
+<systemitem>data:</systemitem> &uri; kitchen</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.addimage -->
+<section id="pattern.addcss">
+<?dbhtml filename="patterns/add-css.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>我常常发现需要在页面中添加我自己的 CSS 样式。您可以添加新样式，覆盖掉已有的样式或者样式化用户脚本插入的新元素。</para>
+</abstract>
+</sectioninfo>
+<title>添加 CSS 样式</title>
+<example id="example.pattern.css">
+<title>放大段落文字</title>
+<programlisting><![CDATA[function addGlobalStyle(css) {
+	var head, style;
+	head = document.getElementsByTagName('head')[0];
+	if (!head) { return; }
+	style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = css;
+	head.appendChild(style);
+}
+
+addGlobalStyle('p { font-size: large ! important; }');]]></programlisting>
+<para>这个函数只一个字符串参数，包含要插入到页面中的样式规则。它一成不变地把您的样式规则插入到页面 <sgmltag>&lt;head&gt;</sgmltag> 段的 <sgmltag>&lt;style&gt;</sgmltag> 元素中。Firefox 自动判别这些变化，解释样式规则，并应用到页面中。您应该把许多不同的样式规则包含到一次函数调用中；只要把连接成一个字符串然后传给函数。</para>
+</example>
+<tip>
+<title/>
+<para>可以使用 <function>addGlobalStyle</function> 函数样式化插入到页面中的元素或者部分原页面中已有的元素。然而，如果要样式化已有的元素，应该在您定义的每条规则上使用 <literal>! important</literal> 关键字，保证您的样式覆盖原页面中已定义的规则。</para>
+</tip>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">Access Bar</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_aintitreadable;">Aint It Readable</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_cdreadable;">CDReadable</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_lip;">LIP</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="casestudy.aintitreadable"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.addcss -->
+<section id="pattern.getcomputedstyle">
+<?dbhtml filename="patterns/getcomputedstyle.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>当多个 CSS 规则同时应用到某个元素上时，获取这个元素的实际样式有时候是有帮助的。您可能会简单的认为，通过元素的 <property>style</property> 属性就可以得到，这样的话您就错了。它只会返回 <sgmltag class="attribute">style</sgmltag> 属性的内容。要获得元素的最终样式（包括在外部定义的样式），您需要使用 <function>getComputedStyle</function> 函数。</para>
+</abstract>
+</sectioninfo>
+<title>获取元素样式</title>
+<para>为了演示，我们创建一个简单的测试页面。它首先对页面中所有的  <sgmltag>&lt;p&gt;</sgmltag> 元素定义了同一个样式，但随后对其中的一个  <sgmltag>&lt;p&gt;</sgmltag> 元素用它的 <sgmltag class="attribute">style</sgmltag> 属性重新定义了样式。</para>
+<informalexample>
+<programlisting><![CDATA[<html>
+<head>
+<title>样式测试页</title>
+<style type="text/css">
+p { background-color: white; color: red; }
+</style>
+</head>
+<body>
+<p id="p1">这行是红色的。</p>
+<p id="p2" style="color: blue">这行是蓝色的。</p>
+</body>
+</html>]]></programlisting>
+</informalexample>
+<example id="example.antipattern.style">
+<title>获取由元素的 <sgmltag class="attribute">style</sgmltag> 属性定义的样式</title>
+<programlisting><![CDATA[var p1elem, p2elem;
+p1elem = document.getElementById('p1');
+p2elem = document.getElementById('p2');
+alert(p1elem.style.color); // 提示为空字符串
+alert(p2elem.style.color); // 提示 "blue"]]></programlisting>
+</example>
+<para>用这种方法获得的信息并不是很有用,所以您不应该再用 <varname>element</varname>.<methodname>style</methodname> 来获取单独的样式。 (您可以用它来<emphasis>设置</emphasis>元素的样式，详见<xref linkend="pattern.setstyle"/>。)</para>
+<para>那么您该用什么方法来取代它呢？<methodname>getComputedStyle()</methodname>。</para>
+<example id="example.pattern.getcomputedstyle">
+<title>获取元素的真实样式</title>
+<programlisting><![CDATA[var p1elem, p2elem, p1style, p2style;
+p1elem = document.getElementById('p1');
+p2elem = document.getElementById('p2');
+p1style = getComputedStyle(p1elem, '');
+p2style = getComputedStyle(p2elem, '');
+alert(p1style.color); // 提示 "rgb(255, 0, 0)"
+alert(p2style.color); // 提示 "rgb(0, 0, 255)"]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_butler;">Butler</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<section id="pattern.setstyle">
+<?dbhtml filename="patterns/set-style.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果只需要设置单个元素的少数样式，可以<quote>手动地</quote>在这个元素的 <property>style</property> 属性中设置多个子属性。</para>
+</abstract>
+</sectioninfo>
+<title>设置元素样式</title>
+<example id="example.pattern.setstyle">
+<title>设置单个元素的样式</title>
+<para>假设有个元素 ID 为 <literal>"logo"</literal>。</para>
+<programlisting><![CDATA[var logo = document.getElementById('logo');
+logo.style.marginTop = '2em';
+logo.style.backgroundColor = 'white';
+logo.style.color = 'red';]]></programlisting>
+</example>
+<warning>
+<title/>
+<para>并不是每个样式的属性名称都是显然的。通常，它们有相似的模式，例如 <property>margin-top</property> 对应 <property>someElement.style.marginTop</property>。但是也有例外：<property>float</property> 属性对应到 <property>someElement.style.cssFloat</property>，因为  <property>float</property> 是 Javascript 的保留字。</para>
+</warning>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">Access Bar</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_blogdexdisplaytitle;">Blogdex Display Title</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">Zoom Textarea</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_cssproperties;">CSS 属性</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<section id="pattern.postprocess">
+<?dbhtml filename="patterns/onload.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>由于 Firefox 保存已渲染页面的内在方式，应该在页面加载完成<emphasis>以后</emphasis>，才能对页面上的 DOM 做出大规模的改动，那么这个操作应该发生在页面完成载入之后，这是由已执行页面在 Firefox 内的存储方式决定的。您可以用 <function>addEventListener</function> 函数来延迟函数的执行。</para>
+</abstract>
+</sectioninfo>
+<title>处理已渲染的页面</title>
+<example id="example.pattern.addeventlistener">
+<title>替换全部页面为自定义的内容</title>
+<programlisting><![CDATA[var newBody = 
+'<html>' +
+'<head>' +
+'<title>My New Page</title>' +
+'</head>' +
+'<body>' +
+'<p>This page is a complete replacement of the original.</p>' +
+'</body>' +
+'</html>';
+window.addEventListener(
+	'load', 
+	function() { document.body.innerHTML = newBody; },
+	true);]]></programlisting>
+</example>
+<para>仔细看这段代码，您可能自然地想知道它是怎么执行的。我声明了一个匿名函数来做为 <methodname>window.addEventListener</methodname> 的第二个参数传入，它访问了在这个函数外定义的变量 <varname>newBody</varname>。这种方法称为 <quote>闭包(closure)</quote>， 在 Javascript 中是完全有效的。一般说来，在<quote>外层</quote>函数中定义的<quote>内层</quote>函数可以访问外层函数的所有局部变量 -- 甚至在外层函数执行结束以后。这是一个很有用的特性，可以通过它来创建事件句柄和用来在运行时建立的数据构架的其他函数。</para>
+<tip>
+<title/>
+<para>删除和替换 <property>document.body.innerHTML</property> 并不会更改页面。原页面在 <sgmltag>&lt;head&gt;</sgmltag> 中定义的所有内容仍然是有效的，包括页面的标题，CSS 样式，以及脚本。可以分开修改或者移除。</para>
+</tip>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">Access Bar</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_betterdir;">BetterDir</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.postprocess -->
+<section id="pattern.caseinsensitive">
+<?dbhtml filename="patterns/case-insensitive.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>在 &html; 中，许多属性的值是大小写无关的，有的还允许首尾空格。如果想获取到所有这样的值，需要在 XPath 查询中使用一点技巧。</para>
+</abstract>
+</sectioninfo>
+<title>匹配大小写无关的属性值</title>
+<example id="example.pattern.caseinsensitive">
+<title>获取 method 为 "POST" 或 "post" 的表单(form)</title>
+<programlisting><![CDATA[var postforms = document.evaluate(
+	"//form[translate(@method, 'POST ', 'post')='post']",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);]]></programlisting>
+<para>本次 XPath 查询可以获取所有以 POST 方式提交的表单。首先，我们需要用 <function>translate</function> 函数将 <sgmltag class="attribute">method</sgmltag> 属性的值中的字母大写变成小写。(XPath 2.0 有 <function>lowercase</function> 函数，但我还从来没用成功过。)其次，我们需要将首尾的空格去掉。我们可以将其整合到调用 <function>translate</function> 函数中，只要在第一个参数中加个额外的空格。因为在第二个参数中没有对应的字母，这样一来所有的空格就被去掉了。最后，我们就能将获得的属性值同 <literal>'post'</literal> 做比较。</para>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_forceget;">ForceGet</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.caseinsensitive -->
+<section id="pattern.getdomain">
+<?dbhtml filename="patterns/get-domain.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>用户脚本操作多个域名(或者所有域名)时，常常需要检测当前页面的域名。可以用 <property>window.location.href</property> 获取当前页面的完整 &url;，或者用 <property>window.location.host</property> 只获取域名。</para>
+</abstract>
+</sectioninfo>
+<title>获取当前域名</title>
+<example id="example.pattern.getdomain">
+<title>获取当前域名</title>
+<programlisting><![CDATA[var href = window.location.host;]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_offsiteblank;">Offsite Blank</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.getdomain -->
+<section id="pattern.rewritelinks">
+<?dbhtml filename="patterns/rewrite-link.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>如果获取到页面上的链接，可以通过设置它的 <property>href</property> 属性来改写链接。</para>
+</abstract>
+</sectioninfo>
+<title>改写链接</title>
+<example id="example.pattern.rewritelinks">
+<title>在链接末尾添加查询参数</title>
+<para>假设有个链接的 id 为 <sgmltag class="attribute">"article"</sgmltag>。</para>
+<programlisting><![CDATA[var a = document.getElementById('article');
+if (a.href.match(/\?/i)) {
+	// 链接已经包含其它参数，所以添加 "&amp;printer=1"
+	a.href += '&amp;printer=1';
+} else {
+	// 连接没有包含任何参数，所以添加 "?printer=1"
+	a.href += '?printer=1';
+}]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_rottenreviews;">Rotten Reviews</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_stopthepresses;">Stop The Presses</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.rewritelinks -->
+<section id="pattern.redirect">
+<?dbhtml filename="patterns/redirect.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>通过设置  <property>window.location.href</property> 属性，您可以用 Greasemonkey 来自动重定向到指定的页面。</para>
+</abstract>
+</sectioninfo>
+<title>重定向页面</title>
+<example id="example.pattern.redirect">
+<title>重定向一个站点到它的安全站点</title>
+<programlisting><![CDATA[window.location.href = window.location.href.replace(/^http:/, 'https:');]]></programlisting>
+</example>
+<itemizedlist role="usedby">
+<title>实例</title>
+<listitem>
+<para>
+<ulink url="&url_example_gmailsecure;">GMail Secure</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_example_salonautopass;">Salon Auto-Pass</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.redirect -->
+<section id="pattern.interceptclicks">
+<?dbhtml filename="patterns/intercept-clicks.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>虽然<link linkend="pattern.rewritelinks">改写链接很简单</link>，您也可以走的更远，使用 <function>addEventListener</function> 函数，俘获页面上任何地方的每次点击。(这也能俘获点击链接。)您可以考虑下怎么做：是否让可点击元素的点击操作<quote>失效</quote> ，或者做些完全不同的操作。</para>
+</abstract>
+</sectioninfo>
+<title>俘获用户点击</title>
+<example id="example.pattern.interceptclicks">
+<title>当用户点击页面上任意地方时做点事</title>
+<programlisting><![CDATA[document.addEventListener('click', function(event) {
+// event.target 是被点击的元素
+
+// 把你的代码放在这里
+
+// 如果您想阻止默认点击动作
+// (例如链接转向)，使用下面这两条命令：
+event.stopPropagation();
+event.preventDefault();
+}, true);]]></programlisting>
+<para>注释：用 <link linkend="first.helloworld">匿名函数</link> 作为传入 <function>document.addEventListener</function> 函数的一个参数。</para>
+</example>
+</section>
+<!-- pattern.interceptclicks -->
+<section id="pattern.overridemethod">
+<?dbhtml filename="patterns/override-method.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>您可以用 <property>prototype</property> 属性 覆盖原有的对象方法。</para>
+</abstract>
+</sectioninfo>
+<title>覆盖内建的 Javascript 方法</title>
+<example id="example.pattern.prototype">
+<title>当表单提交时做点事</title>
+<programlisting><![CDATA[function newsubmit(event) {
+var target = event ? event.target : this;
+
+// 在这里定义想做的操作
+alert('Submitting form to ' + target.action);
+
+// 调用真正的提交函数
+this._submit();
+}
+
+// 捕获所有表单的 onsubmit 事件
+window.addEventListener('submit', newsubmit, true);
+
+// 如果脚本调用 someForm.submit()，onsubmit 事件不会发生，
+// 所以我们需要重新定义 HTMLFormElement 类的 submit 方法。
+HTMLFormElement.prototype._submit = HTMLFormElement.prototype.submit;
+HTMLFormElement.prototype.submit = newsubmit;]]></programlisting>
+<para>在这里做了两件事。首先，我加入了一个用来捕获 &submit; 事件的监听函数。当用户点击表单的提交按钮时，触发 &submit; 事件。然而，当别的脚本调用表单的 <methodname>submit()</methodname> 方法时，并不会触发 &submit; 事件。 所以，我做的第二件事是覆盖 <classname>HTMLFormElement</classname> 类的 <methodname>submit</methodname> 方法。</para>
+<para>但是等等，还有几点需要说明。事件监听函数和重新定义的方法都指向同一个函数，<function>newsubmit</function>。如果 <function>newsubmit</function> 被一个 &submit; 事件调用，<varname>event</varname>  参数将会被包含在事件对象中，这个事件对象包含事件的信息（例如，<property>event.target</property> 是被提交的表单）。然而，如果脚本手动调用了 <methodname>submit</methodname> 方法，<varname>event</varname> 事件会被忽略掉，但是全局变量 <varname>this</varname> 将会指向这个表单。因此，在我的 <function>newsubmit</function> 函数中，我先判断 <varname>event</varname> 是否为空；如果为空，就用 <varname>this</varname> 来得到这个表单。</para>
+</example>
+<tip>
+<title/>
+<para>正常情况下，当用户提交一个表单时，例如，点击表单中的 <guibutton>提交</guibutton> 按钮或者按 <userinput>回车键</userinput>），都会触发 &submit; 事件。但是，当脚本调用 <function>aForm.submit()</function> 提交表单时，却<emphasis>不会</emphasis>触发  &submit; 事件。因此，您必须做两件事来捕获表单的提交事件：给 &submit; 事件增加事件监听，<emphasis>并且</emphasis>修改 <classname>HTMLFormElement</classname> 类的原型来重定向 <methodname>submit()</methodname> 方法到您的自定义函数上。</para>
+</tip>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_jseventcompatibility;">Javascript 事件兼容性表</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_jsdomprototypes;">Mozilla 中的 Javascript-DOM 原型</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_eventobjects;">显示事件对象常量</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- pattern.overridemethod -->
+<section id="pattern.parsexml">
+<?dbhtml filename="patterns/parse-xml.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Firefox 自动将当前页面解析为 DOM，但是您也可以手动创建 DOM 而不使用任何 &xml; 字符串，可以是您自己建立的，也可以是您从远端主机得到的 &xml;。</para>
+</abstract>
+</sectioninfo>
+<title>解析 &xml;</title>
+<example id="example.pattern.parsexml.string">
+<title>将任意字符串解析为 &xml;</title>
+<programlisting><![CDATA[var xmlString = '<passwd>' + 
+	'  <user id="101">' +
+	'    <login>mark</login>' + 
+	'    <group id="100"/>' +
+	'    <displayname>Mark Pilgrim</displayname>' + 
+	'    <homedir>/home/mark/</homedir>' +
+	'    <shell>/bin/bash</shell>' +
+	'  </user>' +
+	'</passwd>'
+var parser = new DOMParser();
+var xmlDoc = parser.parseFromString(xmlString, "application/xml");]]></programlisting>
+<para>这里关键的地方是 <classname>DOMParser</classname> 对象，有个 <methodname>parseFromString</methodname> 方法。(它也有其他的方法，但在这里我们用不到。)<methodname>parseFromString</methodname> 方法有两个参数：解析用的 &xml; 字符串，和内容类型。两者都是必需的。</para>
+</example>
+<note>
+<title/>
+<para><classname>DOMParser</classname> 的 <methodname>parseFromString</methodname> 方法将内容的类型作为它的第二个参数。这个方法可以接受 <systemitem>application/xml</systemitem>, <systemitem>application/xhtml+xml</systemitem> 和 <systemitem>text/xml</systemitem>。由于深究起来，理由会很荒唐，您应该始终使用 <systemitem>application/xml</systemitem>。</para>
+</note>
+<para>这个模式非常强大，如果把它与 <function>GM_xmlhttpRequest</function> 函数结合起来解析远程源的 &xml;。</para>
+<example id="example.pattern.parsexml.url">
+<title>解析远程源的 &xml;</title>
+<programlisting><![CDATA[GM_xmlhttpRequest({
+	method: 'GET',
+	url: 'http://greaseblog.blogspot.com/atom.xml',
+	headers: {
+	'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey/0.3',
+	'Accept': 'application/atom+xml,application/xml,text/xml',
+	},
+	onload: function(responseDetails) {
+		var parser = new DOMParser();
+		var dom = parser.parseFromString(responseDetails.responseText,
+		"application/xml");
+		var entries = dom.getElementsByTagName('entry');
+		var title;
+		for (var i = 0; i < entries.length; i++) {
+		title = entries[i].getElementsByTagName('title')[0].textContent;
+		alert(title);
+		}
+	}
+});]]></programlisting>
+<para>这段代码会载入<ulink url="&url_greaseblog_feed;"/>的 Atom feed，把它解析为 DOM，然后查询 DOM 得到条目列表。再对每个条目做 DOM 查询，获得条目的标题(title)，然后在对话框中显示出来。</para>
+</example>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.oneelement"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="api.gmxmlhttprequest"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+<!-- pattern -->
+<chapter id="casestudy">
+<?dbhtml filename="casestudy/index.html"?>
+<title>实例教学</title>
+<section id="casestudy.gmailsecure">
+<?dbhtml filename="casestudy/gmailsecure.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>GMail Secure 强制 <ulink url="&url_gmail;">GMail</ulink> 使用安全的链接，重定向 <systemitem>&url_gmail;</systemitem> 到 <systemitem>&url_gmailhttps;</systemitem>。</para>
+</abstract>
+</sectioninfo>
+<title>案例：GMail Secure</title>
+<subtitle>强制网站使用安全链接</subtitle>
+<para>Google 提供了 <ulink url="&url_gmail;">GMail</ulink>，他们的 webmail 服务，可以通过非安全连接使用(<systemitem>http://</systemitem> 地址)或者通过安全连接使用(<systemitem>https://</systemitem> 地址)。我试着记着在公用场所(例如网吧)查看邮件时要用安全链接。但是为什么不让电脑帮您记着呢？我写了个用户脚本，当它检测到当我通过非安全链接访问 GMail 时，它就自动帮我重定向到安全链接。</para>
+<example id="example.casestudy.gmail">
+<title>重定向 GMail 到等同的 <systemitem>https://</systemitem> 地址</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          GMailSecure
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   force GMail to use secure connection
+// @include       http://gmail.google.com/*
+// ==/UserScript==
+
+window.location.href = window.location.href.replace(/^http:/, 'https:');]]></programlisting>
+</example>
+<para>这个用户脚本很简单，大部分的<quote>工作</quote>由 <literal>@include</literal> 这行完成：</para>
+<informalexample>
+<programlisting><![CDATA[// @include       http://gmail.google.com/*]]></programlisting>
+</informalexample>
+<para>只有匹配 <literal>@include</literal>  的时候，这个用户脚本才会执行。所以当脚本执行的时候，我就知道我写错了地址（通过非安全连接访问 GMail）。完成这一切，只要一行代码, 重定向当前页面到相同的 &url;，只是用 <systemitem>https://</systemitem> 前缀替换掉 <systemitem>http://</systemitem>。</para>
+<informalexample>
+<programlisting><![CDATA[window.location.href = window.location.href.replace(/^http:/, 'https:');]]></programlisting>
+</informalexample>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.redirect"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.gmailsecure -->
+<section id="casestudy.autoload">
+<?dbhtml filename="casestudy/bloglinesautoload.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>
+<ulink url="&url_bloglines;">Bloglines</ulink> 是一个基于 web 的同步 feed 聚合网站。它的界面上有两个面板；左边的显示您的订阅列表，右边的显示订阅的内容。这个界面很友好；唯一不满意的是：我想每次访问 Bloglines，只看所有未读条目。</para>
+</abstract>
+</sectioninfo>
+<title>案例：Bloglines Autoload</title>
+<subtitle>自动化页面动作</subtitle>
+<para>在 Bloglines 中，显示所有的未读条目只需要单击一下左手边的面板中订阅列表的根级别(root level)，未读的内容就会出现在右手边的面板中。由于我每次都要这样做，因此我写了一个用户脚本来自动完成这项工作。</para>
+<example id="example.casestudy.bloglines">
+<title>让 Bloglines 自动显示所有未读条目</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Bloglines Autoloader
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   Auto-display all new items in Bloglines
+// @include       http://bloglines.com/myblogs*
+// @include       http://www.bloglines.com/myblogs*
+// ==/UserScript==
+
+if (doLoadAll) {
+	doLoadAll();
+}]]></programlisting>
+</example>
+<para>这个用户脚本相当的简单。Bloglines 定义了一个函数 <function>doLoadAll()</function>，当我点击订阅列表的根级别(root level)时就会执行它。调用这个函数可以显示所有的未读条目。</para>
+<para>然而，由于 Bloglines 使用了帧(frame)，而用户脚本会在每个帧中执行(因为他们都匹配我在 <literal>@include</literal>  中定义的模式)，所以首先要检查在这个帧中是否有 <function>doLoadAll()</function> 函数：</para>
+<informalexample>
+<programlisting><![CDATA[if (doLoadAll) {]]></programlisting>
+</informalexample>
+<para>如果函数存在，我就调用它。因为用户脚本就像原页面的内容一样执行，我可以调用原页面里定义的任何脚本。</para>
+<informalexample>
+<programlisting><![CDATA[    doLoadAll();
+}]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_bloglinesautoload;">
+<filename>bloglines-autoload.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.autoload -->
+<section id="casestudy.aintitreadable">
+<?dbhtml filename="casestudy/aintitreadable.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>
+<ulink url="&url_aintitcoolnews;">Ain't It Cool News</ulink> 是一家致力于娱乐新闻报道方面的站点。我很喜欢这个站点。但是，我对网站的外观不太满意，每个新闻标题字体都太粗大了，而且在鼠标移过时还会改变颜色。所以，我写了一个用户脚本来改变我不喜欢的样式。</para>
+</abstract>
+</sectioninfo>
+<title>案例：Ain't It Readable</title>
+<subtitle>覆盖页面样式</subtitle>
+<example id="example.casestudy.aintitreadable">
+<title>
+<ulink url="&url_example_aintitreadable;" type="Download Ain't It Readable">
+<filename>aintitreadable.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Ain't It Readable
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   change style on aint-it-cool-news.com
+// @include       http://aint-it-cool-news.com/*
+// @include       http://*.aint-it-cool-news.com/*
+// ==/UserScript==
+
+function addGlobalStyle(css) {
+	var head, style;
+	head = document.getElementsByTagName('head')[0];
+	if (!head) { return; }
+	style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = css;
+	head.appendChild(style);
+}
+
+addGlobalStyle(
+	'h1, h2, h3, h4 {' +
+	'  font-size: 12px ! important;' +
+	'  line-height: 14px ! important;' +
+	'  font-weight: normal ! important;' +
+	'}' +
+	'h1:hover, h2:hover, h3:hover, h4:hover {' +
+	'  background-color: inherit ! important;' +
+	'  color: inherit ! important;' +
+	'}');]]></programlisting>
+</example>
+<para>这个用户脚本十分简单。首先，我定义了一个函数，可以把任意 CSS 添到页面中。有关此函数的信息，请阅读<xref linkend="pattern.addcss"/>。</para>
+<informalexample>
+<programlisting><![CDATA[function addGlobalStyle(css) {
+	var head, style;
+	head = document.getElementsByTagName('head')[0];
+	if (!head) { return; }
+	style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = css;
+	head.appendChild(style);
+}]]></programlisting>
+</informalexample>
+<para>接着，我调用这个函数来把 CSS 加到页面中：把标题变小一点，不那么粗，并且取消了当鼠标移过时颜色的变化。在这个案例里，页面对其中每一点都定义了样式规则，所以我用 <constant>! important</constant> 关键字，以保证我的样式规则能替换掉页面原有的规则。</para>
+<para>注释：这个函数只有一个参数：包含新增的样式规则的字符串。我把字符串排成容易阅读的格式，但是它仍然只是个字符串。</para>
+<informalexample>
+<programlisting><![CDATA[addGlobalStyle(
+	'h1, h2, h3, h4 {' +
+	'  font-size: 12px ! important;' +
+	'  line-height: 14px ! important;' +
+	'  font-weight: normal ! important;' +
+	'}' +
+	'h1:hover, h2:hover, h3:hover, h4:hover {' +
+	'  background-color: inherit ! important;' +
+	'  color: inherit ! important;' +
+	'}');]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_aintitreadable;">
+<filename>aintitreadable.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.addcss"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.aintitreadable -->
+<section id="casestudy.offsiteblank">
+<?dbhtml filename="casestudy/offsiteblank.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>因为有人在 Greasemonkey 脚本库发帖求助，我就写了 Offsite Blank。我个人喜欢在新标签页中打开链接，但是有的人更喜欢为每个站点各开一个窗口。Offsite Blank 可以帮您自动完成，强制外站链接在新窗口中打开。</para>
+</abstract>
+</sectioninfo>
+<title>案例：Offsite Blank</title>
+<subtitle>强制外站链接在新窗口中打开</subtitle>
+<example id="example.casestudy.offsiteblank">
+<title>
+<ulink url="&url_example_offsiteblank;" type="下载 Offsite Blank">
+<filename>offsiteblank.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Offsite Blank
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   force offsite links to open in a new window
+// @include       http://*
+// @include       https://*
+// ==/UserScript==
+
+var a, thisdomain, links;
+thisdomain = window.location.host;
+links = document.getElementsByTagName('a');
+for (var i = 0; i < links.length; i++) {
+	a = links[i];
+	if (a.host && a.host != thisdomain) {
+		a.target = "_blank";
+	}
+}]]></programlisting>
+</example>
+<para>首先，我声明这个用户脚本将在所有的网页上执行(但是不是全部，例如，本地机器上储存的 &html; 文档，可以从<menuchoice><guimenu>文件 (<accel>F</accel>)</guimenu><guimenuitem>打开 (<accel>O</accel>pen</guimenuitem></menuchoice> 菜单中打开)。</para>
+<informalexample>
+<programlisting><![CDATA[// @include       http://*
+// @include       https://*]]></programlisting>
+</informalexample>
+<para>这段代码分为四步实现：</para>
+<orderedlist>
+<listitem>
+<para>获得当前页面的域名。</para>
+</listitem>
+<listitem>
+<para>获得页面中所有链接的列表。</para>
+</listitem>
+<listitem>
+<para>比较每个链接的域名与当前页面的域名。</para>
+</listitem>
+<listitem>
+<para>如果域名不匹配，设置这个链接的目的地(target)，这样就会在新窗口中打开。</para>
+</listitem>
+</orderedlist>
+<para>获取当前页面的域名很容易。更多的信息请阅读<xref linkend="pattern.getdomain"/>。</para>
+<informalexample>
+<programlisting><![CDATA[thisdomain = window.location.host;]]></programlisting>
+</informalexample>
+<para>获取页面中所有链接也一样容易，尽管我应该注意到我忽视了<link linkend="example.pattern.certainattribute.a.href">自己的建议</link>简单地使用 <methodname>document.getElementsByTagName('a')</methodname> 而不用 XPath 查询。其实也没什么不同……</para>
+<informalexample>
+<programlisting><![CDATA[links = document.getElementsByTagName('a');]]></programlisting>
+</informalexample>
+<para>接下来，我遍历了所有的链接(实际上是所有的 <sgmltag>&lt;a&gt;</sgmltag> 元素，它们中的一些可能是链接)然后检查链接的域名和当前页面的域名是否匹配。由于一些链接可能指向非 &http; 的 &url;(例如，本地文件或者 &ftp; 服务器)，我需要检查 <property>a.host</property> 是否存在，然后再检查它与当前域名是否相等.。</para>
+<informalexample>
+<programlisting><![CDATA[for (var i = 0; i < links.length; i++) {
+a = links[i];
+if (a.host && a.host != thisdomain) {
+...
+}]]></programlisting>
+</informalexample>
+<para>如果我找到一个包含域名的链接，但是它的域名与当前域名不相同，我只需设置它的 <property>target</property> 属性为 <literal>"_blank"</literal> 就可以强制链接在新窗口打开了。</para>
+<informalexample>
+<programlisting><![CDATA[a.target = "_blank";]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_offsiteblank;">
+<filename>offsiteblank.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.getdomain"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.oneelement"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.certainattribute"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.offsiteblank -->
+<section id="casestudy.dumbquotes">
+<?dbhtml filename="casestudy/dumbquotes.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>DumbQuotes 是应许多网络博客的需要而生的：大多数出版软件可以自动转换直接的 &ascii; 引号为 <quote>智能引号(smart quotes)</quote>，但是当作者在文章中复制粘贴文本时，同样是这些软件处理<quote>智能引号</quote>却很愚笨。常见的例子是博客想引用其他网站的一段文字。在浏览器中选中几句，粘贴到自己网站的表单中提交，这段文字却看起来完全不同，因为他们的出版软件没有处理好字符编码。</para>
+</abstract>
+</sectioninfo>
+<title>案例：Dumb Quotes</title>
+<subtitle>转换智能引号为原始引号</subtitle>
+<para>当然，我不能修复世界上每个出版系统，但是我可以为自己写个用户脚本来解决，自动转换智能引号和其他有问题的高位字符为等同的7位 &ascii; 字符。</para>
+<example id="example.casestudy.dumbquotes">
+<title>
+<ulink url="&url_example_dumbquotes;" type="Download Dumb Quotes">
+<filename>dumbquotes.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          DumbQuotes
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   straighten curly quotes and apostrophes, simplify fancy dashes, etc.
+// @include       *
+// ==/UserScript==
+
+var replacements, regex, key, textnodes, node, s;
+
+replacements = {
+	"\xa0": " ",
+	"\xa9": "(c)",
+	"\xae": "(r)",
+	"\xb7": "*",
+	"\u2018": "'",
+	"\u2019": "'",
+	"\u201c": '"',
+	"\u201d": '"',
+	"\u2026": "...",
+	"\u2002": " ",
+	"\u2003": " ",
+	"\u2009": " ",
+	"\u2013": "-",
+	"\u2014": "--",
+	"\u2122": "(tm)"};
+regex = {};
+for (key in replacements) {
+	regex[key] = new RegExp(key, 'g');
+}
+
+textnodes = document.evaluate(
+	"//text()",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+for (var i = 0; i < textnodes.snapshotLength; i++) {
+	node = textnodes.snapshotItem(i);
+	s = node.data;
+	for (key in replacements) {
+		s = s.replace(regex[key], replacements[key]);
+	}
+	node.data = s;
+}]]></programlisting>
+</example>
+<para>这段代码分为四个步骤：</para>
+<orderedlist>
+<listitem>
+<para>先定义字符替换规则列表，映射某些8位字符到对应的7位字符。</para>
+</listitem>
+<listitem>
+<para>获取当前页面中的所有文字结点。</para>
+</listitem>
+<listitem>
+<para>遍历文字结点清单。</para>
+</listitem>
+<listitem>
+<para>在每个文字结点中，替换每个8位字符为等价的7位字符。</para>
+</listitem>
+</orderedlist>
+<para>第一步其实是两步。Javascript 的字符串替换基于正则表达式。所以要替换8位字符为等价的7位字符，需要创建一个正则表达式集合。</para>
+<informalexample>
+<programlisting><![CDATA[replacements = {
+	"\xa0": " ",
+	"\xa9": "(c)",
+	"\xae": "(r)",
+	"\xb7": "*",
+	"\u2018": "'",
+	"\u2019": "'",
+	"\u201c": '"',
+	"\u201d": '"',
+	"\u2026": "...",
+	"\u2002": " ",
+	"\u2003": " ",
+	"\u2009": " ",
+	"\u2013": "-",
+	"\u2014": "--",
+	"\u2122": "(tm)"};
+regex = {};
+for (key in replacements) {
+	regex[key] = new RegExp(key, 'g');
+}]]></programlisting>
+<para>我使用花括号语法迅速建立了一个关联数组。等价于(但是键入更少)单独把每个关键字和值对应起来：</para>
+<programlisting><![CDATA[replacements["\xa0"] = " ";
+replacements["\xa9"] = "(c)";
+replacements["\xae"] = "(r)";
+// 等等]]></programlisting>
+<para>每个8位的字符都是用十六进制值表示的，是用了逃逸语法(escaping syntax)<literal>"\xa0"</literal> 或 <literal>"\u2018"</literal>。我们完成字符到字符串的关联数组后，我会遍历整个数组，然后建立正则表达式对象列表。每个正则表达式对象会在全局范围搜索8位字符。(第二个参数 <parameter>'g'</parameter> 意义为全局搜索；否则每个正则表达式只会搜索和替换第一次出现的特定8位字符，这样我可能会漏掉很多。)</para>
+</informalexample>
+<para>下一步是获取当前文档中的全部文本节点。您可以非常想说，<quote>嗨，我只要用 <property>document.body.innerHTML</property> 就得到全部页面的字符串，然后搜索替换就成了。</quote>
+</para>
+<informalexample>
+<programlisting><![CDATA[var tmp = document.body.innerHTML;
+// 在 tmp 上完成一批搜索和替换
+document.body.innerHTML = tmp;]]></programlisting>
+</informalexample>
+<para>但这是个坏习惯，因为 <property>innerHTML</property> 会返回页面中的全部源代码：所有的标签、所有的脚本、所有的属性等等。在这种情况下,有可能不会造成问题(&html; 标签并不包含8位字符)，但它在其他情况下不堪设想，很难调试。你要问你自己到底要搜索和替换什么。如果答案是<quote>原始的页面源代码</quote>，那么就去使用 <property>innerHTML</property>。然而在这种情况下，答案是<quote>全部的页面文字</quote>，所以正确的方法是使用 XPath 查询获取所有文本节点。</para>
+<informalexample>
+<programlisting><![CDATA[textnodes = document.evaluate(
+	"//text()",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);]]></programlisting>
+<para>这里使用了 XPath 函数，<function>text()</function>，用来匹配任意文本节点。您可能对查询元素节点很熟悉了：所有 <sgmltag>&lt;a&gt;</sgmltag> 元素集，或者所有具有 <sgmltag class="attribute">alt</sgmltag> 属性的 <sgmltag>&lt;img&gt;</sgmltag> 元素集。但是 DOM 也包含有节点中存在的文本内容。(也有其他类型的节点，例如注释和处理指令。)现在它也是我们感兴趣的文本节点。</para>
+</informalexample>
+<para>第3步是遍历所有文本节点。这完全跟遍历像 <literal>//a[@href]</literal> XPath 查询返回的节点集一样；唯一的不同就是遍历中的是文本节点，而不是元素节点。</para>
+<informalexample>
+<programlisting><![CDATA[for (var i = 0; i < textnodes.snapshotLength; i++) {
+node = textnodes.snapshotItem(i);
+s = node.data;
+// 做替换操作
+node.data = s;]]></programlisting>
+<para>
+<varname>node</varname> 是循环中的当前文本节点，而 <varname>s</varname> 是 <varname>node</varname> 中存在文本的字符串变量。我打算使用 <varname>s</varname> 完成替换操作，然后把处理结果复制回原始节点中。</para>
+</informalexample>
+<para>所以现在我有了单个节点的文本，我需要完成替换操作。因为我已经建好了正则表达式列表和替换字符串列表，所以这相对简单。</para>
+<informalexample>
+<programlisting><![CDATA[    for (key in replacements) {
+s = s.replace(regex[key], replacements[key]);
+}]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_dumbquotes;">
+<filename>dumbquotes.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.certainattribute"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.dumbquotes -->
+<section id="casestudy.frownies">
+<?dbhtml filename="casestudy/frownies.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Frownies 是对一个玩笑的回应。<ulink url="&url_greasemonkeymailinglist;">Greasemonkey 邮件列表</ulink>有人宣称他们开发了一个用户脚本，可以把 &ascii; <quote>表情符号</quote> 比如 <literal>:-)</literal> 转换为与它们相同含义的图片。其他人答复道，想知道要完成逆向转换要花多久时间：转换图片表情为文本。</para>
+</abstract>
+</sectioninfo>
+<title>案例：Frownies</title>
+<subtitle>转换图片表情为文字</subtitle>
+<para>为了创纪录，我花了大约20分钟。大部分时间是花在研究已发布的自动转换图片表情的软件上了，然后编写了详尽的转换表。</para>
+<para>这个脚本倚赖于能自动生成表情图片的大多数软件有如下特征：这些软件会把相同含义的文字表情符号放在 <sgmltag>&lt;img&gt;</sgmltag> 元素的 <sgmltag class="attribute">alt</sgmltag>  属性里。所以，这个脚本实际上所做的是：如果 ALT 文本匹配预定义的常量列表中的某一条，就用图片的 ALT 文本来替换图片。</para>
+<example id="example.casestudy.frownies">
+<title>
+<ulink url="&url_example_frownies;" type="Download Frownies">
+<filename>frownies.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Frownies
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   convert graphical smilies to their text equivalents
+// @include       *
+// ==/UserScript==
+
+var smilies, images, img, replacement;
+smilies = [":)", ":-)" ":-(", ":(", ";-)", ";)", ":-D", ":D", ":-/",
+	":/", ":X", ":-X", ":\">", ":P", ":-P", ":O", ":-O", "X-(",
+	"X(", ":->", ":>", "B-)", "B)", ">:)", ":((", ":(((", ":-((",
+	":))", ":-))", ":-|", ":|", "O:-)", "O:)", ":-B", ":B", "=;",
+	"I)", "I-)", "|-)", "|)", ":-&", ":&", ":-$", ":$", "[-(", ":O)",
+	":@)", "3:-O", ":(|)", "@};-", "**==", "(~~)", "*-:)", "8-X",
+	"8X", "=:)", "<):)", ";;)", ":*", ":-*", ":S", ":-S", "/:)",
+	"/:-)", "8-|", "8|", "8-}", "8}", "(:|", "=P~", ":-?", ":?",
+	"#-O", "#O", "=D>", "~:>", "%%-", "~O)", ":-L", ":L", "[-O<",
+	"[O<", "@-)", "@)", "$-)", "$)", ">-)", ":-\"", ":^O", "B-(",
+	"B(", ":)>-", "[-X", "[X", "\\:D/", ">:D<", "(%)", "=((", "#:-S",
+	"#:S", "=))", "L-)", "L)", "<:-P", "<:P", ":-SS", ":SS", ":-W",
+	":W", ":-<", ":<", ">:P", ">:-P", ">:/", ";))", ":-@", "^:)^",
+	":-J", "(*)", ":GRIN:", ":-)", ":SMILE:", ":SAD:", ":EEK:",
+	":SHOCK:", ":???:", "8)", "8-)", ":COOL:", ":LOL:", ":MAD:",
+	":RAZZ:", ":OOPS:", ":CRY:", ":EVIL:", ":TWISTED:", ":ROLL:",
+	":WINK:", ":!:", ":?:", ":IDEA:", ":ARROW:", ":NEUTRAL:",
+	":MRGREEN:"];
+images = document.evaluate(
+	'//img[@alt]',
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+for (var i = 0; i < images.snapshotLength; i++) {
+	img = images.snapshotItem(i);
+	alt = img.alt.toUpperCase();
+	for (var j in smilies) {
+		if (alt == smilies[j]) {
+			replacement = document.createTextNode(alt);
+			img.parentNode.replaceChild(replacement, img);
+		}
+	}
+}]]></programlisting>
+</example>
+<para>这段代码分为四个步骤：</para>
+<orderedlist>
+<listitem>
+<para>定义表情符号的列表(文本格式)。</para>
+</listitem>
+<listitem>
+<para>找出页面中所有含有 <sgmltag class="attribute">alt</sgmltag> 属性的图片。</para>
+</listitem>
+<listitem>
+<para>对每一幅图像，检测它的 ALT 文本是否与列表中的某个 &ascii; 表情符号匹配。</para>
+</listitem>
+<listitem>
+<para>如果匹配，就替换 <sgmltag>&lt;img&gt;</sgmltag> 元素为包含 &ascii; 表情的文本节点。</para>
+</listitem>
+</orderedlist>
+<para>第一步简单的定义了一个列表，用 Javascript 的 <literal>[ ]</literal> 语法。</para>
+<informalexample>
+<programlisting><![CDATA[smilies = [":)", ":-)" ":-(", ":(", ";-)", ";)", ":-D", ":D", ":-/",
+	":/", ":X", ":-X", ":\">", ":P", ":-P", ":O", ":-O", "X-(",
+	"X(", ":->", ":>", "B-)", "B)", ">:)", ":((", ":(((", ":-((",
+	":))", ":-))", ":-|", ":|", "O:-)", "O:)", ":-B", ":B", "=;",
+	"I)", "I-)", "|-)", "|)", ":-&", ":&", ":-$", ":$", "[-(", ":O)",
+	":@)", "3:-O", ":(|)", "@};-", "**==", "(~~)", "*-:)", "8-X",
+	"8X", "=:)", "<):)", ";;)", ":*", ":-*", ":S", ":-S", "/:)",
+	"/:-)", "8-|", "8|", "8-}", "8}", "(:|", "=P~", ":-?", ":?",
+	"#-O", "#O", "=D>", "~:>", "%%-", "~O)", ":-L", ":L", "[-O<",
+	"[O<", "@-)", "@)", "$-)", "$)", ">-)", ":-\"", ":^O", "B-(",
+	"B(", ":)>-", "[-X", "[X", "\\:D/", ">:D<", "(%)", "=((", "#:-S",
+	"#:S", "=))", "L-)", "L)", "<:-P", "<:P", ":-SS", ":SS", ":-W",
+	":W", ":-<", ":<", ">:P", ">:-P", ">:/", ";))", ":-@", "^:)^",
+	":-J", "(*)", ":GRIN:", ":-)", ":SMILE:", ":SAD:", ":EEK:",
+	":SHOCK:", ":???:", "8)", "8-)", ":COOL:", ":LOL:", ":MAD:",
+	":RAZZ:", ":OOPS:", ":CRY:", ":EVIL:", ":TWISTED:", ":ROLL:",
+	":WINK:", ":!:", ":?:", ":IDEA:", ":ARROW:", ":NEUTRAL:",
+	":MRGREEN:"];]]></programlisting>
+</informalexample>
+<para>接下来，我在页面中使用 XPath 查询语句搜索所有的含有 <sgmltag class="attribute">alt</sgmltag> 属性的 <sgmltag>&lt;img&gt;</sgmltag> 元素。有关 XPath 查询语句的更多信息，请阅读<xref linkend="pattern.certainattribute"/>。</para>
+<informalexample>
+<programlisting><![CDATA[images = document.evaluate(
+'//img[@alt]',
+document,
+null,
+XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+null);]]></programlisting>
+</informalexample>
+<para>第三步，遍历所有的 <sgmltag>&lt;img&gt;</sgmltag>元素,检验 <sgmltag class="attribute">alt</sgmltag> 属性是否与我们定义的表情符号匹配。由于一些表情符号含有字母，我用toUpperCase()方法在比较前把 <sgmltag class="attribute">alt</sgmltag> 属性转换为大写。</para>
+<informalexample>
+<programlisting><![CDATA[for (var i = 0; i < images.snapshotLength; i++) {
+	img = images.snapshotItem(i);
+	alt = img.alt.toUpperCase())
+	for (var j in smilies) {
+		if (alt == smilies[j]) {
+			// ...
+		}
+	}
+}]]></programlisting>
+</informalexample>
+<para>最后，我创建了一个包含文字表情符号的新文本节点，然后用它替换掉已有的 <sgmltag>&lt;img&gt;</sgmltag> 元素。更多的信息，请阅读<xref linkend="pattern.replaceelement"/>。</para>
+<informalexample>
+<programlisting><![CDATA[replacement = document.createTextNode(alt);
+img.parentNode.replaceChild(replacement, img);]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_frownies;">
+<filename>frownies.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.certainattribute"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.replaceelement"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.frownies -->
+<section id="casestudy.zoomtextarea">
+<?dbhtml filename="casestudy/zoomtextarea.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Zoom Textarea 改变了网页中的表单，在每个 <sgmltag>&lt;textarea&gt;</sgmltag> 元素(用于输入多行文本)上方加上了一个工具栏。这个工具栏可以放大或缩小 <sgmltag>&lt;textarea&gt;</sgmltag>中文本的大小，而不会改变页面中其他地方的样式。这些按钮也可以完全用键盘来操作的；用 tab 移动焦点到按钮上然后按 <userinput><keycap>回车键</keycap></userinput>，代替鼠标点击操作。(我前面提到的是由于易用性问题(accessibility matters)，然而实际上，用起来比听起来难)</para>
+</abstract>
+</sectioninfo>
+<title>案例：Zoom Textarea</title>
+<subtitle>添加缩放 textareas 的按钮</subtitle>
+<example id="example.casestudy.zoomtextarea">
+<title>
+<ulink url="&url_example_zoomtextarea;" type="Download Zoom Textarea">
+<filename>zoomtextarea.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Zoom Textarea
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   add controls to zoom textareas
+// @include       *
+// ==/UserScript==
+
+var textareas, textarea;
+
+textareas = document.getElementsByTagName('textarea');
+if (!textareas.length) { return; }
+
+function textarea_zoom_in(event) {
+	var link, textarea, s;
+	link = event.currentTarget;
+	textarea = link._target;
+	s = getComputedStyle(textarea, "");
+	textarea.style.width = (parseFloat(s.width) * 1.5) + "px";
+	textarea.style.height = (parseFloat(s.height) * 1.5) + "px";
+	textarea.style.fontSize = (parseFloat(s.fontSize) + 7.0) + 'px';
+	event.preventDefault();
+}
+
+function textarea_zoom_out(event) {
+	var link, textarea, s;
+	link = event.currentTarget;
+	textarea = link._target;
+	s = getComputedStyle(textarea, "");
+	textarea.style.width = (parseFloat(s.width) * 2.0 / 3.0) + "px";
+	textarea.style.height = (parseFloat(s.height) * 2.0 / 3.0) + "px";
+	textarea.style.fontSize = (parseFloat(s.fontSize) - 7.0) + "px";
+	event.preventDefault();
+}
+
+function createButton(target, func, title, width, height, src) {
+	var img, button;
+	img = document.createElement('img');
+	img.width = width;
+	img.height = height;
+	img.style.borderTop = img.style.borderLeft = "1px solid #ccc";
+	img.style.borderRight = img.style.borderBottom = "1px solid #888";
+	img.style.marginRight = "2px";
+	img.src = src;
+	button = document.createElement('a');
+	button._target = target;
+	button.title = title;
+	button.href = '#';
+	button.onclick = func;
+	button.appendChild(img);
+	return button;
+}
+
+for (var i = 0; i < textareas.length; i++) {
+	textarea = textareas[i];
+	textarea.parentNode.insertBefore(
+		createButton(
+			textarea,
+			textarea_zoom_in,
+			'Increase textarea size',
+			20,
+			20,
+			'data:image/gif;base64,'+
+			'R0lGODlhFAAUAOYAANPS1tva3uTj52NjY2JiY7KxtPf3%2BLOys6WkpmJiYvDw8fX19vb'+
+			'296Wlpre3uEZFR%2B%2Fv8aqpq9va3a6tr6Kho%2Bjo6bKytZqZml5eYMLBxNra21JSU3'+
+			'Jxc3RzdXl4emJhZOvq7KamppGQkr29vba2uGBgYdLR1dLS0lBPUVRTVYB%2Fgvj4%2BYK'+
+			'Bg6SjptrZ3cPDxb69wG1tbsXFxsrJy29vccDAwfT09VJRU6uqrFlZW6moqo2Mj4yLjLKy'+
+			's%2Fj4%2BK%2Busu7t783Nz3l4e19fX7u6vaalqNPS1MjHylZVV318ftfW2UhHSG9uccv'+
+			'KzfHw8qqqrNPS1eXk5tvb3K%2BvsHNydeLi40pKS2JhY2hnalpZWlVVVtDQ0URDRJmZm5'+
+			'mYm11dXp2cnm9vcFxcXaOjo0pJSsC%2FwuXk6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC'+
+			'H5BAAAAAAALAAAAAAUABQAAAeagGaCg4SFhoeIiYqKTSQUFwgwi4JlB0pOCkEiRQKKRxM'+
+			'gKwMGDFEqBYpPRj4GAwwLCkQsijwQBAQJCUNSW1mKSUALNiVVJzIvSIo7GRUaGzUOPTpC'+
+			'igUeMyNTIWMHGC2KAl5hCBENYDlcWC7gOB1LDzRdWlZMAZOEJl83VPb3ggAfUnDo5w%2F'+
+			'AFRQxJPj7J4aMhYWCoPyASFFRIAA7'),
+		textarea);
+	textarea.parentNode.insertBefore(
+		createButton(
+			textarea,
+			textarea_zoom_out,
+			'Decrease textarea size',
+			20,
+			20,
+			'data:image/gif;base64,'+
+			'R0lGODlhFAAUAOYAANPS1uTj59va3vDw8bKxtGJiYrOys6Wkpvj4%2BPb29%2FX19mJiY'+
+			'%2Ff3%2BKqqrLe3uLKytURDRFpZWqmoqllZW9va3aOjo6Kho4KBg729vWJhZK%2BuskZF'+
+			'R4B%2FgsLBxHNydY2Mj%2Ff396amptLS0l9fX9fW2dDQ0W1tbpmZm8DAwfT09fHw8n18f'+
+			'uLi49LR1V5eYOjo6VBPUa6tr769wEhHSNra20pJStPS1KuqrNPS1ZmYm%2B7t77Kys8rJ'+
+			'y%2Fj4%2BaSjpm9uca%2BvsMjHyqalqHRzdVJRU8PDxVRTVcvKzc3Nz0pKS9rZ3evq7MC'+
+			'%2FwsXFxp2cnnl4e1VVVu%2Fv8ba2uM7Oz29vcbu6vZqZmnJxc9vb3PHx8uXk5mhnamJh'+
+			'Y1xcXZGQklZVV29vcHl4eoyLjKqpq6Wlpl1dXuXk6AAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAACH5BAAAAAAALAAAAAAUABQAAAeZgGaCg4SFhoeIiYqKR1IWVgcyi4JMBiQqA0heQgG'+
+			'KQTFLPQgMCVocBIoNNqMgCQoDVReKYlELCwUFI1glEYorOgopWSwiTUVfih8dLzRTKA47'+
+			'Ek%2BKBGE8GEAhFQYuPooBOWAHY2ROExBbSt83QzMbVCdQST8Ck4QtZUQe9faCABlGrvD'+
+			'rB4ALDBMU%2BvnrUuOBQkE4NDycqCgQADs%3D'),
+		textarea);
+	textarea.parentNode.insertBefore(
+		document.createElement('br'),
+		textarea);
+}]]></programlisting>
+</example>
+<para>这段代码看起来很复杂，而且它确实复杂，但是有特殊原因的。看起来很复杂是因为它中间有大段的乱码似的字符串。这些是<link linkend="pattern.addimage">的 <systemitem>data:</systemitem> &uri;s</link>，它们看起来像地狱却很容易生成。真正复杂的地方还在别处。</para>
+<para>首先，我获取了页面上所有的 <sgmltag>&lt;textarea&gt;</sgmltag> 元素集。此模式的详情，请阅读<xref linkend="pattern.oneelement"/>。如果没有，那就没必要继续了，所以 <constant>return</constant>(返回)。</para>
+<informalexample>
+<programlisting><![CDATA[textareas = document.getElementsByTagName('textarea');
+if (!textareas.length) { return; }]]></programlisting>
+</informalexample>
+<para>现在，我们跑下题。我们的<quote>工具栏</quote>看起来像是一行按钮，但是每个按钮就是看起来可以点的某些图片，外面包上一个能执行我们的 Javascript 函数的链接。</para>
+<para>由于我们要创建多个按钮(尽管这个脚本只有两个按钮，但是您可以便利地扩展出更多功能)，我创建了一个函数来封装所有的制造按钮的逻辑。</para>
+<informalexample>
+<programlisting><![CDATA[function createButton(target, func, title, width, height, src) {]]></programlisting>
+<para>The <function>createButton</function> function takes 6 arguments:</para>
+<variablelist>
+<varlistentry>
+<term>
+<parameter>target</parameter>
+</term>
+<listitem>
+<para>元素对象，按钮控制的 <sgmltag>&lt;textarea&gt;</sgmltag> 元素</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<parameter>func</parameter>
+</term>
+<listitem>
+<para>函数对象，当用户用鼠标点击或键盘激活这个按钮时，调用的 Javascript 函数</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<parameter>title</parameter>
+</term>
+<listitem>
+<para>字符串，鼠标移动到按钮上显示的提示文字</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<parameter>width</parameter>
+</term>
+<listitem>
+<para>整数，按钮的宽度。它应该与 <parameter>src</parameter> 参数提供的图形实际宽度一致。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<parameter>height</parameter>
+</term>
+<listitem>
+<para>整数，按钮的高度。它应该与 <parameter>src</parameter> 参数提供的图形实际高度一致。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<parameter>src</parameter>
+</term>
+<listitem>
+<para>字符串，&url;、路径或者按钮图形的 <systemitem>data:</systemitem> &uri;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</informalexample>
+<para>创建一个按钮分为两个步骤：创建 <sgmltag>&lt;img&gt;</sgmltag> 元素，然后创建其外的 <sgmltag>&lt;a&gt;</sgmltag> 元素。</para>
+<para>我调用 <function>document.createElement</function> 来创建 <sgmltag>&lt;img&gt;</sgmltag> 元素，并且设置了一小部分属性，包含样式的属性。关于此模式的更多信息，请阅读<xref linkend="pattern.setstyle"/>。</para>
+<informalexample>
+<programlisting><![CDATA[img = document.createElement('img');
+img._target = target;
+img.width = width;
+img.height = height;
+img.style.borderTop = img.style.borderLeft = "1px solid #ccc";
+img.style.borderRight = img.style.borderBottom = "1px solid #888";
+img.style.marginRight = "2px";
+img.src = src;]]></programlisting>
+</informalexample>
+<para>这里有个很酷的技巧，您可以使用下面的语法同时为两个属性赋上相同的值：</para>
+<informalexample>
+<programlisting><![CDATA[img.style.borderTop = img.style.borderLeft = "1px solid #ccc";]]></programlisting>
+</informalexample>
+<para>OK, 继续前进。创建按钮的第二部分是创建链接(<sgmltag>&lt;a&gt;</sgmltag> 元素)，然后把 <sgmltag>&lt;img&gt;</sgmltag> 元素放在里面。</para>
+<informalexample>
+<programlisting><![CDATA[button = document.createElement('a');
+button._target = target;
+button.title = title;
+button.href = '#';
+button.onclick = func;
+button.appendChild(img);]]></programlisting>
+</informalexample>
+<para>我想指出两点。第一，我需要赋给链接伪造的 <property>href</property> 属性，否则 Firefox 会把它当作命名锚并且不会把它加到 tab 索引中(也就是您无法通过 tab 移动它上面，也就无法通过键盘使用)。第二，我设置了 <property>_target</property> 属性来保存目标 <sgmltag>&lt;textarea&gt;</sgmltag> 的引用。这在 Javascript 中是完全合法的；您只需要给新属性赋值，就可以给对象创建新属性。稍后，在 <systemitem>onclick</systemitem> 的事件句柄中，我会访问这个自定义的 <property>_target</property> 属性。</para>
+<para>现在，让我们跳回到 <systemitem>onclick</systemitem> 句柄。每个句柄都是一个函数，有一个参数：<parameter>event</parameter>。</para>
+<informalexample>
+<programlisting><![CDATA[function textarea_zoom_in(event)]]></programlisting>
+</informalexample>
+<para><varname>event</varname> 对象有许多属性，现在我感兴趣的只有一个：<property>currentTarget</property>。</para>
+<informalexample>
+<programlisting><![CDATA[link = event.currentTarget;]]></programlisting>
+</informalexample>
+<para>如果您阅读过<ulink url="&url_event_docs;">关于 <classname>Event</classname> 对象的文档</ulink>，您可以读到很多目标相关的属性，包含一个简单的：<property>target</property>。您可能很想使用 <property>event.target</property> 去获取已访问的链接，但是它表现(依我看来)不一致。当用户 tab 到按钮上然后敲<userinput><keycap>回车键</keycap></userinput>，<property>event.target</property> 是这个链接，但是当用户用鼠标点击按钮时，<property>event.target</property> 是链接中的图片！我想这肯定有个合理的解释，但是它超过了我对 DOM 事件模型的理解层次。无论如何，<property>event.currentTarget</property> 在所有情况下都返回链接，所以我使用它。</para>
+<para>下一步我取回了目前打算缩放的 <sgmltag>&lt;textarea&gt;</sgmltag> 的引用，通过自定义的 <property>_target</property> 属性，我在创建按钮时设置了这个属性。</para>
+<informalexample>
+<programlisting><![CDATA[    textarea = link._target;]]></programlisting>
+</informalexample>
+<para>现在好戏刚刚开始。(您认为您已经找到乐趣了吗！)我需要获得 <sgmltag>&lt;textarea&gt;</sgmltag> 当前的长宽和字体大小，这样我就可以把它们放大。简单的从<property>textarea.style</property> (<property>textarea.style.width</property>, <property>textarea.style.height</property> 和 <property>textarea.style.fontSize</property>)中获得适合的属性并<emphasis>不</emphasis>管用，因为只有在 <sgmltag>&lt;textarea&gt;</sgmltag> 的 <sgmltag class="attribute">style</sgmltag> 属性中定义它们的时候才能得到值。这不是我想要的；我要得到真实的当前样式。我需要的是 <function>getComputedStyle</function>.  关于此函数的更多信息，请阅读<xref linkend="pattern.getcomputedstyle"/>。</para>
+<informalexample>
+<programlisting><![CDATA[s = getComputedStyle(textarea, "");
+textarea.style.width = (parseFloat(s.width) * 1.5) + "px";
+textarea.style.height = (parseFloat(s.height) * 1.5) + "px";
+textarea.style.fontSize = (parseFloat(s.fontSize) + 7.0) + 'px';]]></programlisting>
+</informalexample>
+<para>最后，您还记得按钮链接上为了键盘易用新而加的伪造的 <property>href</property> 值吗？嗯，它已经变成了烦恼，因为 Firefox 执行完 <systemitem>onclick</systemitem> 句柄后，它就会尝试跳转到这个链接。因为它指向了不存在的锚，无论按钮在什么地方，Firefox  都会跳到页面的顶端。这是件恼人的事，要阻止它，我需要在完成 <systemitem>onclick</systemitem> 句柄前调用 <methodname>event.preventDefault()</methodname>。</para>
+<informalexample>
+<programlisting><![CDATA[event.preventDefault();]]></programlisting>
+</informalexample>
+<para>脚本的其余部分很简单。我遍历了所有的 <sgmltag>&lt;textarea&gt;</sgmltag> 元素，为他们各自创建缩放按钮(每个都有它自己的 <systemitem>onclick</systemitem> 句柄和按钮图片)，然后在 <sgmltag>&lt;textarea&gt;</sgmltag> 前插入缩放按钮。对于每张图片，我使用 <systemitem>data:</systemitem> &uri; 来创建内嵌的图片，所以用户不需要访问远端服务器去获取按钮图片。关于此模式的更多信息，请阅读<xref linkend="pattern.insertbefore"/>和<xref linkend="pattern.addimage"/>。</para>
+<informalexample>
+<programlisting><![CDATA[for (var i = 0; i < textareas.length; i++) {
+	textarea = textareas[i];
+	textarea.parentNode.insertBefore(
+		createButton(
+			textarea,
+			textarea_zoom_in,
+			'Increase textarea size',
+			20,
+			20,
+			'data:image/gif;base64,'+
+			'R0lGODlhFAAUAOYAANPS1tva3uTj52NjY2JiY7KxtPf3%2BLOys6WkpmJiYvDw8fX19vb'+
+			'296Wlpre3uEZFR%2B%2Fv8aqpq9va3a6tr6Kho%2Bjo6bKytZqZml5eYMLBxNra21JSU3'+
+			'Jxc3RzdXl4emJhZOvq7KamppGQkr29vba2uGBgYdLR1dLS0lBPUVRTVYB%2Fgvj4%2BYK'+
+			'Bg6SjptrZ3cPDxb69wG1tbsXFxsrJy29vccDAwfT09VJRU6uqrFlZW6moqo2Mj4yLjLKy'+
+			's%2Fj4%2BK%2Busu7t783Nz3l4e19fX7u6vaalqNPS1MjHylZVV318ftfW2UhHSG9uccv'+
+			'KzfHw8qqqrNPS1eXk5tvb3K%2BvsHNydeLi40pKS2JhY2hnalpZWlVVVtDQ0URDRJmZm5'+
+			'mYm11dXp2cnm9vcFxcXaOjo0pJSsC%2FwuXk6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC'+
+			'H5BAAAAAAALAAAAAAUABQAAAeagGaCg4SFhoeIiYqKTSQUFwgwi4JlB0pOCkEiRQKKRxM'+
+			'gKwMGDFEqBYpPRj4GAwwLCkQsijwQBAQJCUNSW1mKSUALNiVVJzIvSIo7GRUaGzUOPTpC'+
+			'igUeMyNTIWMHGC2KAl5hCBENYDlcWC7gOB1LDzRdWlZMAZOEJl83VPb3ggAfUnDo5w%2F'+
+			'AFRQxJPj7J4aMhYWCoPyASFFRIAA7'),
+		textarea);
+	textarea.parentNode.insertBefore(
+		createButton(
+			textarea,
+			textarea_zoom_out,
+			'Decrease textarea size',
+			20,
+			20,
+			'data:image/gif;base64,'+
+			'R0lGODlhFAAUAOYAANPS1uTj59va3vDw8bKxtGJiYrOys6Wkpvj4%2BPb29%2FX19mJiY'+
+			'%2Ff3%2BKqqrLe3uLKytURDRFpZWqmoqllZW9va3aOjo6Kho4KBg729vWJhZK%2BuskZF'+
+			'R4B%2FgsLBxHNydY2Mj%2Ff396amptLS0l9fX9fW2dDQ0W1tbpmZm8DAwfT09fHw8n18f'+
+			'uLi49LR1V5eYOjo6VBPUa6tr769wEhHSNra20pJStPS1KuqrNPS1ZmYm%2B7t77Kys8rJ'+
+			'y%2Fj4%2BaSjpm9uca%2BvsMjHyqalqHRzdVJRU8PDxVRTVcvKzc3Nz0pKS9rZ3evq7MC'+
+			'%2FwsXFxp2cnnl4e1VVVu%2Fv8ba2uM7Oz29vcbu6vZqZmnJxc9vb3PHx8uXk5mhnamJh'+
+			'Y1xcXZGQklZVV29vcHl4eoyLjKqpq6Wlpl1dXuXk6AAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'+
+			'AAACH5BAAAAAAALAAAAAAUABQAAAeZgGaCg4SFhoeIiYqKR1IWVgcyi4JMBiQqA0heQgG'+
+			'KQTFLPQgMCVocBIoNNqMgCQoDVReKYlELCwUFI1glEYorOgopWSwiTUVfih8dLzRTKA47'+
+			'Ek%2BKBGE8GEAhFQYuPooBOWAHY2ROExBbSt83QzMbVCdQST8Ck4QtZUQe9faCABlGrvD'+
+			'rB4ALDBMU%2BvnrUuOBQkE4NDycqCgQADs%3D'),
+		textarea);
+	textarea.parentNode.insertBefore(
+		document.createElement('br'),
+		textarea);
+}]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_zoomtextarea;">
+<filename>zoomtextarea.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_event_docs;">
+<classname>Event</classname> 文档</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.oneelement"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.getcomputedstyle"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.setstyle"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.insertbefore"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.addimage"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.zoomtextarea -->
+<section id="casestudy.accessbar">
+<?dbhtml filename="casestudy/accessbar.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Access Bar 可以显示出页面中已定义的快捷键。快捷键是由网页作者定义的，用来增强页面易用性的键盘快捷方式，让您可以通过键盘快速跳转到特定的链接或表单。(<ulink url="&url_diveintoaccesskeys;">了解快捷键</ulink>。)</para>
+</abstract>
+</sectioninfo>
+<title>案例：Access Bar</title>
+<subtitle>在固定状态栏中显示键盘快捷键</subtitle>
+<para>Firefox 支持使用快捷键，但是它不会显示页面中已定义的快捷键。由此，Access Bar 诞生了。</para>
+<example id="example.casestudy.accessbar">
+<title>
+<ulink url="&url_example_accessbar;" type="Download Access Bar">
+<filename>accessbar.user.js</filename>
+</ulink>
+</title>
+<programlisting><![CDATA[// ==UserScript==
+// @name          Access Bar
+// @namespace     http://diveintogreasemonkey.org/download/
+// @description   show accesskeys defined on page
+// @include       *
+// ==/UserScript==
+
+function addGlobalStyle(css) {
+	var head, style;
+	head = document.getElementsByTagName('head')[0];
+	if (!head) { return; }
+	style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = css;
+	head.appendChild(style);
+}
+
+var akeys, descriptions, a, desc, label, div;
+akeys = document.evaluate(
+	"//*[@accesskey]",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+if (!akeys.snapshotLength) { return; }
+descriptions = new Array();
+desc = '';
+for (var i = 0; i < akeys.snapshotLength; i++) {
+	a = akeys.snapshotItem(i);
+	desctext = '';
+	if (a.nodeName == 'INPUT') {
+		label = document.evaluate("//label[@for='" + a.name + "']",
+		document,
+		null,
+		XPathResult.FIRST_ORDERED_NODE_TYPE,
+		null).singleNodeValue;
+		if (label) {
+			desctext = label.title;
+			if (!desctext) { desctext = label.textContent; }
+		}
+	}
+	if (!desctext) { desctext = a.textContent; }
+	if (!desctext) { desctext = a.title; }
+	if (!desctext) { desctext = a.name; }
+	if (!desctext) { desctext = a.id; }
+	if (!desctext) { desctext = a.href; }
+	if (!desctext) { desctext = a.value; }
+	desc = '<strong>[' +
+	a.getAttribute('accesskey').toUpperCase() + ']</strong> ';
+	if (a.href) {
+		desc += '<a href="' + a.href + '">' + desctext + '</a>';
+	} else {
+		desc += desctext;
+	}
+	descriptions.push(desc);
+}
+descriptions.sort();
+div = document.createElement('div');
+div.id = 'accessbar-div-0';
+desc = '<div><ul><li class="first">' + descriptions[0] + '</li>';
+for (var i = 1; i < descriptions.length; i++) {
+	desc = desc + '<li>' + descriptions[i] + '</li>';
+}
+desc = desc + '</ul></div>';
+div.innerHTML = desc;
+document.body.style.paddingBottom = "4em";
+window.addEventListener(
+	"load",
+	function() {
+		document.body.appendChild(div);
+	},
+	true);
+addGlobalStyle(
+	'#accessbar-div-0 {'+
+	'  position: fixed;' +
+	'  left: 0;' +
+	'  right: 0;' +
+	'  bottom: 0;' +
+	'  top: auto;' +
+	'  border-top: 1px solid silver;' +
+	'  background: black;' +
+	'  color: white;' +
+	'  margin: 1em 0 0 0;' +
+	'  padding: 5px 0 0.4em 0;' +
+	'  width: 100%;' +
+	'  font-family: Verdana, sans-serif;' +
+	'  font-size: small;' +
+	'  line-height: 160%;' +
+	'}' +
+	'#accessbar-div-0 a,' +
+	'#accessbar-div-0 li,' +
+	'#accessbar-div-0 span,' +
+	'#accessbar-div-0 strong {' +
+	'  background-color: transparent;' +
+	'  color: white;' +
+	'}' +
+	'#accessbar-div-0 div {' +
+	'  margin: 0 1em 0 1em;' +
+	'}' +
+	'#accessbar-div-0 div ul {' +
+	'  margin-left: 0;' +
+	'  margin-bottom: 5px;' +
+	'  padding-left: 0;' +
+	'  display: inline;' +
+	'}' +
+	'#accessbar-div-0 div ul li {' +
+	'  margin-left: 0;' +
+	'  padding: 3px 15px;' +
+	'  border-left: 1px solid silver;' +
+	'  list-style: none;' +
+	'  display: inline;' +
+	'}' +
+	'#accessbar-div-0 div ul li.first {' +
+	'  border-left: none;' +
+	'  padding-left: 0;' +
+	'}');]]></programlisting>
+</example>
+<para>这段代码分为六个步骤：</para>
+<orderedlist>
+<listitem>
+<para>定义一个辅助函数，<function>addGlobalStyle</function>
+</para>
+</listitem>
+<listitem>
+<para>获取包含有 <sgmltag class="attribute">accesskey</sgmltag> 熟悉的页面元素</para>
+</listitem>
+<listitem>
+<para>遍历这些元属，然后为每个元素决定最恰当的文本描述</para>
+</listitem>
+<listitem>
+<para>为已启用 <sgmltag class="attribute">accesskey</sgmltag> 的元素，构建一个有序的链接列表。</para>
+</listitem>
+<listitem>
+<para>把这个有序列表加到页面中，使用标准的 <sgmltag>ul</sgmltag> 和 <sgmltag>li</sgmltag> 元素</para>
+</listitem>
+<listitem>
+<para>样式化此列表，让它看起来像一个固定在视图底部的伪状态栏</para>
+</listitem>
+</orderedlist>
+<para>首先，我需要一个辅助函数 <function>addGlobalStyle</function>，注入我自己的 CSS 样式(在第六步中会用到)。关于此模式的更多信息，请阅读<xref linkend="pattern.addcss"/>。</para>
+<informalexample>
+<programlisting><![CDATA[function addGlobalStyle(css) {
+	var head, style;
+	head = document.getElementsByTagName('head')[0];
+	if (!head) { return; }
+	style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = css;
+	head.appendChild(style);
+}]]></programlisting>
+</informalexample>
+<para>第二步，找出页面中有 <sgmltag class="attribute">accesskey</sgmltag> 属性的全部元素。在 Firefox 的 XPath 支持下很容易办到。注释：如果 XPath 查询返回空集，我可以保证，那是因为这里没有什么需要显示的。此模式的更多信息，请阅读<xref linkend="pattern.certainattribute"/>。</para>
+<informalexample>
+<programlisting><![CDATA[var akeys, descriptions, a, i, desc, label, div;
+akeys = document.evaluate(
+	"//*[@accesskey]",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+if (!akeys.snapshotLength) { return; }]]></programlisting>
+</informalexample>
+<para>第三步，构造每个启用 <sgmltag class="attribute">accesskey</sgmltag> 元素的适当描述的清单列表，这是脚本中最复杂的一段。问题是 <sgmltag class="attribute">accesskey</sgmltag> 属性可以出现在许多不同的 &html; 元素中。</para>
+<para>表单中的 <sgmltag>input</sgmltag> 元素可以定义 <sgmltag class="attribute">accesskey</sgmltag>。<sgmltag>input</sgmltag> 元素可有或可无相关联的 <sgmltag>label</sgmltag>，它包含与 <sgmltag>input</sgmltag> 域有关联的文字标签。如果有，<sgmltag>label</sgmltag> 可能包含 <sgmltag class="attribute">title</sgmltag> 属性，提供关于 <sgmltag>input</sgmltag> 域的更多详细信息。或者 <sgmltag>label</sgmltag> 属性只包含文本。或者 <sgmltag>input</sgmltag> 元素可能没有关联的标签，这中情况下，我最好使用 <sgmltag>input</sgmltag> 元素的 <sgmltag class="attribute">value</sgmltag> 属性。</para>
+<para>另一方面，<sgmltag>label</sgmltag> 自己也可以定义 <sgmltag class="attribute">accesskey</sgmltag>，代替标签描述的 <sgmltag>input</sgmltag> 元素。再者，我会查找 <sgmltag>label</sgmltag> 元素的 <sgmltag class="attribute">title</sgmltag> 属性作为描述，如果 <sgmltag class="attribute">title</sgmltag> 不存在，就退而使用标签的文本。</para>
+<para>链接同样可以定义 <sgmltag class="attribute">accesskey</sgmltag> 属性。如果有，选择链接的文本是理所当然的。但是如果链接不包含文本(例如，它只包含一张图片)，那么下个地方就是找链接的 <sgmltag class="attribute">title</sgmltag> 属性。如果链接既没有文本，又没有 <sgmltag class="attribute">title</sgmltag>，我就退而使用链接的 <sgmltag class="attribute">name</sgmltag> 属性，要是还是不成，就用链接的 <sgmltag>id</sgmltag> 属性。</para>
+<para>Ain't heuristics a bitch? 这是完整的算法。记着，<varname>akeys</varname> 是一个 <classname>XPathResult</classname> 对象，所以我要调用 <methodname>akeys.snapshotItem(i)</methodname> 来得到每个结果。</para>
+<informalexample>
+<programlisting><![CDATA[descriptions = new Array();
+desc = '';
+for (var i = 0; i < akeys.snapshotLength; i++) {
+	a = akeys.snapshotItem(i);
+	desctext = '';
+	if (a.nodeName == 'INPUT') {
+		label = document.evaluate("//label[@for='" + a.name + "']",
+		document,
+		null,
+		XPathResult.FIRST_ORDERED_NODE_TYPE,
+		null).singleNodeValue;
+		if (label) {
+			desctext = label.title;
+			if (!desctext) { desctext = label.textContent; }
+		}
+	}
+	if (!desctext) { desctext = a.textContent; }
+	if (!desctext) { desctext = a.title; }
+	if (!desctext) { desctext = a.name; }
+	if (!desctext) { desctext = a.id; }
+	if (!desctext) { desctext = a.href; }
+	if (!desctext) { desctext = a.value; }
+	desc = '<strong>[' +
+	a.getAttribute('accesskey').toUpperCase() + ']</strong> ';
+	if (a.href) {
+		desc += '<a href="' + a.href + '">' + desctext + '</a>';
+	} else {
+		desc += desctext;
+	}
+	descriptions.push(desc);
+}]]></programlisting>
+</informalexample>
+<para>第四步比较简单，因为 Javascript 数组有个 <methodname>sort</methodname> 方法，可以给数组在原地排序。</para>
+<informalexample>
+<programlisting><![CDATA[descriptions.sort();]]></programlisting>
+</informalexample>
+<para>第五步创建了 &html; 代码，用来渲染启用 <sgmltag class="attribute">accesskey</sgmltag> 的元素列表。我创建一个外包装
+<sgmltag>&lt;div&gt;</sgmltag>，为字符串形式的快捷键列表构造 &html;，设置外包装 <sgmltag>&lt;div&gt;</sgmltag>  的 <property>innerHTML</property> 属性，最后把它加到页面的末尾。因为当用户脚本执行时，对页面的复杂改动应该在页面加载完成以后，所以我使用 <methodname>window.addEventListener</methodname> 加入 &onload; 事件，来向页面中加入 <sgmltag>&lt;div&gt;</sgmltag>。</para>
+<para>有关 <property>innerHTML</property> 的用法，请阅读<xref linkend="pattern.innerhtml"/>， 有关 <methodname>window.addEventListener</methodname> 的用法，请阅读<xref linkend="pattern.postprocess"/>。</para>
+<informalexample>
+<programlisting><![CDATA[div = document.createElement('div');
+div.id = 'accessbar-div-0';
+desc = '<div><ul><li class="first">' + descriptions[0] + '</li>';
+for (var i = 1; i < descriptions.length; i++) {
+	desc = desc + '<li>' + descriptions[i] + '</li>';
+}
+desc = desc + '</ul></div>';
+div.innerHTML = desc;
+document.body.style.paddingBottom = "4em";
+window.addEventListener(
+	"load",
+	function() {
+		document.body.appendChild(div);
+	},
+	true);]]></programlisting>
+</informalexample>
+<para>最后，第六步，为了使插入的 &html; 看起来更协调，我在页面中加入了自己的 CSS  声明。(很明显，它将作为固定的黑色工具栏出现在页面的底部。滚动页面的时候，它仍然在那个位置，这是因为 Firefox 支持 <literal>position:fixed</literal>显示类型。)更多的信息，请阅读<xref linkend="pattern.addcss"/>。</para>
+<informalexample>
+<programlisting><![CDATA[addGlobalStyle(
+	'#accessbar-div-0 {'+
+	'  position: fixed;' +
+	'  left: 0;' +
+	'  right: 0;' +
+	'  bottom: 0;' +
+	'  top: auto;' +
+	'  border-top: 1px solid silver;' +
+	'  background: black;' +
+	'  color: white;' +
+	'  margin: 1em 0 0 0;' +
+	'  padding: 5px 0 0.4em 0;' +
+	'  width: 100%;' +
+	'  font-family: Verdana, sans-serif;' +
+	'  font-size: small;' +
+	'  line-height: 160%;' +
+	'}' +
+	'#accessbar-div-0 a,' +
+	'#accessbar-div-0 li,' +
+	'#accessbar-div-0 span,' +
+	'#accessbar-div-0 strong {' +
+	'  background-color: transparent;' +
+	'  color: white;' +
+	'}' +
+	'#accessbar-div-0 div {' +
+	'  margin: 0 1em 0 1em;' +
+	'}' +
+	'#accessbar-div-0 div ul {' +
+	'  margin-left: 0;' +
+	'  margin-bottom: 5px;' +
+	'  padding-left: 0;' +
+	'  display: inline;' +
+	'}' +
+	'#accessbar-div-0 div ul li {' +
+	'  margin-left: 0;' +
+	'  padding: 3px 15px;' +
+	'  border-left: 1px solid silver;' +
+	'  list-style: none;' +
+	'  display: inline;' +
+	'}' +
+	'#accessbar-div-0 div ul li.first {' +
+	'  border-left: none;' +
+	'  padding-left: 0;' +
+	'}');]]></programlisting>
+</informalexample>
+<itemizedlist role="download">
+<title>下载</title>
+<listitem>
+<para>
+<ulink url="&url_example_accessbar;">
+<filename>accessbar.user.js</filename>
+</ulink>
+</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.addcss"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.certainattribute"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.innerhtml"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="pattern.postprocess"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- casestudy.accessbar -->
+</chapter>
+<!-- casestudy -->
+<chapter id="advanced">
+<?dbhtml filename="advanced/index.html"?>
+<title>高级话题</title>
+<section id="advanced.getvalue">
+<?dbhtml filename="advanced/gm_getvalue.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 定义了两个函数，<function>GM_setValue</function> 和 <function>GM_getValue</function>，用户脚本就可以存取<quote>私有</quote>数据，并且只有这个用户脚本才能访问。(其他脚本无法访问这些数据，并不仅仅是用户脚本。)可以使用这两个函数存储脚本专有的配置，维护在页面之间持续的缓存，或者记持续的活动日志。</para>
+</abstract>
+</sectioninfo>
+<title>存取持久数据</title>
+<note>
+<title/>
+<para><function>GM_setValue</function> 保存的和 <function>GM_getValue</function> 读取的数据与浏览器 cookies 很相似，但也有重要的区别。两者都存放在本地电脑中，但是 cookies 是<emphasis>域名专用</emphasis>的而且只能被创建它们的域名访问，Greasemonkey 配置值是<emphasis>脚本专用</emphasis>的而且只能被创建这些参数的脚本访问(与执行用户脚本的 &url; 也无关)。而且与 cookies 不同的是，配置值绝不会发送到远程服务器上去。</para>
+</note>
+<para>
+<function>GM_setValue</function> 保存脚本专用配置值，<function>GM_getValue</function> 读取它。</para>
+<informalexample>
+<programlisting><![CDATA[function GM_setValue(key, value);
+
+function GM_getValue(key, defaultValue);]]></programlisting>
+</informalexample>
+<para>
+<parameter>key</parameter> 参数是没有固定格式(no fixed format)的字符串。<parameter>value</parameter> 可以是字符串，布尔值或者整数。<function>GM_getValue</function> 的 <parameter>defaultValue</parameter> 参数是可选的；如果设置了此参数，当查询的 <parameter>key</parameter> 指定的值不存在时返回此默认参数。如果不设置 <parameter>defaultValue</parameter>，当查询的 <parameter>key</parameter>指定的值不存在时，<function>GM_getValue</function> 会返回 <returnvalue>undefined</returnvalue>。</para>
+<para>这2个函数由 Greasemonkey 0.3 引入。您应该<link linkend="pattern.test">测试它们是否存在</link>，否则完全降低(degrade gracefully)。</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_mypipstag;">MyPIPsTag</ulink> 首次运行时提示您输入用户名。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_post_interceptor;">POST Interceptor</ulink> 添加菜单项(使用 <link linkend="advanced.registermenucommand">
+<function>GM_registerMenuCommand</function>
+</link>)来切换脚本是否生效。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_msdn_language_filter;">&msdn; Language Filter</ulink> 插入设置选项到页面中。</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="api.gmgetvalue"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="api.gmsetvalue"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- advanced.getvalue -->
+<section id="advanced.registermenucommand">
+<?dbhtml filename="advanced/gm_registermenucommand.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 定义了一个函数，<function>GM_registerMenuCommand</function>，让用户脚本可添加菜单项到 Firefox 菜单栏上。当用户脚本激活时，注册的菜单项会出现在<menuchoice><guimenuitem>User Script <accel>C</accel>ommands</guimenuitem></menuchoice> 子菜单中。</para>
+</abstract>
+</sectioninfo>
+<title>在菜单栏上添加菜单项</title>
+<informalexample>
+<programlisting><![CDATA[function GM_registerMenuCommand(menuText, callbackFunction);]]></programlisting>
+</informalexample>
+<para>
+<parameter>menuText</parameter> 参数是一个字符串，新增的菜单项的名称。<parameter>callbackFunction</parameter> 参数是函数对象。选中此菜单项，<function>callbackFunction</function> 函数就会被调用。</para>
+<para>这个函数由 Greasemonkey 0.2.6 引入。您应该<link linkend="pattern.test">测试它是否存在</link>，否则完全降低(degrade gracefully)。</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_post_interceptor;">POST Interceptor</ulink> 新增了菜单项来切换脚本是否有效。</para>
+</listitem>
+</itemizedlist>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="api.gmregistermenucommand"/>
+</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- advanced.registermenucommand -->
+<section id="advanced.xmlhttprequest">
+<?dbhtml filename="advanced/gm_xmlhttprequest.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>Greasemonkey 定义了一个函数，<function>GM_xmlhttpRequest</function>，允许用户脚本使用从任意 &url; <constant>GET</constant> (获取)数据，或者 <constant>POST</constant> (发送)数据到任意 &url;。</para>
+</abstract>
+</sectioninfo>
+<title>整合其他网站的数据</title>
+<para>更多细节和示例，请阅读<xref linkend="api.gmxmlhttprequest"/>。</para>
+<para>这个函数是在 Greasemonkey 0.2.6 中引入的。您应该<link linkend="pattern.test">测试它是否存在</link>，否则完全降低(degrade gracefully)。</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_librarylookup;">LibraryLookup</ulink> 整合 <ulink url="&url_amazon;">Amazon.com</ulink> 和您的本地图书馆。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_annotate_google;">Annotate Google</ulink> 整合 <ulink url="&url_google;">Google</ulink> 和 <ulink url="&url_delicious;">del.icio.us</ulink>。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_bloglines_tweaks;">Bloglines Tweaks</ulink> 在 <ulink url="&url_bloglines;">Bloglines</ulink> 的文章汇总上添加了一个 <guibutton>Expand</guibutton> 按钮，可以获取并显示全部文章。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_flick_batch;">Flick Batch Enhancer</ulink> 使用 <function>GM_xmlhttpRequest</function>，利用 Flickr 自己的 &rest; API，在 <ulink url="&url_flickr;">Flickr</ulink> 上新增功能。</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_hide_google_redirects;">Hide Google Redirects</ulink> 改编 <ulink url="&url_google_searchhistory;">Google 个人搜索历史</ulink>，使用普通的 <sgmltag>&lt;a href="..."&gt;</sgmltag> 链接，但是仍然可以跟踪点击。在适当的跟踪 &url; 上调用 <function>GM_xmlhttpRequest</function>。</para>
+</listitem>
+</itemizedlist>
+</section>
+<!-- advanced.xmlhttprequest -->
+<section id="advanced.compiler">
+<?dbhtml filename="advanced/compiler.html"?>
+<sectioninfo>
+<abstract>
+<title/>
+<para>想让您的用户脚本<quote>长出</quote> Greasemonkey 的架构吗？您的用户脚本需要访问 Javascript 特许函数，本地文件，或者只有全资格的扩展才具有的其它 Firefox 特性？可以把您的用户脚本转换为全资格的 <filename>XPI</filename>，仅仅点几下就行了。感谢 Adrian Holovaty 惊人的 <ulink url="&url_greasemonkey_compiler;">Greasemonkey 编译器</ulink>！</para>
+</abstract>
+</sectioninfo>
+<title>把您的用户脚本编译为扩展</title>
+<procedure>
+<title>把 Butler 编译成浏览器扩展</title>
+<step>
+<para>访问 <ulink url="&url_example_butler;">Butler 用户脚本源代码</ulink>。在菜单中，选择<menuchoice>
+<shortcut>
+<keycombo>
+<keycap>Ctrl</keycap>
+<keycap>A</keycap>
+</keycombo>
+</shortcut>
+<guimenu>编辑 (<accel>E</accel>)</guimenu>
+<guimenuitem>全选 (<accel>A</accel>)</guimenuitem>
+</menuchoice>复制用户脚本源代码到剪贴板。</para>
+</step>
+<step>
+<para>访问<ulink url="&url_greasemonkey_compiler;">Greasemonkey 编译器</ulink>。</para>
+</step>
+<step>
+<para>转到 <guilabel>Javascript</guilabel> field.  在菜单中，选择<menuchoice>
+<shortcut>
+<keycombo>
+<keycap>Ctrl</keycap>
+<keycap>V</keycap>
+</keycombo>
+</shortcut>
+<guimenu>编辑 (<accel>E</accel>)</guimenu>
+<guimenuitem>粘贴 (<accel>P</accel>)</guimenuitem>
+</menuchoice>粘贴 Butler 用户脚本源代码。</para>
+</step>
+<step>
+<para>在 <guilabel>Creator(作者)</guilabel> 栏中，填入 <userinput>Mark Pilgrim</userinput>。</para>
+</step>
+<step>
+<para>在 <guilabel>Version(版本)</guilabel> 栏中，填入 Butler 用户脚本的当前版本(&butlerversion;截至发稿时， 否则请检查脚本的<link linkend="first.metadata">元数据段</link>找到确切的版本)。</para>
+</step>
+<step>
+<para>打开一个新窗口或者标签，访问 <ulink url="&url_guid_generator;">GUID Generator(GUID 产生器)</ulink> ，产生一个随机的 GUID。把这个 GUID 复制到剪贴板，包含花括号。</para>
+</step>
+<step>
+<para>切换回 <interface role="windowtitle">Greasemonkey 编译器</interface> 页面。在 <guilabel>GUID</guilabel> 栏中，粘贴刚才从 GUID 产生器上获得的 GUID。</para>
+</step>
+<step>
+<para>在 <guilabel>Homepage(主页)</guilabel> 栏中，填入<userinput><systemitem>&url_butlerhomepage;</systemitem></userinput>。</para>
+</step>
+<step>
+<para>点击 <guibutton>Create the Firefox extension(创建 Firefox 扩展)</guibutton>。Firefox 会弹出一个对话框：<interface role="windowtitle">打开 butler.xpi</interface>。选择<guibutton>保存到磁盘</guibutton>，并且选择下载目录</para>
+</step>
+</procedure>
+<para>好啦！您先在有 Butler 的浏览器扩展了。在安装 Butler 扩展前，应该先<link linkend="procedure.manage.userscripts">禁用 Butler 用户脚本</link>然后 <ulink url="&url_google;">Google</ulink> 一下禁用是否生效。然后安装 Butler 扩展，选择<menuchoice>
+<guimenu>文件 (<accel>F</accel>)</guimenu>
+<guimenuitem>打开... (<accel>O</accel>)</guimenuitem>
+</menuchoice>然后选中用 Greasemonkey 编辑器创建的 <filename>butler.xpi</filename> 文件。务必在安装完成后重新启动浏览器。</para>
+<para> <filename>.xpi</filename> 文件其实就是有确定的目录结构的 ZIP 压缩包。可以用任一 ZIP 程序(例如 Windows 下用 <ulink url="&url_7zip;">7-zip</ulink> 或者在 Mac OS X 下用 <ulink url="&url_stuffit;">Stuffit Expander</ulink>)解压缩文档，然后看下浏览器扩展是由哪些文件组成。</para>
+<informalexample>
+<screen>butler.xpi
+|
++-- install.rdf
+|
++-- chrome/
+|
++-- butler/
+|
++-- content/
+|
++-- browser.xul
+|
++-- contents.rdf
+|
++-- javascript.js</screen>
+<para>这里有四个有关的文件。两个 RDF 文件是大多数 Firefox 的样板文件。其他两个包含有实现代码。</para>
+<variablelist>
+<varlistentry>
+<term>
+<filename>install.rdf</filename>
+</term>
+<listitem>
+<para>与扩展自身有关的元数据，包括名称、版本、描述和兼容的 Firefox 版本。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<filename>browser.xul</filename>
+</term>
+<listitem>
+<para>引导代码。检查对比当前的 &url; 与脚本的 <literal>@include</literal> 和 <literal>@exclude</literal> 参数，然后注入执行脚本。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<filename>contents.rdf</filename>
+</term>
+<listitem>
+<para>额外的元数据，Firefox 样板文件。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<filename>javascript.js</filename>
+</term>
+<listitem>
+<para>原用户脚本的源代码。</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</informalexample>
+<para>基本上，Greasemonkey 编译器创建了真正的 Greasemonkey 缩减版，没有用户脚本，在适当的 &url; 上自动加载一个用户脚本。但是如果有所有的源文件，您可以自己创建自定义对话框、修改配置面板，或者注册<menuchoice><guimenuitem>User Script <accel>C</accel>ommands</guimenuitem></menuchoice>以外的菜单项……发狂了！</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_extension_developers_extension;">扩展开发者的扩展</ulink>，调试和测试 Firefox 扩展的无价之宝。</para>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+<!-- advanced -->
+<reference id="api">
+<?dbhtml filename="api/index.html"?>
+<title>Greasemonkey API 参考</title>
+<refentry id="api.gmlog">
+<?dbhtml filename="api/gm_log.html"?>
+<refmeta>
+<refentrytitle>GM_log</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_log</refname>
+<refpurpose>记录日志到错误控制台</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>GM_log</function>
+</funcdef>
+<paramdef>
+<parameter>message</parameter>
+</paramdef>
+<paramdef>
+<parameter>level</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_log</function> 在错误控制台中输入信息。主要用于调试。level 是可选的，默认值是0。其有效的值有：0 - 信息、1 - 警告、2 - 错误。 </para>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_log</function> 由 Greasemonkey 0.3 引入。</para>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="debug.gmlog"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="debug.console"/>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>
+<!-- api.gmlog -->
+<refentry id="api.gmgetvalue">
+<?dbhtml filename="api/gm_getvalue.html"?>
+<refmeta>
+<refentrytitle>GM_getValue</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_getValue</refname>
+<refpurpose>读取脚本专用的配置值</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>
+<replaceable>returntype</replaceable>
+<function>GM_getValue</function>
+</funcdef>
+<paramdef>
+<parameter>key</parameter>
+</paramdef>
+<paramdef>
+<parameter>defaultValue</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_getValue</function> 返回一条脚本专用的配置值。返回值可以是字符串，布尔值或者整数。<parameter>key</parameter> 参数是没有固定格式(no fixed format)的字符串。<parameter>defaultValue</parameter> 参数是可选的；如果设置了此参数，当查询的 <parameter>key</parameter> 指定的值不存在时返回此默认参数。如果不设置 <parameter>defaultValue</parameter>，当查询的 <parameter>key</parameter>指定的值不存在时返回 <returnvalue>undefined</returnvalue>。</para>
+<para>Greasemonkey 的配置值与浏览器 cookies 很相似，但也有重要的区别。两者都存放在本地电脑中，但是 cookies 是域名专用的而且只能被创建它们的域名访问，Greasemonkey 配置值是脚本专用的而且只能被创建这些参数的脚本访问(与执行用户脚本的地址也无关)。而且与 cookies 不同的是，配置值绝不会发送到远程服务器上去。</para>
+<tip>
+<title/>
+<para>访问 <systemitem>about:config</systemitem>，然后再过滤器中填 <literal>greasemonkey.scriptvals</literal> ，就可以查看已存储的配置值。</para>
+</tip>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_getValue</function> 由 Greasemonkey 0.3 引入。</para>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="api.gmsetvalue"/>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>
+<!-- api.gmgetvalue -->
+<refentry id="api.gmsetvalue">
+<?dbhtml filename="api/gm_setvalue.html"?>
+<refmeta>
+<refentrytitle>GM_setValue</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_setValue</refname>
+<refpurpose>设置脚本专用的配置值</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>GM_setValue</function>
+</funcdef>
+<paramdef>
+<parameter>key</parameter>
+</paramdef>
+<paramdef>
+<parameter>value</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_setValue</function> 用来存储脚本专用的配置值。<parameter>key</parameter> 参数是无固定格式的字符串。<parameter>value</parameter> 参数可以是字符串，布尔值或者整数。这两个参数都是必需的。</para>
+<para>Greasemonkey 的配置值与浏览器 cookies 很相似，但也有重要的区别。两者都存放在本地电脑中，但是 cookies 是域名专用的而且只能被创建它们的域名访问，Greasemonkey 配置值是脚本专用的而且只能被创建这些参数的脚本访问(与执行用户脚本的地址也无关)。而且与 cookies 不同的是，配置值绝不会发送到远程服务器上去。</para>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_getValue</function> 由 Greasemonkey 0.3 引入。</para>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="api.gmgetvalue"/>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>
+<!-- api.gmsetvalue -->
+<refentry id="api.gmregistermenucommand">
+<?dbhtml filename="api/gm_registermenucommand.html"?>
+<refmeta>
+<refentrytitle>GM_registerMenuCommand</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_registerMenuCommand</refname>
+<refpurpose>在 <guisubmenu>用户脚本命令 (<accel>C</accel>)</guisubmenu> 子菜单中添加菜单项</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>GM_registerMenuCommand</function>
+</funcdef>
+<paramdef>
+<parameter>commandName</parameter>
+</paramdef>
+<paramdef>
+<parameter>commandFunc</parameter>
+</paramdef>
+<paramdef>
+<parameter>accelKey</parameter>
+</paramdef>
+<paramdef>
+<parameter>accelModifiers</parameter>
+</paramdef>
+<paramdef>
+<parameter>accessKey</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_registerMenuCommand</function> 在 <menuchoice>
+<guimenu>工具 (<accel>T</accel>)</guimenu> 
+<guimenu><accel>G</accel>reasemonkey</guimenu> 
+<guisubmenu>用户脚本命令 （<accel>C</accel>)</guisubmenu></menuchoice> 子菜单中添加菜单项。<parameter>commandName</parameter> 参数是一个字符串，新增的菜单项的名称。<parameter>commandFunc</parameter> 参数是函数对象。选中此菜单项，<function>commandFunc</function> 函数就会被调用。<parameter>accelKey</parameter> 单字符(例如：'g')或者键盘码，用来触发命令。<parameter>accelKey</parameter> 字符串，列出了必须与 <parameter>accelKey</parameter> 同时按下的修饰键。如果多于一个功能键，用空格分开。例如，'shift' 或者 'ctrl alt'。可用的功能键有：shift, alt, meta, control 和 accel。<parameter>accessKey</parameter>  单字符(例如：'g')当菜单打开时用来跳转到命令。它最好是 <parameter>commandName</parameter> 中的一个字母。</para>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>
+<replaceable>callbackFunction</replaceable>
+</function>
+</funcdef>
+<paramdef>
+<parameter>e</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+<para>参数 <parameter>e</parameter> 是菜单选择事件。我不知道这有什么用。</para>
+</refsection>
+<!--refsection>
+<title>Bugs</title>
+<para>无法设置菜单的快捷键。调用 <function>GM_registerMenuCommand('Some &amp;menu text', <replaceable>myFunction</replaceable>)</function> 会创建一个名为 <quote><literal>Some &amp;menu text</literal></quote> 的菜单项。<ulink url="http://bugzilla.mozdev.org/show_bug.cgi?id=10090">Bug 10090</ulink>)</para>
+</refsection-->
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_registerMenuCommand</function> 由 Greasemonkey 0.2.6 引入。</para>
+</refsection>
+</refentry>
+<!-- api.gmregistermenucommand -->
+<refentry id="api.gmxmlhttprequest">
+<?dbhtml filename="api/gm_xmlhttprequest.html"?>
+<refmeta>
+<refentrytitle>GM_xmlhttpRequest</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_xmlhttpRequest</refname>
+<refpurpose>进行任意的 &http; 请求</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>
+<function>GM_xmlhttpRequest</function>
+</funcdef>
+<paramdef>
+<parameter>details</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_xmlhttpRequest</function> 建立任意的 &http; 请求。 <parameter>详细</parameter> 参数是一个有七个域的对象。</para>
+<variablelist>
+<varlistentry>
+<term>method</term>
+<listitem>
+<para>字符串，请求使用的方法 &http;。<emphasis>必需。</emphasis>  通常使用 <constant>GET</constant>，但也可使任一个 &http; 动词，包含 <literal>POST</literal>, <literal>PUT</literal> 和 <literal>DELETE</literal>。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>url</term>
+<listitem>
+<para>字符串，请求使用的 &url;。<emphasis>必需。</emphasis>
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>headers</term>
+<listitem>
+<para>这个请求包含的 &http; 头的关联数组。可选，默认为空字符串。例如：</para>
+<informalexample>
+<programlisting><![CDATA[headers: {'User-Agent': 'Mozilla/4.0 (compatible) Greasemonkey',
+'Accept': 'application/atom+xml,application/xml,text/xml'}]]></programlisting>
+</informalexample>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>data</term>
+<listitem>
+<para>字符串，&http; 请求的主体。可选，默认是空字符串。如果您在模拟提交表单(<parameter>method</parameter> == <literal>'POST'</literal>)，在 <parameter>headers</parameter> 域中必需有 <literal>Content-type</literal>，值为 <literal>'application/x-www-form-urlencoded'</literal>，而且在 <parameter>data</parameter> 域包含有 &url; 编码后的表单数据。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>&onload;</term>
+<listitem>
+<para>函数对象，请求成功完成调用的回调函数。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>&onerror;</term>
+<listitem>
+<para>函数对象，执行请求发生错误时调用的回调函数。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>&onreadystatechange;</term>
+<listitem>
+<para>函数对象，请求进行时反复调用的回调函数。</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<refsection>
+<title>&onload; 回调</title>
+<para>&onload; 的回调函数，有一个变量，<parameter>responseDetails</parameter>。</para>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>onloadCallback</function>
+</funcdef>
+<paramdef>
+<parameter>responseDetails</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+<para>
+<parameter>responseDetails</parameter> 是有五个域的对象。</para>
+<variablelist>
+<varlistentry>
+<term>status</term>
+<listitem>
+<para>整数，&http; 应答的状态代码。<constant>200</constant> 意为请求正常完成。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>statusText</term>
+<listitem>
+<para>字符串，&http; 状态文字。状态文字是依赖于服务器的。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseHeaders</term>
+<listitem>
+<para>字符串，应答包含的 &http; 头部。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseText</term>
+<listitem>
+<para>字符串，应答的主体。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>readyState</term>
+<listitem>
+<para>未使用</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</refsection>
+<refsection>
+<title>&onerror; 回调</title>
+<para>&onerror; 的回调函数，有一个参数，<parameter>responseDetails</parameter>。</para>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>
+<replaceable>onerrorCallback</replaceable>
+</function>
+</funcdef>
+<paramdef>
+<parameter>responseDetails</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+<para>
+<parameter>responseDetails</parameter> 是有五个域的对象。</para>
+<variablelist>
+<varlistentry>
+<term>status</term>
+<listitem>
+<para>整数，&http; 的错误代码。<constant>404</constant> 意为页面无法找到。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>statusText</term>
+<listitem>
+<para>字符串，&http; 状态文字。状态文字是依赖于服务器的。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseHeaders</term>
+<listitem>
+<para>字符串，应答包含的 &http; 头部。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseText</term>
+<listitem>
+<para>字符串，应答的主体。&http; 错误页面的主体是依赖于服务器的。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>readyState</term>
+<listitem>
+<para>未使用</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</refsection>
+<refsection>
+<title>&onreadystatechange; 回调</title>
+<para>&onreadystatechange; 的回调函数，当请求正在进行时反复调用。有一个参数，<parameter>responseDetails</parameter>。</para>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>onreadystatechangeCallback</function>
+</funcdef>
+<paramdef>
+<parameter>responseDetails</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+<para>
+<parameter>responseDetails</parameter> 是有五个域的对象。<property>responseDetails.readyState</property> 指示了请求当前所在的阶段。</para>
+<variablelist>
+<varlistentry>
+<term>status</term>
+<listitem>
+<para>整数，应答的 &http; 状态代码。当 <property>responseDetails.readyState</property>
+<literal>&lt;</literal>
+<constant>4</constant>时，这个值是<constant>0</constant>。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>statusText</term>
+<listitem>
+<para>字符串，&http; 状态文字。当 <property>responseDetails.readyState</property>
+<literal>&lt;</literal>
+<constant>4</constant>时，这个值是空字符串。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseHeaders</term>
+<listitem>
+<para>字符串，应答包含的 &http; 头。当 <property>responseDetails.readyState</property>
+<literal>&lt;</literal>
+<constant>4</constant>时，这个值是空字符串。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>responseText</term>
+<listitem>
+<para>字符串， 应答的主体。当 <property>responseDetails.readyState</property>
+<literal>&lt;</literal>
+<constant>4</constant>时，这个值是空字符串。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>readyState</term>
+<listitem>
+<para>整数，the stage of the &http; request。</para>
+<variablelist>
+<varlistentry>
+<term>
+<constant>1</constant>
+</term>
+<listitem>
+<para>正在载入。请求已准备好。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<constant>2</constant>
+</term>
+<listitem>
+<para>已加载。请求准备发送到服务器，但是还什么都没发。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<constant>3</constant>
+</term>
+<listitem>
+<para>交互状态。请求已经发送，并且客户端等待服务器完成发送数据。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<constant>4</constant>
+</term>
+<listitem>
+<para>完成。请求已完成，并且其他域中的所有应答数据已可用。</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+</refsection>
+</refsection>
+<refsection>
+<title>例子</title>
+<para>下面的代码从<ulink url="&url_greaseblog;"/>获取 Atom feed，然后用警告窗口显示结果。</para>
+<informalexample>
+<programlisting><![CDATA[GM_xmlhttpRequest({
+method: 'GET',
+url: 'http://greaseblog.blogspot.com/atom.xml',
+headers: {
+'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
+'Accept': 'application/atom+xml,application/xml,text/xml',
+},
+onload: function(responseDetails) {
+alert('Request for Atom feed returned ' + responseDetails.status +
+' ' + responseDetails.statusText + '\n\n' +
+'Feed data:\n' + responseDetails.responseText);
+}
+});]]></programlisting>
+</informalexample>
+</refsection>
+<refsection>
+<title>Bugs</title>
+<para>&onreadystatechange; 回调函数当 <property>readyState</property>
+<literal>&lt;</literal>
+<constant>4</constant>时，工作不正常。</para>
+</refsection>
+<refsection>
+<title>注释</title>
+<para>与　<classname>XMLHttpRequest</classname> 对象不同，<function>GM_xmlhttpRequest</function> 并不限制与当前域名；它能够从任何 &url; <constant>GET</constant> 或者 <constant>POST</constant> 数据。</para>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_xmlhttpRequest</function> 由 Greasemonkey 0.2.6 引入。</para>
+<itemizedlist role="furtherreading">
+<title>参考资料</title>
+<listitem>
+<para>
+<ulink url="&url_mozillaxmlhttprequest;">
+<classname>XMLHttpRequest</classname> 在 Mozilla 中的支持</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_iexmlhttprequest;">
+<classname>XMLHttpRequest</classname> 在 Internet Explorer 中的支持</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_safarixmlhttprequest;">
+<classname>XMLHttpRequest</classname> 在 Safari 中的支持</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_httpstatuscodes;">&http; 状态代码</ulink>
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="&url_rfc2616;">RFC 2616</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>
+<!-- api.gmxmlhttprequest -->
+<refentry id="api.gmopenintab">
+<?dbhtml filename="api/gm_openintab.html"?>
+<refmeta>
+<refentrytitle>GM_openInTab</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_openInTab</refname>
+<refpurpose>在新标签中打开指定的 &url;</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>GM_openInTab</function>
+</funcdef>
+<paramdef>
+<parameter>url</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_openInTab</function> 在新标签中打开指定的 &url;。</para>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_openInTab</function> 由 Greasemonkey 0.5 beta 引入。</para>
+<!--itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="debug.gmlog"/>
+</para>
+</listitem>
+<listitem>
+<para>
+<xref linkend="debug.console"/>
+</para>
+</listitem>
+</itemizedlist-->
+</refsection>
+</refentry>
+<!-- api.gmopenintab -->
+<refentry id="api.gmaddstyle">
+<?dbhtml filename="api/gm_addstyle.html"?>
+<refmeta>
+<refentrytitle>GM_addStyle</refentrytitle>
+</refmeta>
+<refnamediv>
+<refname>GM_addStyle</refname>
+<refpurpose>给页面添加 &css; 样式</refpurpose>
+</refnamediv>
+<refsynopsisdiv>
+<funcsynopsis>
+<funcsynopsisinfo language="Javascript"/>
+<funcprototype>
+<funcdef>function <function>GM_addStyle</function>
+</funcdef>
+<paramdef>
+<parameter>css</parameter>
+</paramdef>
+</funcprototype>
+</funcsynopsis>
+</refsynopsisdiv>
+<refsection>
+<title>描述</title>
+<para>
+<function>GM_addStyle</function> 给页面添加样式。创建一个新的 <sgmltag>&lt;style&gt;</sgmltag> 元素，在其中加入给定的 &css;，然后插入到 <sgmltag>&lt;head&gt;</sgmltag> 中。</para>
+</refsection>
+<refsection>
+<title>历史</title>
+<para>
+<function>GM_addStyle</function> 由 Greasemonkey 0.6 引入。</para>
+<itemizedlist role="seealso">
+<title>参见</title>
+<listitem>
+<para>
+<xref linkend="pattern.addcss"/>
+</para>
+</listitem>
+</itemizedlist>
+</refsection>
+</refentry>
+<!-- api.gmaddstyle -->
+</reference>
+<!-- api -->
+<appendix id="furtherreading">
+<?dbhtml filename="appendix/furtherreading.html"?>
+<title>
+<quote>参考资料</quote>链接清单</title>
+<tip id="tip.furtherreading">
+<title/>
+<para>当您在本书中看到<quote>参考资料</quote>链接列表时，您可以点<quote>参考资料</quote>的标题就可以跳转到这个所有参考资料链接清单。</para>
+</tip>
+<para>
+</para>
+</appendix>
+<appendix id="tips">
+<?dbhtml filename="appendix/tips.html"?>
+<title>技巧清单</title>
+<tip id="tip.tips">
+<title/>
+<para>当您在本书中看到技巧或者警告时，您可以点击前面的提示小图标，然后跳转到此页。</para>
+</tip>
+<para>
+</para>
+</appendix>
+<appendix id="examples">
+<?dbhtml filename="appendix/examples.html"?>
+<title>实例清单</title>
+<para>
+</para>
+</appendix>
+<appendix id="procedures">
+<?dbhtml filename="appendix/procedures.html"?>
+<title>步骤清单</title>
+<tip id="tip.videos">
+<title/>
+<para>当您在本书中看到视频的链接时，点击提示 <inlinegraphic fileref="&url_images;radio-star.png"/>  小图标，可以跳转到全部视频清单。</para>
+</tip>
+<para>
+</para>
+</appendix>
+<appendix id="revhistory">
+<?dbhtml filename="appendix/history.html"?>
+<title>修订历史</title>
+<para>
+</para>
+</appendix>
+<appendix id="colophon">
+<?dbhtml filename="appendix/colophon.html"?>
+<title>关于本书</title>
+<para>我使用 <ulink url="&url_emacs;" type="The One True Editor">&emacs;</ulink>，在 <ulink url="&url_docbook;" type="DocBook 主页">&docbook; &xml;</ulink> 中撰写了此书。<ulink url="&url_saxon;" type="SAXON 主页">&saxon;</ulink> 把它转换为了 &html; (使用了 Norman Walsh 的 <ulink url="&url_docbookxsl;" type="DocBook XSL 主页">Norman Walsh 的 &xsl; 样式表</ulink>的自定义版本)。<ulink url="&url_htmldoc;" type="HTMLDOC 主页">&htmldoc;</ulink> 把它转为了 &pdf;。 <ulink url="&url_w3m;" type="w3m 主页">&w3m;</ulink> 把它转为了纯文本。<ulink url="&url_plucker;" type="Plucker 主页">Plucker Distiller</ulink> 把它转换为了 Palm OS&trade; 数据库所以您能在移动设备上阅读它。由 <ulink url="&url_ant;">Ant</ulink> 脚本自动化了上述过程。</para>
+<para>我用 <ulink url="&url_camstudio;" type="left homeless after being bought out and killed">CamStudio</ulink> 和 <ulink url="&url_tmpgenc;" type="&url_tmpgenc;">TMPGEnc</ulink> 制作了附带的视频。</para>
+<para>Dean Edwards 写了 <ulink url="&url_mozbehaviors;" type="wicked, wicked cool">js-highlight</ulink>。它提供了 Javascript 范例的自动语法高亮的功能。</para>
+<para>如果您对学习 &docbook; 的技术写作感兴趣，您可以下载<ulink url="&url_download_xml;" type="下载这本书的源代码文件">这本书的 XML 源代码</ulink>，其中包含此书的 &docbook; 版本和所有 &xsl; 样式表以及我用来生成此书的不同版本的安装脚本。而且，您也该阅读下这本权威的书<ulink url="&url_docbook_tdg;" type="Read DocBook: The Definitive Guide online">
+<citetitle pubwork="book">DocBook: The Definitive Guide</citetitle>
+</ulink>。您也可以订阅<ulink url="&url_docbook_lists;" type="DocBook 和 DocBook 应用软件的主页">&docbook; 邮件列表</ulink>。</para>
+<para>简体中文版主要翻译人员：Fiag(fiag.hit _at_ gmail _dot_ com)；Drsu；Baggio。</para>
+<para>由于 &htmldoc; 不支持中文，所以暂时无中文PDF文档。</para>
+</appendix>
+
+&gpl;
+</book>

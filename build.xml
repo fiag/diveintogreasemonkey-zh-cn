@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE project
+[
+<!ENTITY % version SYSTEM "xml/version.xml">
+%version;
+]>
+<project name="diveintogreasemonkey" default="html" basedir=".">
+
+<property name="version" value="&fileversion;"/>
+<property name="project" value="diveintogreasemonkey"/>
+<property name="xml" value="xml"/>
+<property name="xsl" value="xsl"/>
+<property name="css" value="css"/>
+<property name="images" value="images"/>
+<property name="behaviors" value="behaviors"/>
+<property name="examples" value="download"/>
+<property name="videos" value="videos"/>
+<property name="projectxml" value="${xml}/dig.xml"/>
+<property name="projectcss" value="dig.css"/>
+<property name="projecthtml" value="diveintogreasemonkey.html"/>
+<property name="projectpdf" value="diveintogreasemonkey.pdf"/>
+<property name="projecttext" value="diveintogreasemonkey.txt"/>
+<property name="build" value="build"/>
+<property name="dist" value="download/book"/>
+<property name="html" value="."/>
+<property name="htmlbuild" value="${build}/html"/>
+<property name="htmlplusbuild" value="${build}/htmlplus"/>
+<property name="htmlsinglebuild" value="${build}/htmlsingle"/>
+<property name="pluckerbuild" value="${build}/plucker"/>
+<property name="pdfbuild" value="${build}/pdf"/>
+<property name="textbuild" value="${build}/text"/>
+<property name="docbook" value="docbook"/>
+<property name="lib" value="lib"/>
+<!--property name="plucker" value="${lib}/PyPlucker"/-->
+<property name="saxon" value="${lib}/saxon.jar"/>
+<property name="encoding" value="utf-8"/>
+<property name="standardargs" value=""/>
+
+<!-- administrative targets -->
+<target name="prepare">
+  <condition property="htmldoc" value="htmldoc">
+    <os family="unix"/>
+  </condition>
+  <condition property="htmldoc" value="ghtmldoc">
+    <os family="windows"/>
+  </condition>
+
+  <mkdir dir="${htmlbuild}"/>
+  <mkdir dir="${htmlplusbuild}"/>
+  <mkdir dir="${htmlsinglebuild}"/>
+  <!--mkdir dir="${pluckerbuild}"/-->
+  <mkdir dir="${pdfbuild}"/>
+  <mkdir dir="${textbuild}"/>
+
+  <tstamp/>
+</target>
+
+<!-- internal utility targets used by other targets -->
+<target name="clean">
+  <delete dir="${build}"/>
+  <!--delete>
+    <fileset dir="${plucker}">
+       <include name="*.pyc"/>
+       <include name="helper/*.pyc"/>
+    </fileset>
+  </delete-->
+</target>
+
+<target name="validate">
+  <xmlvalidate file="${projectxml}" warn="no" classname="org.apache.xerces.parsers.SAXParser" classpath="lib/xercesImpl.jar"/>
+</target>
+
+<target name="html" depends="validate">
+  <java classname="com.icl.saxon.StyleSheet" fork="yes" failonerror="yes">
+    <arg line="${standardargs} ${projectxml} ${xsl}/html.xsl"/>
+    <classpath>
+      <pathelement path="${saxon}"/>
+    </classpath>
+  </java>
+</target>
+
+<target name="copycss" depends="prepare">
+  <copy todir="${target}">
+    <fileset dir="${css}">
+      <include name="*.css"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="copyimages" depends="prepare">
+  <copy todir="${target}">
+    <fileset dir="${images}">
+      <include name="**/*.png"/>
+      <include name="**/*.jpg"/>
+      <include name="**/*.gif"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="copybehaviors" depends="prepare">
+  <copy todir="${target}">
+    <fileset dir="${behaviors}">
+      <include name="*.htc"/>
+      <include name="*.xml"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="copyvideos" depends="prepare">
+  <copy todir="${target}">
+    <fileset dir="${videos}">
+      <include name="*.html"/>
+      <include name="*.swf"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="htmldist" depends="validate,prepare">
+  <antcall target="copycss">
+    <param name="target" value="${htmlbuild}/${css}"/>
+  </antcall>
+
+  <antcall target="copyimages">
+    <param name="target" value="${htmlbuild}/${images}"/>
+  </antcall>
+
+  <antcall target="copybehaviors">
+    <param name="target" value="${htmlbuild}/${behaviors}"/>
+  </antcall>
+
+  <java classname="com.icl.saxon.StyleSheet" fork="yes" failonerror="yes">
+    <arg line="${standardargs} ${projectxml} ${xsl}/htmldist.xsl"/>
+    <classpath>
+      <pathelement path="${saxon}"/>
+    </classpath>
+  </java>
+</target>
+
+<target name="htmlplus" depends="validate,prepare">
+  <antcall target="copycss">
+    <param name="target" value="${htmlplusbuild}/${css}"/>
+  </antcall>
+
+  <antcall target="copyimages">
+    <param name="target" value="${htmlplusbuild}/${images}"/>
+  </antcall>
+
+  <antcall target="copybehaviors">
+    <param name="target" value="${htmlplusbuild}/${behaviors}"/>
+  </antcall>
+
+  <antcall target="copyvideos">
+    <param name="target" value="${htmlplusbuild}/${videos}"/>
+  </antcall>
+
+  <java classname="com.icl.saxon.StyleSheet" fork="yes" failonerror="yes">
+    <arg line="${standardargs} ${projectxml} ${xsl}/htmlplus.xsl"/>
+    <classpath>
+      <pathelement path="${saxon}"/>
+    </classpath>
+  </java>
+</target>
+
+<target name="htmlsingle" depends="validate,prepare">
+  <antcall target="copycss">
+    <param name="target" value="${htmlsinglebuild}"/>
+  </antcall>
+
+  <antcall target="copyimages">
+    <param name="target" value="${htmlsinglebuild}/${images}"/>
+  </antcall>
+
+  <antcall target="copybehaviors">
+    <param name="target" value="${htmlsinglebuild}/${behaviors}"/>
+  </antcall>
+
+  <java classname="com.icl.saxon.StyleSheet" fork="yes" failonerror="yes">
+    <arg line="${standardargs} -o ${htmlsinglebuild}/${projecthtml} ${projectxml} ${xsl}/htmlsingle.xsl"/>
+    <classpath>
+      <pathelement path="${saxon}"/>
+    </classpath>
+  </java>
+</target>
+
+<target name="text" depends="prepare,clean,validate">
+  <java classname="com.icl.saxon.StyleSheet" fork="yes" failonerror="yes">
+    <arg line="${standardargs} -o ${textbuild}/${projecthtml} ${projectxml} ${xsl}/text.xsl"/>
+    <classpath>
+      <pathelement path="${saxon}"/>
+    </classpath>
+  </java>
+
+  <exec executable="w3m" output="${textbuild}/${projecttext}" failonerror="yes">
+    <arg line="-dump ${textbuild}/${projecthtml}"/>
+  </exec>
+</target>
+
+<!-- targets for distribution -->
+<target name="zipprepare">
+  <mkdir dir="${dist}"/>
+</target>
+
+<target name="zipclean">
+  <mkdir dir="${dist}"/>
+  <delete includeEmptyDirs="true">
+    <fileset dir="${dist}">
+       <exclude name="CVS"/>
+       <exclude name="*.zip"/>
+    </fileset>
+  </delete>
+</target>
+
+<target name="ziphtml" depends="htmldist,zipprepare">
+  <zip zipfile="${dist}/${project}-html-${version}.zip">
+    <zipfileset dir="${htmlbuild}" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/examples"/>
+  </zip>
+</target>
+
+<target name="ziphtmlplus" depends="htmldist,zipprepare">
+  <zip zipfile="${dist}/${project}-html-plus-${version}.zip">
+    <zipfileset dir="${htmlplusbuild}" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/examples"/>
+  </zip>
+</target>
+
+<target name="ziphtmlsingle" depends="htmlsingle,zipprepare">
+  <zip zipfile="${dist}/${project}-html-flat-${version}.zip">
+    <zipfileset dir="${htmlsinglebuild}" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/examples"/>
+  </zip>
+</target>
+
+<!--target name="zipplucker" depends="plucker,zipprepare">
+  <zip zipfile="${dist}/${project}-pdb-${version}.zip">
+    <zipfileset dir="${pluckerbuild}" includes="*.pdb" prefix=""/>
+  </zip>
+</target-->
+
+<!--target name="zippdf" depends="pdf,zipprepare">
+  <zip zipfile="${dist}/${project}-pdf-${version}.zip">
+    <zipfileset dir="${pdfbuild}" includes="*.pdf" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/examples"/>
+  </zip>
+</target-->
+
+<target name="ziptext" depends="text,zipprepare">
+  <zip zipfile="${dist}/${project}-text-${version}.zip">
+    <zipfileset dir="${textbuild}" includes="*.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/examples"/>
+  </zip>
+</target>
+
+<target name="zipxml" depends="zipclean,zipprepare">
+  <zip zipfile="${dist}/${project}-xml-${version}.zip">
+    <zipfileset dir="." includes="build.xml" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="make.*" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes=".htaccess" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="index.py" prefix="${project}-${version}"/>
+    <zipfileset dir="." includes="README.txt" prefix="${project}-${version}"/>
+    <zipfileset dir="${xml}" excludes="CVS" prefix="${project}-${version}/${xml}"/>
+    <zipfileset dir="${xsl}" excludes="CVS" prefix="${project}-${version}/${xsl}"/>
+    <zipfileset dir="${css}" excludes="CVS" prefix="${project}-${version}/${css}"/>
+    <zipfileset dir="${images}" excludes="CVS" prefix="${project}-${version}/${images}"/>
+    <zipfileset dir="${behaviors}" excludes="CVS" prefix="${project}-${version}/${behaviors}"/>
+    <zipfileset dir="${docbook}" excludes="CVS" prefix="${project}-${version}/${docbook}"/>
+    <zipfileset dir="${examples}" includes="*.user.js" prefix="${project}-${version}/${examples}"/>
+    <zipfileset dir="${examples}" includes=".htaccess" prefix="${project}-${version}/${examples}"/>
+    <zipfileset dir="${examples}" includes="index.py" prefix="${project}-${version}/${examples}"/>
+    <zipfileset dir="${lib}" excludes="CVS" prefix="${project}-${version}/${lib}"/>
+    <zipfileset dir="${videos}" excludes="CVS" prefix="${project}-${version}/${videos}"/>
+  </zip>
+</target>
+
+<target name="zipvideo" depends="zipprepare">
+  <zip zipfile="${dist}/${project}-videos-${version}.zip">
+    <zipfileset dir="${videos}" excludes="CVS" includes="*.swf" prefix="${project}-${version}/${videos}"/>
+  </zip>
+</target>
+
+<target name="zip" depends="zipclean,ziphtml,ziphtmlplus,ziphtmlsingle,ziptext,zipxml,zipvideo"/>
+
+<!-- one target to rule them all, and in the darkness bind them -->
+<target name="all" depends="clean,html,htmldist,htmlplus,htmlsingle,text,zip"/>
+
+</project>
