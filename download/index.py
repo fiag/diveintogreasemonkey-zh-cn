@@ -41,7 +41,7 @@ print('''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR
 </div></div></div>
 
 <div id="main"><div id="mainInner">
-<p id="breadcrumb">您的位置：<a href="../">首页</a> &#8594; <span class="thispage">下载</span></p>
+<p id="breadcrumb">您的位置：<a href="../">起始页</a> &#8594; <span class="thispage">下载</span></p>
 
 <div class="section">
   <h2 class="skip">下载</h2>
