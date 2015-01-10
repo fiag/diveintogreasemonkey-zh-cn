@@ -9,9 +9,9 @@ xmldir = os.path.join(basedir, 'xml')
 downloaddir = os.path.join(basedir, 'download', 'book')
 version = re.compile('fileversion "(.*?)">').search(file(os.path.join(xmldir, 'version.xml')).read()).group(1)
 
-print 'Content-type: text/html; charset=utf-8'
-print
-print '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+print('Content-type: text/html; charset=utf-8')
+print()
+print('''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -56,19 +56,19 @@ print '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR
 
   <div class="indexdownload">
     <h3><a class="indexlink" title="深入浅出 Greasemonkey 下载页" href="http://diveintogreasemonkey.org/download/">稍后再读</a></h3>
-    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于 ''',
-print time.strftime('%B %d, %Y.', time.strptime(version, '%Y-%m-%d')).replace(' 0', ' '),
-print '''</p>
-    <ul>'''
+    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于 ''', end=' ')
+print(time.strftime('%B %d, %Y.', time.strptime(version, '%Y-%m-%d')).replace(' 0', ' '), end=' ')
+print('''</p>
+    <ul>''')
 htmlfile = os.path.join('download', 'book', 'diveintogreasemonkey-html-' + version + '.zip')
 pdffile = os.path.join('download', 'book', 'diveintogreasemonkey-pdf-' + version + '.zip')
 try:
     htmlsize = ' (' + str(int(os.stat(os.path.join(basedir, htmlfile))[stat.ST_SIZE]) / 1024) + ' KB)'
     pdfsize = ' (' + str(int(os.stat(os.path.join(basedir, pdffile))[stat.ST_SIZE]) / 1024) + ' KB)'
-except Exception, e:
+except Exception as e:
     htmlsize = ''
     pdfsize = ''
-print '''
+print('''
       <li><a title="下载 HTML 格式''' + htmlsize + '''" href="''' + htmlfile + '''">HTML</a></li>
       <li><a title="下载 PDF 格式''' + pdfsize + '''" href="''' + pdffile + '''">PDF</a></li>
       <li><a href="download/">更多下载</a></li>
@@ -84,4 +84,4 @@ print '''
 </div></div>
 </body>
 </html>
-'''
+''')
