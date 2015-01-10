@@ -7,7 +7,7 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 
 xmldir = os.path.join(basedir, 'xml')
 downloaddir = os.path.join(basedir, 'download', 'book')
-version = re.compile('fileversion "(.*?)">').search(file(os.path.join(xmldir, 'version.xml')).read()).group(1)
+version = re.compile('fileversion "(.*?)">').search(open(os.path.join(xmldir, 'version.xml')).read()).group(1)
 
 print('Content-type: text/html; charset=utf-8')
 print()
