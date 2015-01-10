@@ -5,9 +5,9 @@ import os,re,glob,time
 downloaddir = os.path.dirname(os.path.abspath(__file__))
 version = re.compile('fileversion "(.*?)">').search(open(downloaddir + '/../xml/version.xml').read()).group(1)
 
-print 'Content-type: text/html; charset=utf-8'
-print
-print '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+print('Content-type: text/html; charset=utf-8')
+print()
+print('''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -47,9 +47,9 @@ print '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR
   <h2 class="skip">Downloads</h2>
   <div class="indexdownload">
     <h3>Book</h3>
-    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于''',
-print time.strftime('%B %d, %Y.', time.strptime(version, '%Y-%m-%d')).replace(' 0', ' '),
-print '''</p>
+    <p><cite>深入浅出 Greasemonkey</cite> 有多种格式可供免费下载。当前版本发布于''', end=' ')
+print(time.strftime('%B %d, %Y.', time.strptime(version, '%Y-%m-%d')).replace(' 0', ' '), end=' ')
+print('''</p>
     <ul>
       <li><a title="HTML 下载" href="book/diveintogreasemonkey-html-''' + version + '''.zip">HTML</a></li>
       <li><a title="HTML 和演示视频下载" href="book/diveintogreasemonkey-html-plus-''' + version + '''.zip">HTML + videos</a></li>
@@ -65,7 +65,7 @@ print '''</p>
   <div class="indexdownload">
     <h3>实例脚本</h3>
     <dl>
-'''
+''')
 
 namere = re.compile('@name\s+(.*?)\n')
 descre = re.compile('@description\s+(.*?)\n')
@@ -81,12 +81,12 @@ for f in glob.glob(downloaddir + '*.user.js'):
                   os.path.basename(f)))
 files.sort()
 for scriptname, scriptdesc, scriptversion, scriptdate, scriptfile in files:
-    print '<dt><a href="' + scriptfile + '">' + scriptname + '</a>'# + ' (' + scriptdate + ')'
-    print '<dd>' + scriptdesc
-    print '<br>'
-    print '<span class="lastmodified">最新修改于 ' + scriptdate + '</span>'
+    print('<dt><a href="' + scriptfile + '">' + scriptname + '</a>')# + ' (' + scriptdate + ')'
+    print('<dd>' + scriptdesc)
+    print('<br>')
+    print('<span class="lastmodified">最新修改于 ' + scriptdate + '</span>')
 
-print '''
+print('''
     </dl>
   </div>
 </div>
@@ -100,4 +100,4 @@ print '''
 </div></div>
 </body>
 </html>
-'''
+''')
